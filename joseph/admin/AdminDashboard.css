@@ -23,6 +23,7 @@ body{
 nav:hover{
     width: 280px;
     transition: 0.7s;
+    
 }
 
 
@@ -58,12 +59,12 @@ nav{
   overflow: hidden;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  height: 755px;
+ 
 }
 
 .right{
    
-    /* position: relative; */
+    position: relative;
     top: 0;
     bottom: 0;
     height: 100vh;
@@ -71,7 +72,8 @@ nav{
     width: 400px;
     overflow: hidden;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    height: 755px;
+    margin-bottom: -30%;
+    
      
 }
 
@@ -181,8 +183,8 @@ a:hover{
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
-    height: 755px;
     
+   
 }
 
 .box{
@@ -249,6 +251,7 @@ a:hover{
     display: flex;
     justify-content: space-evenly;
     margin: 0;
+    margin-top: 45px;
 }
 
 .middlebar{
@@ -256,17 +259,14 @@ a:hover{
     padding: 1rem;
     border-radius: 10px;
     margin: 0;
+    height: 30%;
+    margin-top: 4%;
    
    
     
 }
 
-.charts {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    /* border-radius: 15px; */
-}
+
   
 .charts-card {
     background-color: #263043;
@@ -292,6 +292,7 @@ a:hover{
     justify-content: space-between;
     /* width: 100%; */
     background-color: green;
-    margin-top: 2%;
+    margin-top: 4%;
     border-radius: 15px;
+
 }
