@@ -25,6 +25,17 @@ function validateForm(event) {
         return false;
     }
 
-    window.location.href = "../admin/AdminDashboard.html";
+    window.location.href = "../view/UserDashboard.html";
+
     return true; 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the form element
+    var form = document.getElementById('login');
+
+    form.onsubmit = function(event) {
+
+        return validateForm(event);
+    };
+});

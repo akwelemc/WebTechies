@@ -269,13 +269,13 @@ a:hover{
 
   
 .charts-card {
-    background-color: #263043;
+    background-color: rgb(138, 184, 208);
     /* margin-bottom: 20px; */
     padding: 25px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     /* border-radius: 5px; */
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 7px -4px rgb(138, 184, 208);
     width: 50%;
     /* border-radius: 15px; */
 }

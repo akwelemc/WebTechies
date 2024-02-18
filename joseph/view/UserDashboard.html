@@ -12,7 +12,7 @@
         <ul>
             <li>
                 <a href="#" class="logo">
-                    <img src="Bus.png" alt="">
+                    <img src="../images/Bus.png" alt="">
                     <span class="nav-item">BusBoss</span>
                 </a>
             </li>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="../view/settings.html"">
                     <i class="fas fa-cog"></i>
                     <span class="nav-item">Settings</span>
                 </a>
@@ -73,19 +73,19 @@
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>      
-                    <img src="pic.jpg" alt=""> 
+                    <img src="../images/profile.jpg" alt=""> 
                 </div>    
             </div>    
             <div class="middlebar" >
                 <div class="box">
-                    <div id="progressCard" class="outter-card" onclick="redirectToPage()" onmouseover="addHoverEffect('progressCard')" onmouseout="removeHoverEffect('progressCard')"> 
+                    <div id="progressCard" class="outter-card" > 
                         <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
-                                In progress
+                                Total Rides
                             </span>
                             <span class="stat-value">
-                                4
+                                20
                             </span>
                         </div> 
                         <i class="fas fa-spinner icon" aria-hidden="true"></i>
@@ -94,14 +94,14 @@
                     </div> 
                     
                     
-                    <div id="incompleteCard" class="outter-card" onclick="redirectToPage()" onmouseover="addHoverEffect('incompleteCard')" onmouseout="removeHoverEffect('incompleteCard')">
+                    <div id="incompleteCard" class="outter-card">
                         <div class="stat-icon">
                             <div class="stat">
                                 <span class="title">
-                                    InComplete
+                                    Cancelled Rides
                             </span>
                             <span class="stat-value">
-                            14
+                            5
                         </span>
                         </div> 
                         <i class="fa fa-times-circle icon">
@@ -110,14 +110,14 @@
                         
                     </div>
     
-                    <div id="completedCard" class="outter-card" onclick="redirectToPage()" onmouseover="addHoverEffect('completedCard')" onmouseout="removeHoverEffect('completedCard')">
+                    <div id="completedCard" class="outter-card">
                         <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
-                                Completed
+                                Completed Rides
                             </span>
                             <span class="stat-value">
-                                18
+                                15
                             </span>
                         </div> 
                         <i class="fas fa-check icon">
@@ -203,9 +203,5 @@
                     </tbody>
                 </table>  
             </div>   
-
-                        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-    <script src="Dashboard.js"></script> 
 </body>
 </html>
