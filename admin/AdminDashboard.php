@@ -11,37 +11,37 @@
         <nav>
             <ul>
                 <li>
-                    <a href="../admin/AdminDashboard.html" class="logo">
+                    <a href="../admin/AdminDashboard.php" class="logo">
                         <img src="../images/Bus.png" alt="">
                         <span class="nav-item">BusBoss</span>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="../admin/AdminDashboard.html">
+                    <a href="../admin/AdminDashboard.php">
                         <i class="fas fa-home"></i>
                         <span class="nav-item">Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/AdminProfile.html">
+                    <a href="../admin/AdminProfile.php">
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/Analytics.html">
+                    <a href="../admin/Analytics.php">
                         <i class="fas fa-chart-bar"></i>
                         <span class="nav-item">Analytics</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/Adminsettings.html">
+                    <a href="../admin/Adminsettings.php">
                         <i class="fas fa-cog"></i>
                         <span class="nav-item">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/AdminHelp.html">
+                    <a href="../admin/AdminHelp.php">
                         <i class="fas fa-question-circle"></i>
                         <span class="nav-item">Help</span>
                     </a>
