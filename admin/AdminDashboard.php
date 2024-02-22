@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#" class="logo">
+                    <a href="../admin/AdminDashboard.html" class="logo">
                         <img src="../images/Bus.png" alt="">
                         <span class="nav-item">BusBoss</span>
                     </a>
@@ -54,7 +54,6 @@
                 </li>
             </ul>
         </nav>
-        
         
         <div class="main">
             <div class="firstbar">
@@ -122,17 +121,16 @@
             </div>
             
             <div class="middlebar2">
+
+                <div class="charts-card">
+                    <h2 class="chart-title">Top 5 Products</h2>
+                    <div id="bar-chart"></div>
+                </div>
     
-                    <div class="charts-card">
-                        <h2 class="chart-title">Top 5 Products</h2>
-                        <div id="bar-chart"></div>
-                    </div>
-        
-                    <div class="charts-card">
-                        <h2 class="chart-title">Purchase and Sales Orders</h2>
-                        <div id="area-chart"></div>
-                    </div>
-                
+                <div class="charts-card">
+                    <h2 class="chart-title">Purchase and Sales Orders</h2>
+                    <div id="area-chart"></div>
+                </div>
             </div>
         </div>        
         
@@ -207,6 +205,7 @@
                 </div>         
             </div>    
         </div>    
+
             
 
     
