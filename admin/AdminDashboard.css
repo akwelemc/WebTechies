@@ -1,5 +1,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
 *{
   margin: 0;
   padding: 0;
@@ -15,13 +16,13 @@ body{
   /* flex-wrap: wrap; */
   justify-content: space-between;
  
-  width: 100;
+  width: 100%;
 }
 
 
 
 nav:hover{
-    width: 280px;
+    width: 300px;
     transition: 0.7s;
     
 }
@@ -56,7 +57,7 @@ nav{
   left: 0;
   background: #fff;
   width: 90px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
  
@@ -64,7 +65,7 @@ nav{
 
 .right{
    
-    position: relative;
+    /* position: relative; */
     top: 0;
     bottom: 0;
     height: 100vh;
@@ -73,7 +74,8 @@ nav{
     overflow: hidden;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
     margin-bottom: -30%;
-    
+    /* width: 100%; */
+    /* margin-left: 80%; */
      
 }
 
@@ -128,6 +130,7 @@ a:hover{
     background: #ebe9e9;
     width: 100%;
     padding: 0.5rem;
+    width: 100%;
 }
 
 .firstbar img{
@@ -137,6 +140,10 @@ a:hover{
     border-radius: 50%;
     
 
+}
+.container{
+    display: flex;
+    justify-content: space-around;
 }
 
 .firstbar{
@@ -183,8 +190,7 @@ a:hover{
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
-    
-   
+    height: 100vh;
 }
 
 .box{
@@ -277,7 +283,7 @@ a:hover{
     /* border-radius: 5px; */
     box-shadow: 0 6px 7px -4px rgb(138, 184, 208);
     width: 50%;
-    /* border-radius: 15px; */
+   
 }
   
 .chart-title {
