@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Light gray background */
+    background-image:url('bus4fr.jpg');
+    background-size: cover;
+
+  }
+
+
+h1{
+    color: #f2f2f2;
+    font-size: 100px;
+    font-family: 'Times New Roman', cursive;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2{
+    color: #7096D1;
+    font-size: 50px;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 18px;
+}
+
+h4{
+    color: #7096D1;
+    font-size: 20px;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+h5{
+    color: #090909;
+    font-size: 16px;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+
+}
+
+h6{
+    color: #090909;
+    font-size: 16px;
+    font-family: 'Times New Roman', cursive;
+    text-align: left;
+}
+
+  
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+  
+  
+.available-buses {
+    margin: 20px auto;
+    width: 30%;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+}
+  
+  .bus {
+    background-color: #f9f9f9; 
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .submitform{
+
+    background-color: #081F5C;
+    color:#f2f2f2;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-left: 60%;
+  }
+
+  .buslist{
+    background-color: #081F5C;
+    color:#f2f2f2;
+    border-radius: 20px;
+    font-size: 16px;
+
+  }
+  
