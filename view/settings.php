@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <nav>
+<nav>
         <ul>
             <li>
-                <a href="../view/UserDasboard.php" class="logo">
+                <a href="../view/UserDashboard.php" class="logo">
                     <img src="../images/Bus.png" alt="">
                     <span class="nav-item">BusBoss</span>
                 </a>
             </li>
             <li>
-                <a href="../view/UserDasboard.php">
+                <a href="../view/UserDashboard.php">
                     <i class="fas fa-home"></i>
                     <span class="nav-item">Home</span>
                 </a>
@@ -41,12 +41,12 @@
                 </a>
             </li>
             <li>
-              <a href="#">
+              <a href="../view/bookingpage.php">
                   <i class="fas fa-book"></i>
                   <span class="nav-item">Booking</span>
               </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="../view/settings.php">
                     <i class="fas fa-cog"></i>
                     <span class="nav-item">Settings</span>
