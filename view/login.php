@@ -7,7 +7,7 @@
     <title>Log in</title>
 </head>
 <body>
-    <form class="form" id="login" style="background-color: rgba(255, 255, 255, 0.7);" onsubmit= "return validateForm(event)"> 
+    <form class="form" id="login" style="background-color: rgba(255, 255, 255, 0.7);" method="post"> 
         <h1>Welcome To BusBoss</h1>
         <h3>Log in to continue..</h3>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="login">
-            <button class="log">Log In</button>
+            <button class="log" id ="button" type="button">Log In</button>
         </div>
 
         <div class="next"></div>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="register-section">
-            <p>Don't have an account? <span><a href="../view/Register.html">Register</a></span></p>
+            <p>Don't have an account? <span><a href="../view/Register.php">Register</a></span></p>
         </div>
         
     </form>

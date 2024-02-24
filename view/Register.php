@@ -7,7 +7,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form id="register" class="form" style="background-color: rgba(255, 255, 255, 0.5);" onsubmit= "return validateForm(event)">
+    <form id="register" class="form" style="background-color: rgba(255, 255, 255, 0.5);" method="post">
         <h1>Welcome To BusBoss</h1>
         <h3>Register To continue...</h3>
         <div>
@@ -50,7 +50,7 @@
                 <input type="password" id="password2" name="password2" placeholder="Confirm Password" required/>
             </div>
             <div class="login">
-                <button type="submit"   class="log">Register</button>
+               <a href="../view/UserDashboard.php" id="submitBtn" class="log">Register</a>
             </div>
             <div class="next">
                 <div class="line"></div>
@@ -63,7 +63,7 @@
                 <button class="google"><img src="../images/Facebook.png" width="30" height="30" align="center" class="fblogo"> Continue with Facebook</button>
             </div>
             <div class="register-section">
-                <p>Already with an Account? <span><a href="../view/login.html">Log in</a></span></p>
+                <p>Already with an Account? <span><a href="../view/login.php">Log in</a></span></p>
             </div> 
 
         </div>

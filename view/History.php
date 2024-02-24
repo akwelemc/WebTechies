@@ -11,13 +11,13 @@
 <nav>
         <ul>
             <li>
-                <a href="../view/UserDasboard.php" class="logo">
+                <a href="../view/UserDashboard.php" class="logo">
                     <img src="../images/Bus.png" alt="">
                     <span class="nav-item">BusBoss</span>
                 </a>
             </li>
             <li>
-                <a href="../view/UserDasboard.php">
+                <a href="../view/UserDashboard.php">
                     <i class="fas fa-home"></i>
                     <span class="nav-item">Home</span>
                 </a>
@@ -28,7 +28,7 @@
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
-            <li >
+            <li class="active">
                 <a href="../view/History.php">
                     <i class="fas fa-history"></i>
                     <span class="nav-item">History</span>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li>
-              <a href="#">
+              <a href="../view/bookingpage.php">
                   <i class="fas fa-book"></i>
                   <span class="nav-item">Booking</span>
               </a>

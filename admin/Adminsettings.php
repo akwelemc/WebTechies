@@ -34,13 +34,13 @@
                     <span class="nav-item">Analytics</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="../admin/Adminsettings.php">
                     <i class="fas fa-cog"></i>
                     <span class="nav-item">Settings</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="../admin/AdminHelp.php">
                     <i class="fas fa-question-circle"></i>
                     <span class="nav-item">Help</span>
