@@ -7,7 +7,7 @@
     <title>Log in</title>
 </head>
 <body>
-    <form class="form" id="login" style="background-color: rgba(255, 255, 255, 0.7);" method="post"> 
+    <form action="../action/login_action.php" class="form" id="login" style="background-color: rgba(255, 255, 255, 0.7);" method="post"> 
         <h1>Welcome To BusBoss</h1>
         <h3>Log in to continue..</h3>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="login">
-            <button class="log" id ="button" type="button">Log In</button>
+            <button class="log" id ="button" type="submit" name="signInbtn">Log In</button>
         </div>
 
         <div class="next"></div>
