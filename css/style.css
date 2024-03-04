@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background: #dfe9f5;
+  display: flex;
+ 
+  justify-content: space-between;
+ overflow-x: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+nav:hover{
+  width: 280px;
+  transition: 0.7s;
+    
+}
+
+
+/*.nav{
+  /* height:100; */
+  /* position: relative;
+  list-style:none;
+  padding: 0; */
+.nav li{
+  padding: 1rem;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+    
+}
+
+nav li:hover,
+.active{
+  background: #44414158;
+    
+  
+}
+
+nav{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  /* height: 100%; */
+  left: 0;
+  background: #fff;
+  width: 90px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+ 
+}
+
+
+.logo{
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+
+.logo img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a{
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+
+a:hover{
+  background: #eee;
+}
+
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+
+.main{
+  position: relative;
+  background: #ebe9e9;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.firstbar img{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.firstbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fff;
+  padding:10px 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+
+}
+.search-box{
+  background: rgba(237, 237, 237);
+  border-radius: 15px;
+  color:rgb(34,93,134) ;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+
+}
+
+.search-box input{
+  background: transparent;
+  padding: 10px;
+
+}
+
+.search-box i{
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.user{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+
+h1{
+  color: #f2f2f2;
+  font-size: 100px;
+  /* font-family: 'Times New Roman', cursive; */
+  text-align: center;
+  font-weight: bold;
+}
+
+/* h2{
+    color: #7096D1;
+    font-size: 50px;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+    font-weight: bold;
+} */
+
+h3{
+font-size: 18px;
+}
+
+h4{
+  color: #7096D1;
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+  text-align: left;
+  font-weight: bold;
+
+}
+
+h5{
+  color: #090909;
+  font-size: 16px;
+  /* font-family: 'Pacifico', cursive; */
+  text-align: left;
+
+}
+
+h6{
+  color: #090909;
+  font-size: 16px;
+  /* font-family: 'Times New Roman', cursive; */
+  text-align: left;
+}
+
+
+
+.available-buses {
+  margin: 20px auto;
+  width: 40%;
+  background-color: #fff; 
+  padding: 20px;
+  border-radius: 8px;
+
+}
+
+.bus {
+  background-color: #f9f9f9; 
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+
+
+#booking-form{
+height: 100vh;
+}
+
+
+.bus-list {
+  margin-top: 20px;
+}
+
+.bus {
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.buslist {
+  background-color: #081f5c;
+  color: #f2f2f2;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.submitform {
+  background-color: #081f5c;
+  color: #f2f2f2;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Adjustments for bus details */
+.bus > div {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+
+
+
+#departure-date{
+  width: 50%;
+  border: rgb(34,93,134);
+}
+
+
