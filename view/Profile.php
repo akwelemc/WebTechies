@@ -6,6 +6,13 @@
     <title>Profile</title>
     <link rel="stylesheet" href="../css/Profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="sweetalert.min.js"></script>
+    <style>
+        .btn1:hover{
+            background-color: bisque;
+        }
+
+    </style>
 </head>
 <body>
 <nav>
@@ -99,9 +106,11 @@
                     </div>
                 </div>
                 <div class="profile-actions">
-                    <button>Edit Profile</button>
-                    <button>Change Password</button>
-                    <button>Log Out</button>
+                    <button class = "btn1">Edit Profile</button>
+                    <button class = "btn1">Change Password</button>
+                    <form method="" action ="../Login/logout.php">
+                    <button type ="submit" class = "btn1">Log Out</button>
+                    </form>
                 </div>
             </div>
             
