@@ -59,7 +59,12 @@
                 </a>
             </li>
             <li>
-                <a href="../view/login.php" class="logout">
+            <!-- <form action="../Login/logout.php" name="logout_btn">
+                <button class="logout-btn">Log Out</button>
+                <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Log out</span>    
+            </form> -->
+                <a href="../Login/logout.php" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="nav-item">Log out</span>
                 </a>

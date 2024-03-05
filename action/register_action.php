@@ -43,7 +43,7 @@ if (isset($_POST["signUpbtn"])) {
 
  
     $insert_person_query = "INSERT INTO People(role_id, fname, lname, dob, email, telnumber,gender,  passwrd) VALUES ('$user_role', '$fname', '$lname', '$dob','$email', '$telnum','$gender', '$hashed_password')";
-    echo $insert_person_query;
+    // echo $insert_person_query;
     if (mysqli_query($conn, $insert_person_query)) {
         // Successful registration
         $_SESSION["account_created"] = true;

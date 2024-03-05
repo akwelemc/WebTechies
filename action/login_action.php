@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../settings/connection.php');
+
 if (isset($_POST['signInbtn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -14,7 +15,10 @@ if (isset($_POST['signInbtn'])) {
     if ($result->num_rows > 0) {
         $result = $result->fetch_assoc();
         // var_dump($result);
-        if (password_verify($password, $result['passwd'])) {
+        // exit();
+        if (password_verify($password, $result['passwrd'])) {
+            // echo'hii';
+            // exit();
             $_SESSION['user_id'] = $result['pid'];
             $_SESSION['user_fname'] = $result['fname'];
             $_SESSION['user_lname'] = $result['lname'];
@@ -24,13 +28,15 @@ if (isset($_POST['signInbtn'])) {
                 $conn->close();
                 exit();
             }
-
+            // echo'hii2';
+            // exit();
             header('Location: ../view/UserDashboard.php');
             $conn->close();
             exit();
         } else {
             $_SESSION["password_incorrect"] = "Password incorrect";
             header('Location: ../Login/login.php');
+            echo"Incorrect password";
             $conn->close();
             exit();
         }
