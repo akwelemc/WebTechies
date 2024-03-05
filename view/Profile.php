@@ -89,10 +89,13 @@
                 <div class="profile-info">
                     <img src="../images/profile.jpg" alt="Profile Picture">
                     <div class="user-details">
-                        <p><strong>Name:</strong> John Doe</p>
+                        <?php
+                        include("../function/get_user_profile.php");
+                        ?>
+                        <!-- <p><strong>Name:</strong> John Doe</p>
                         <p><strong>Email:</strong> johndoe@example.com</p>
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
-                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p>
+                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
                     </div>
                 </div>
                 <div class="profile-actions">

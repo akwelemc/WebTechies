@@ -65,7 +65,7 @@
                 <button class="google"><img src="../images/Facebook.png" width="30" height="30" align="center" class="fblogo"> Continue with Facebook</button>
             </div>
             <div class="register-section">
-                <p>Already with an Account? <span><a href="../view/login.php">Log in</a></span></p>
+                <p>Already with an Account? <span><a href="../Login/login.php">Log in</a></span></p>
             </div> 
 
         </div>

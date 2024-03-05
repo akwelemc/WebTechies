@@ -13,7 +13,7 @@
 
         <div>
             <input name="email" type="text" id="email" placeholder="Email"/>
-            <input type="password" id="password" placeholder="Password"/>
+            <input type="password" id="password" name ="password" placeholder="Password"/>
         </div>
 
         <div class="func">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="register-section">
-            <p>Don't have an account? <span><a href="../view/Register.php">Register</a></span></p>
+            <p>Don't have an account? <span><a href="../Login/register.php">Register</a></span></p>
         </div>
         
     </form>

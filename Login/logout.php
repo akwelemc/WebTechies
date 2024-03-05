@@ -3,5 +3,5 @@ unset($_SESSION["user_id"]);
 unset($_SESSION["role_id"]);
 unset($_SESSION["user_fname"]);
 unset($_SESSION["user_lname"]);
-header("Location: ../Login/login_view.php");
+header("Location: ../Login/login.php");
 exit();
