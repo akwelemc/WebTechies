@@ -106,7 +106,7 @@
             </div>
 
             <!-- Password change form -->
-            <form class="settings-form password-form" action="#" method="POST">
+            <form class="settings-form password-form" action="../action/change_password.php" method="POST">
                 <div class="form-group">
                     <label for="current-password">Current Password:</label>
                     <input type="password" id="current-password" name="current-password" required>
@@ -119,7 +119,7 @@
                     <label for="confirm-new-password">Confirm New Password:</label>
                     <input type="password" id="confirm-new-password" name="confirm-new-password" required>
                 </div>
-                <button type="submit">Save Changes</button>
+                <button name="chane_passwrd" type="submit">Save Changes</button>
             </form>
 
             <!-- Email change form -->
