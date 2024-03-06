@@ -29,14 +29,16 @@ function validateForm() {
     }
 
     alert('Registration successful!');
-    window.location.href = "../view/login.php";
     return true;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var submitBtn = document.getElementById('submitBtn');
+ 
+    var form = document.getElementById('register');
 
-    submitBtn.addEventListener('click', function(event) {
-        validateForm();
-    });
+   
+    form.onsubmit = function(event) {
+        
+        return validateForm(event);
+    };
 });

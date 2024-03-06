@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="../css/Profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="sweetalert.min.js"></script>
-    <style>
-        .btn1:hover{
-            background-color: bisque;
-        }
-
-    </style>
+    
 </head>
 <body>
 <nav>
@@ -52,12 +47,6 @@
                   <i class="fas fa-book"></i>
                   <span class="nav-item">Booking</span>
               </a>
-            </li>
-            <li>
-                <a href="../view/settings.php">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
             </li>
             <li>
                 <a href="../view/help.php">
@@ -106,19 +95,51 @@
                     </div>
                 </div>
                 <div class="profile-actions">
-                    <button class = "btn1">Edit Profile</button>
-                    <button class = "btn1">Change Password</button>
-                    <form method="" action ="../Login/logout.php">
-                    <button type ="submit" class = "btn1">Log Out</button>
+                    <button class="Edit" id="Edit">Edit Profile</button>
+                    <button class = "ChangePassword" id="ChangePassword">Change Password</button>
+                    <form method="" action ="../Login/logout.php"><button type ="submit" class = "Logout">Log Out</button></form>
+                </div>
+            </div>
+
+            <div id="editProfileModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
+                    <form id="editProfileForm" method="post">
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio" name="bio"></textarea>
+                        <label for="username">Change Username:</label>
+                        <input type="text" id="username" name="username">
+                        <label for="email">Change Email:</label>
+                        <input type="text" id="email" name="email">
+                        <input type="submit" value="Save">
                     </form>
                 </div>
             </div>
+
+            <div id="changePasswordModal" class="Password_modal">
+                <div class="password-modal-content">
+                    <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
+                    <form id="changePasswordForm" method="post">
+                        <label for="currentPassword">Current Password:</label>
+                        <input type="password" id="currentPassword" name="currentPassword">
+                        <label for="newPassword">New Password:</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                        <label for="confirmPassword">Confirm New Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+
+
+
+
             
 
         </div>
 
 
 
-
+    <script src="../js/Profile.js"></script>
     </body> 
 </html>    

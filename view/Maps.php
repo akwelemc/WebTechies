@@ -63,12 +63,6 @@
               </a>
             </li>
             <li>
-                <a href="../view/settings.php">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-            </li>
-            <li>
                 <a href="../view/help.php">
                     <i class="fas fa-question-circle"></i>
                     <span class="nav-item">Help</span>

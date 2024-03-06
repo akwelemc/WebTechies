@@ -10,64 +10,72 @@
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li>
-        <a href="../view/UserDashboard.php" class="logo">
-          <img src="../images/Bus.png" alt="">
-          <span class="nav-item">BusBoss</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/UserDashboard.php">
-          <i class="fas fa-home"></i>
-          <span class="nav-item">Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/Profile.php">
-          <i class="fas fa-user"></i>
-          <span class="nav-item">Profile</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/History.php">
-          <i class="fas fa-history"></i>
-          <span class="nav-item">History</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/Maps.php">
-          <i class="fas fa-map"></i>
-          <span class="nav-item">Maps</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="../view/bookingpage.php">
-          <i class="fas fa-book"></i>
-          <span class="nav-item">Booking</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/settings.php">
-          <i class="fas fa-cog"></i>
-          <span class="nav-item">Settings</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/help.php">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Help</span>
-        </a>
-      </li>
-      <li>
-        <a href="../view/login.php" class="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Log out</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <nav>
+        <ul>
+            <li>
+                <a href="../view/UserDashboard.php" class="logo">
+                    <img src="../images/Bus.png" alt="">
+                    <span class="nav-item">BusBoss</span>
+                </a>
+            </li>
+            <li>
+                <a href="../view/UserDashboard.php">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="../view/Profile.php">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-item">Profile</span>
+                </a>
+            </li>
+            <li >
+                <a href="../view/History.php">
+                    <i class="fas fa-history"></i>
+                    <span class="nav-item">History</span>
+                </a>
+            </li>
+            <li>
+                <a href="../view/Maps.php">
+                    <i class="fas fa-map"></i>
+                    <span class="nav-item">Maps</span>
+                </a>
+            </li>
+            <li class="active" >
+              <a href="../view/bookingpage.php">
+                  <i class="fas fa-book"></i>
+                  <span class="nav-item">Booking</span>
+              </a>
+            </li>
+            <li>
+                <a href="../view/help.php">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="nav-item">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="../view/login.php" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+        
+    <div class="main">
+      <div class="firstbar">
+          <div class="head-title">
+            <h2>Bookings</h2>
+          </div>    
+          <div class="user">
+              <div class="search-box">
+                  <i class="fa-solid fa-search"> </i>    
+                  <input type="text" placeholder="Search"/>
+              </div>      
+              <img src="../images/profile.jpg" alt=""> 
+          </div>    
+      </div> 
 
   <div class="main">
     <div class="firstbar">
