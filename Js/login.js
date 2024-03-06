@@ -21,9 +21,6 @@ function validateForm() {
         return false;
     }
 
-    // Proceed with further actions
-    window.location.href = "../view/UserDashboard.php";
-
     return true;
 }
 
