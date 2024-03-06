@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookings</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
       <nav>
         <ul>
@@ -75,49 +77,88 @@
           </div>    
       </div> 
 
-      <section class="available-buses">
-        <form id="booking-form">
-          <div>
-            <label for="departure-date">Departure Date:</label>
-            <input type="date" id="departure-date" name="departure-date" required>
+  <div class="main">
+    <div class="firstbar">
+      <div class="head-title">
+        <h2>Bookings</h2>
+      </div>
+      <div class="user">
+        <div class="search-box">
+          <i class="fa-solid fa-search"> </i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <img src="../images/profile.jpg" alt="">
+      </div>
+    </div>
+
+    <section class="available-buses">
+      <form id="booking-form" name="booking" method ="POST", action="../action/booking_action.php">
+        <div>
+          <label for="departure-date">Departure Date:</label>
+          <input type="date" id="departure-date" name="date" required>
+        </div>
+
+        <div id="bus-list" class="bus-list">
+          <h4>Available buses</h4>
+          <div class="bus">
+            <div>
+              <p>Time</p>
+              <select id="time" name="time" required>
+                <option disabled selected value="0">Choose a time</option>
+                <?php
+                include("../action/get_time_slots.php");
+
+                $results = getTimes();
+                foreach ($results as $time) {
+                  echo "<option value='{$time['time']}'>{$time['time']}</option>";
+                } ?>
+              </select>
+            </div>
+            <!-- <button class="buslist">Select</button> -->
           </div>
 
-          <div id="bus-list" class="bus-list">
-            <h4>Available buses</h4>
-            <div class="bus">
-              <div>
-                Route: Kwabenya<br>Destination: Atomic<br>Friday: 3:00pm
-              </div>
-              <button class="buslist">Select</button>
-            </div>
-          
-            <div class="bus">
-              <div>
-                Route: Aburi<br>Destination: Accra Mall<br>Friday: 4:00pm
-              </div>
-              <button class="buslist">Select</button>
-            </div>
-          
-            <div class="bus">
-              <div>
-                Route: Aburi<br>Pick-up: Madina Bus Stop<br>Sunday: 2:00pm
-              </div>
-              <button class="buslist">Select</button>
-            </div>
-          
-            <div class="bus">
-              <div>
-                Route: Kwabenya<br>Pick-up: Dome Filling Station<br>Sunday: 1:00pm
-              </div>
-              <button class="buslist">Select</button>
-            </div>
-          
+          <div class="bus">
             <div>
-              <button class="submitform" type="submit">Submit Booking</button>
+              <p>Bus stop</p>
+              <select id="stops" name="stops" required>
+                <option disabled selected value="0">Choose a bus stop</option>
+                <?php
+                include("../action/get_busStops.php");
+
+                $results = getBusStop();
+                // var_dump($results);
+                foreach ($results as $stops) {
+                  echo "<option value='{$stops['bsid']}'>{$stops['stopName']}</option>";
+                }
+                // echo "yes";
+                ?>
+              </select>
+              <!-- Route: Aburi<br>Destination: Accra Mall<br>Friday: 4:00pm -->
             </div>
+            <!-- <button class="buslist">Select</button> -->
           </div>
-        </form>
-      </section>
-    </div>     
+
+          <!-- <div class="bus">
+            <div>
+              Route: Aburi<br>Pick-up: Madina Bus Stop<br>Sunday: 2:00pm
+            </div>
+            <button class="buslist">Select</button>
+          </div>
+
+          <div class="bus">
+            <div>
+              Route: Kwabenya<br>Pick-up: Dome Filling Station<br>Sunday: 1:00pm
+            </div>
+            <button class="buslist">Select</button>
+          </div> -->
+
+          <div>
+            <button name="bookingBtn" class="submitform" type="submit">Submit Booking</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
 </body>
+
 </html>
