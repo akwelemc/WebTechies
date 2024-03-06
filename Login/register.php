@@ -7,7 +7,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form action="../action/register_action.php" id="register" class="form" style="background-color: rgba(255, 255, 255, 0.5);" method="post">
+    <form action="../action/register_action.php" id="register" onsubmit= "return validateForm(event)" class="form" style="background-color: rgba(255, 255, 255, 0.5);" method="post">
         <h1>Welcome To BusBoss</h1>
         <h3>Register To continue...</h3>
         <div>
