@@ -30,9 +30,8 @@
                     <label for="userRole">Role:</label>
                     <select id="userRole" name="userRole" required>
                     <option disabled selected value="0">Choose a role</option>
-                        <option value=2>Driver</option>
-                        <option value=3>Passenger</option>
-                        <option value=1>Super Admin</option>
+                        <option value=1>Driver</option>
+                        <option value=2>Passenger</option>
                     </select>
                 </div>
                 
@@ -54,16 +53,7 @@
             <button type="submit" class="signUpbtn" id="signUpbtn" name="signUpbtn">Register</button>
                <!-- <a href="../view/UserDashboard.php" id="submitBtn" class="log">Register</a> -->
             </div>
-            <div class="next">
-                <div class="line"></div>
-                <div class="text">
-                    <span>Login via</span>
-                </div>
-            </div>
-            <div class="imggogle">
-                <button class="google"><img src="../images/google.png" width="30" height="30" align="center"> Continue with Google</button>
-                <button class="google"><img src="../images/Facebook.png" width="30" height="30" align="center" class="fblogo"> Continue with Facebook</button>
-            </div>
+          
             <div class="register-section">
                 <p>Already with an Account? <span><a href="../Login/login.php">Log in</a></span></p>
             </div> 
