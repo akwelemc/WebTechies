@@ -30,11 +30,11 @@
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
-            <li>
-                <a href="../admin/Analytics.php">
-                    <i class="fas fa-chart-bar"></i>
-                    <span class="nav-item">Analytics</span>
-                </a>
+            <li >
+              <a href="../admin/bookinginfo.php">
+                  <i class="fas fa-book"></i>
+                  <span class="nav-item">Booking Info</span>
+              </a>
             </li>
             <li>
                 <a href="../admin/AdminHelp.php">
@@ -83,7 +83,8 @@
                     </div>
                 </div>
                 <div class="profile-actions">
-                    <button class="Edit" id="Edit">Edit Profile</button>
+                    <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="Editemail" id="Editemail">Change Email</button>
                     <button class = "ChangePassword" id="ChangePassword">Change Password</button>
                     <form method="" action ="../Login/logout.php"><button type ="submit" class = "Logout">Log Out</button></form>
                 </div>
@@ -92,22 +93,36 @@
             <div id="editProfileModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
-                    <form id="editProfileForm" method="post">
+                    <form id="editProfileForm" method="post" action="../action/edit_bio_username_action.php">
                         <label for="bio">Bio:</label>
                         <textarea id="bio" name="bio"></textarea>
-                        <label for="username">Change Username:</label>
-                        <input type="text" id="username" name="username">
-                        <label for="email">Change Email:</label>
-                        <input type="text" id="email" name="email">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName">
                         <input type="submit" value="Save">
                     </form>
                 </div>
             </div>
 
+            <div id="changeEmailModal" class="modal" >
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('changeEmailModal')">&times;</span>
+                    <form id="changeEmailForm" method="post" action="../action/Change_Email_action.php">
+                        <label for="currentEmail">Current Email:</label>
+                        <input type="text" id="currentEmail" name="currentEmail">
+                        <label for="newEmail">New Email:</label>
+                        <input type="text" id="newEmail" name="newEmail">
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+
+
             <div id="changePasswordModal" class="Password_modal">
                 <div class="password-modal-content">
                     <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
-                    <form id="changePasswordForm" method="post">
+                    <form id="changePasswordForm" method="post" action="../action/Change_Password_action.php">
                         <label for="currentPassword">Current Password:</label>
                         <input type="password" id="currentPassword" name="currentPassword">
                         <label for="newPassword">New Password:</label>

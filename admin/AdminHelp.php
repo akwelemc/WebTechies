@@ -29,10 +29,10 @@
                 </a>
             </li>
             <li>
-                <a href="../admin/Analytics.php">
-                    <i class="fas fa-chart-bar"></i>
-                    <span class="nav-item">Analytics</span>
-                </a>
+              <a href="../admin/bookinginfo.php">
+                  <i class="fas fa-book"></i>
+                  <span class="nav-item">Booking Info</span>
+              </a>
             </li>
             <li class="active">
                 <a href="../admin/AdminHelp.php">
