@@ -207,6 +207,25 @@
                 </tbody>
             </table> 
         </div>
-    </div>   
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const allElements = document.querySelectorAll("body *");
+
+            searchInput.addEventListener("input", function() {
+                const searchTerm = this.value.trim().toLowerCase();
+                allElements.forEach(element => {
+                    const elementText = element.textContent.toLowerCase();
+                    if (elementText.includes(searchTerm)) {
+                        element.style.display = "";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            });
+        });
+</script>
+    </script>   
 </body>
 </html>
