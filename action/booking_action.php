@@ -15,7 +15,7 @@ if (isset($_POST["bookingBtn"])) {
     // echo"3";
     // exit();
     if (mysqli_num_rows($check_booking_result) > 0) {
-        $_SESSION["email_exists"] = "User has aready booked a slot";
+        $_SESSION["booking_created"] = "User has aready booked a slot";
         header("Location: ../view/bookingpage.php");
 
         exit();
