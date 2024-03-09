@@ -78,7 +78,6 @@
       </div> 
 
   
-
       <section class="available-buses">
         <form id="booking-form" name="booking" method ="POST", action="../action/booking_action.php">
           <div>
@@ -98,7 +97,7 @@
 
                   $results = getTimes();
                   foreach ($results as $time) {
-                    echo "<option value='{$time['time']}'>{$time['time']}</option>";
+                    echo "<option value='{$time['slotID']}'>{$time['time']}</option>";
                   } ?>
                 </select>
               </div>
