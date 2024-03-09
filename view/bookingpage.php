@@ -78,7 +78,6 @@
       </div> 
 
   
-
       <section class="available-buses">
         <form id="booking-form" name="booking" method ="POST", action="../action/booking_action.php">
           <div>
