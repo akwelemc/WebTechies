@@ -82,7 +82,7 @@
       </div> 
 
       <section class="available-buses">
-        <form id="booking-form">
+        <form id="booking-form" onsubmit="return validateDate()">
           <div>
             <label for="departure-date">Departure Date:</label>
             <input type="date" id="departure-date" name="departure-date" required>
@@ -124,6 +124,20 @@
           </div>
         </form>
       </section>
-    </div>     
+    </div>
+
+    <script>
+      function validateDate(){
+        var selectedDate = new Date(document.getElementById("departure-date").value);
+
+        if(selectedDate.getDay()==5 || selectedDate.getDay() == 0){
+          return true;
+        }
+        else{
+          alert("Sorry, bus bookings are only allowed on Fridays and Sundays!");
+          return false;
+        }
+      }
+    </script>
 </body>
 </html>
