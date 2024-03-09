@@ -42,7 +42,7 @@
                     <span class="nav-item">Maps</span>
                 </a>
             </li>
-<<<<<<< Updated upstream
+
             <li>
               <a href="../view/bookingpage.php">
                   <i class="fas fa-book"></i>
