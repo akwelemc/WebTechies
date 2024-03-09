@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-        <nav>
+    <nav>
             <ul>
                 <li>
                     <a href="../admin/AdminDashboard.php" class="logo">
@@ -22,24 +22,18 @@
                         <span class="nav-item">Home</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/AdminProfile.php">
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/Analytics.php">
-                        <i class="fas fa-chart-bar"></i>
-                        <span class="nav-item">Analytics</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../admin/Adminsettings.php">
-                        <i class="fas fa-cog"></i>
-                        <span class="nav-item">Settings</span>
-                    </a>
-                </li>
+              <a href="../admin/bookinginfo.php">
+                  <i class="fas fa-book"></i>
+                  <span class="nav-item">Booking Info</span>
+              </a>
+            </li>
                 <li>
                     <a href="../admin/AdminHelp.php">
                         <i class="fas fa-question-circle"></i>
@@ -47,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="logout">
+                    <a href="../view/login.php" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Log out</span>
                     </a>

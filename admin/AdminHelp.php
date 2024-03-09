@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <nav>
+<nav>
         <ul>
             <li>
-                <a href="#" class="logo">
+                <a href="../admin/AdminDashboard.php" class="logo">
                     <img src="../images/Bus.png" alt="">
                     <span class="nav-item">BusBoss</span>
                 </a>
@@ -22,23 +22,17 @@
                     <span class="nav-item">Home</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="../admin/AdminProfile.php">
                     <i class="fas fa-user"></i>
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
             <li>
-                <a href="../admin/Analytics.php">
-                    <i class="fas fa-chart-bar"></i>
-                    <span class="nav-item">Analytics</span>
-                </a>
-            </li>
-            <li>
-                <a href="../admin/Adminsettings.php">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
+              <a href="../admin/bookinginfo.php">
+                  <i class="fas fa-book"></i>
+                  <span class="nav-item">Booking Info</span>
+              </a>
             </li>
             <li class="active">
                 <a href="../admin/AdminHelp.php">
@@ -53,7 +47,8 @@
                 </a>
             </li>
         </ul>
-    </nav>        
+    </nav>
+        
         <div class="main">
             <div class="firstbar">
                 <div class="head-title">

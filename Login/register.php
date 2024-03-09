@@ -7,7 +7,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form id="register" class="form" style="background-color: rgba(255, 255, 255, 0.5);" method="post">
+    <form action="../action/register_action.php" id="register" onsubmit= "return validateForm(event)" class="form" style="background-color: rgba(255, 255, 255, 0.5);" method="post">
         <h1>Welcome To BusBoss</h1>
         <h3>Register To continue...</h3>
         <div>
@@ -27,11 +27,11 @@
             </div>
             <div class="third">
                 <div>
-                    <label for="familyRole">Family Role:</label>
-                    <select id="familyRole" name="familyRole" required>
-                        <option value="driver">Driver</option>
-                        <option value="passenger">Passenger</option>
-                        <option value="superadmin">Super Admin</option>
+                    <label for="userRole">Role:</label>
+                    <select id="userRole" name="userRole" required>
+                    <option disabled selected value="0">Choose a role</option>
+                        <option value=1>Driver</option>
+                        <option value=2>Passenger</option>
                     </select>
                 </div>
                 
@@ -50,20 +50,12 @@
                 <input type="password" id="password2" name="password2" placeholder="Confirm Password" required/>
             </div>
             <div class="login">
-               <a href="../view/UserDashboard.php" id="submitBtn" class="log">Register</a>
+            <button type="submit" class="signUpbtn" id="signUpbtn" name="signUpbtn">Register</button>
+               <!-- <a href="../view/UserDashboard.php" id="submitBtn" class="log">Register</a> -->
             </div>
-            <div class="next">
-                <div class="line"></div>
-                <div class="text">
-                    <span>Login via</span>
-                </div>
-            </div>
-            <div class="imggogle">
-                <button class="google"><img src="../images/google.png" width="30" height="30" align="center"> Continue with Google</button>
-                <button class="google"><img src="../images/Facebook.png" width="30" height="30" align="center" class="fblogo"> Continue with Facebook</button>
-            </div>
+          
             <div class="register-section">
-                <p>Already with an Account? <span><a href="../view/login.php">Log in</a></span></p>
+                <p>Already with an Account? <span><a href="../Login/login.php">Log in</a></span></p>
             </div> 
 
         </div>

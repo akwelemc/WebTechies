@@ -47,19 +47,18 @@
               </a>
             </li>
             <li>
-                <a href="../view/settings.php">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-            </li>
-            <li>
                 <a href="../view/help.php">
                     <i class="fas fa-question-circle"></i>
                     <span class="nav-item">Help</span>
                 </a>
             </li>
             <li>
-                <a href="../view/login.php" class="logout">
+            <!-- <form action="../Login/logout.php" name="logout_btn">
+                <button class="logout-btn">Log Out</button>
+                <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Log out</span>    
+            </form> -->
+                <a href="../Login/logout.php" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="nav-item">Log out</span>
                 </a>
@@ -208,6 +207,25 @@
                 </tbody>
             </table> 
         </div>
-    </div>   
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const allElements = document.querySelectorAll("body *");
+
+            searchInput.addEventListener("input", function() {
+                const searchTerm = this.value.trim().toLowerCase();
+                allElements.forEach(element => {
+                    const elementText = element.textContent.toLowerCase();
+                    if (elementText.includes(searchTerm)) {
+                        element.style.display = "";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            });
+        });
+</script>
+    </script>   
 </body>
 </html>

@@ -46,12 +46,6 @@
                   <span class="nav-item">Booking</span>
               </a>
             </li>
-            <li>
-                <a href="../view/settings.php">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-            </li>
             <li class="active">
                 <a href="../view/help.php">
                     <i class="fas fa-question-circle"></i>
