@@ -81,20 +81,20 @@
                 <div><h3>History</h3></div>
                 <table>
                     <thead>
+
                         <tr>
                             <th>Bus Number</th>
                             <th>Departure Time</th>
-                            <th>Arrival Time</th>
                             <th>Trip Date</th>
-                            <th>Driver</th>
-                            <th>Passenger Count</th>
-                            <th>Route</th>
-                            <th>Status</th>
+                            <th>Stop Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    <?php
+                        include("../function/display_tripDetails.php");
+                        ?>
+                       <!--  <tr>
                             <td>Bus 101</td>
                             <td>08:00 AM</td>
                             <td>12:00 PM</td>
@@ -259,7 +259,7 @@
                             <td>Suburbia to Airport</td>
                             <td>In Progress</td>
                             <td><button>Edit</button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
         </div> 

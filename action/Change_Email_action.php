@@ -36,5 +36,3 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
     exit;
 }
 
-$conn->close();
-?>
