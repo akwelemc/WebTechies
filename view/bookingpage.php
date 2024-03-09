@@ -97,7 +97,7 @@
 
                   $results = getTimes();
                   foreach ($results as $time) {
-                    echo "<option value='{$time['time']}'>{$time['time']}</option>";
+                    echo "<option value='{$time['slotID']}'>{$time['time']}</option>";
                   } ?>
                 </select>
               </div>

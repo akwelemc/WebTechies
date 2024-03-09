@@ -30,7 +30,7 @@ if (isset($_POST["bookingBtn"])) {
     $default_bid = 1;
 
     // assigning a bus to the passenger is both have the same route
-    $bus_query = "SELECT bid FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
+    $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
     // echo $bus_query;
     // exit();
     $bus_query_result = mysqli_query($conn, $bus_query);
@@ -39,26 +39,30 @@ if (isset($_POST["bookingBtn"])) {
     // exit();
     // check which bus has space
 
-    $capacities = array();
+    $capacities = 0;
+    $bid = 0;
     foreach ($bus_result as $row) {
     // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
-    $bus_slots_query =  "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid] ";
+    $bus_slots_query =  "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
     $bus_slots_result = mysqli_query($conn, $bus_slots_query);
-    $capacities[$row['bid']]= mysqli_fetch_column( $bus_slots_result );
+    $capacities= mysqli_fetch_column( $bus_slots_result );
+    if($capacities< $row['capacity']){
+        $bid = $row['bid'];
+        break;
+    }
     // echo $capacities[$row['bid']];
     // exit();
     };
     // echo $busStop;
-    $bid = 0;
-    foreach ($capacities as $key=>$cap) {
-        if ($cap < 50) {
-            $bid = $key;
-            break;  // Exit the loop once the condition is met
-        }
-        else{
-            $bid = 0;
-        }
-    }
+    // foreach ($capacities as $key=>$cap) {
+    //     if ($cap < $bus_result[]) {
+    //         $bid = $key;
+    //         break;  // Exit the loop once the condition is met
+    //     }
+    //     else{
+    //         $bid = 0;
+    //     }
+    // }
     if($bid ==0){
             $_SESSION["booking_created"] = false;
             header("Location: ../view/bookingpage.php");
