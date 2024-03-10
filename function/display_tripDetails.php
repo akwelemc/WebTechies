@@ -19,10 +19,10 @@ foreach ($results as $result) {
             ' . $result['stopName'] . ' 
         </td>
         <td>
-            <a style="color: #e74c3c;" class = "delete_icon" href="../action/delete_assignmemt.php?chore_id=' . $result['bid'] . '">
+            <a style="color: #e74c3c;" class = "delete_icon" href="../action/delete_booking.php?bookingId=' . $result['bookingId'] . '">
             <i class="fa-solid fa-trash-can"></i>
         </a>
-        <a style="color: #e74c3c;"class = "edit_icon" href="../view/edit_assignment.php?chore_id=' . $result['bid'] . '">
+        <a style="color: #e74c3c;"class = "edit_icon" href="../view/edit_assignment.php?chore_id=' . $result['bookingID'] . '">
             <i class="fa-solid fa-pen-to-square"></i> 
         </a> 
         </td>
