@@ -119,6 +119,14 @@ body{
     border: 1px solid #154a72;
 }
 
+#licenseNumber{
+    width: 50%;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px; 
+    border: 1px solid #154a72;
+}
+
 
 
 .signUpbtn{
