@@ -75,7 +75,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Contact</th>
-                            <th>Current Location</th>
+                            <th>Destination</th>
                             <th>Action</th>
                         </tr>
                     </thead>

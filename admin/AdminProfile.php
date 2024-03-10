@@ -80,6 +80,9 @@
                         <p><strong>Email:</strong> johndoe@example.com</p>
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
                         <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
+                        <?php
+                        include("../function/get_license_fxn.php");
+                        ?>
                     </div>
                 </div>
                 <div class="profile-actions">

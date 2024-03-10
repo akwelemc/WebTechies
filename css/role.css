@@ -1,0 +1,54 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url("../images/rolebus.jpg"); /* Corrected the syntax */
+    background-size: cover; 
+    align-items: center;
+}
+
+.outer{
+    display: flex;
+    justify-content: space-between;
+  
+    margin-top: 22%;
+}
+
+.role {
+    text-align: center;
+    margin-left: 10%;
+    font: cursive;
+    color:#fff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch; 
+   
+    margin-right: 10%;
+    width: 20%;
+
+    
+}
+
+.buttons button {
+    flex-grow: 1;
+    border: none;
+    background-color: rgba(8,84,108,255);
+    color: #fff;
+    margin: 0.5px;
+    height: 100%; 
+    font: cursive;
+}
+
+button:hover{
+    background-color: #fff;
+    color: black;
+}
+
+
+
+
+
+
+  
