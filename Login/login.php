@@ -31,6 +31,6 @@
         </div>
         
     </form>
-    <script src="../js/login.js"></script>
+    <script src="../Js/login.js"></script>
 </body>
 </html>
