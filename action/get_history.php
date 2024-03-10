@@ -6,7 +6,7 @@ function getTripDetails()
 {
     global $conn;
     $userID = userIdExist();
-    $get_details_query = "SELECT Bus.bid, TimeSlots.time, date_booked, BusStop.stopName FROM Bookings JOIN TimeSlots ON TimeSlots.slotID = Bookings.time_slotID JOIN BusStop ON BusStop.bsid = Bookings.busStopID JOIN Bus ON Bus.bid = Bookings.bid WHERE Bookings.pid = $userID;";
+    $get_details_query = "SELECT bookingId,Bus.bid, TimeSlots.time, date_booked, BusStop.stopName FROM Bookings JOIN TimeSlots ON TimeSlots.slotID = Bookings.time_slotID JOIN BusStop ON BusStop.bsid = Bookings.busStopID JOIN Bus ON Bus.bid = Bookings.bid WHERE Bookings.pid = $userID;";
 
     // echo $get_details_query;
     // exit();
