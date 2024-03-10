@@ -30,8 +30,7 @@
                     <label for="userRole">Role:</label>
                     <select id="userRole" name="userRole" required>
                     <option disabled selected value="0">Choose a role</option>
-                        <option value=1>Driver</option>
-                        <option value=2>Passenger</option>
+                        <option value=3>Passenger</option>
                     </select>
                 </div>
                 
