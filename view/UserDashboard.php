@@ -148,6 +148,7 @@
                         <th>Departure Time</th>
                         <th>Trip Date</th>
                         <th>Bus Stop</th>
+                        <th>Booking Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -168,6 +169,8 @@
                             <td>' . $result['time']. '</td>
                             <td>' . $result['date_booked'] . '</td>
                             <td>' . $result['stopName'] . '</td>
+                            <td>' . $result['status_name'] . '</td>
+
                             <td>
                                 <a style="color: #e74c3c;" class="delete_icon" href="../action/delete_booking.php?bookingId=' . $result['bookingId'] . '">
                                     <i class="fa-solid fa-trash-can"></i>

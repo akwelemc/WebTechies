@@ -11,4 +11,4 @@ function getTimes(){
     return $result;
 }
 
-var_dump(getTimes());
+// var_dump(getTimes());

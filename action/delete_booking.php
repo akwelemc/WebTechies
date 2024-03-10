@@ -7,7 +7,7 @@ include("../settings/connection.php");
 // exit();
 if (isset($_GET['bookingId'])) {
     // Get the booking ID from the URL
-    $booking_id = $_GET['bookingId'];
+    $booking_id = mysqli_real_escape_string($conn, $_GET['bookingId']);
 
     // Delete from busbooking first
     $delete_busbooking_query = "DELETE FROM busbooking WHERE bookingId = $booking_id";
@@ -18,7 +18,8 @@ if (isset($_GET['bookingId'])) {
     mysqli_query($conn, $delete_bookings_query);
     // Check if the deletion was successful
     if ($delete_result == true) {
-        $_SESSION["booking_deleted"] = "Booking deleted successfully";
+        $_SESSION["booking_deleted"] = true;
+        $_SESSION["booking_Deletedmsg"] = "Booking deleted successfully";
         // Redirect to the History page or any other page as needed
         header('Location: ../view/History.php');
         exit();
@@ -26,6 +27,7 @@ if (isset($_GET['bookingId'])) {
 }
 
 // If the booking ID is not set or deletion fails, redirect to the History page
-$_SESSION["booking_deleted"] = "Booking deletion failed";
+$_SESSION["booking_Deletedmsg"] = "Booking deletion failed";
+$_SESSION["booking_deleted"] = false;
 header('Location: ../view/History.php');
 $conn->close();
