@@ -1,4 +1,5 @@
 <?php
+    session_start();
 if (isset($_GET["bookingId"])) {
     $bookingId = $_GET["bookingId"];
 }
@@ -13,6 +14,8 @@ if (isset($_GET["bookingId"])) {
     <link rel="stylesheet" href="../css/stye.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -100,6 +103,17 @@ if (isset($_GET["bookingId"])) {
                     $results = getTimes();
                     foreach ($results as $time) {
                         echo "<option value='{$time['slotID']}'>{$time['time']}</option>";
+                    } ?>
+                </select>
+                <label>New Status</label>
+                <select id="bookingStatus" name="bookingStatus" >
+                    <option disabled selected value="0">Choose a status</option>
+                    <?php
+                    include("../action/get_bookingStatus.php");
+
+                    $results = getStatus();
+                    foreach ($results as $stat) {
+                        echo "<option value='{$stat['status_id']}'>{$stat['status_name']}</option>";
                     } ?>
                 </select>
                 <button type="submit" name="updateBookingBtn" id="updateBooking">Submit</button>
