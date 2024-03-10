@@ -95,7 +95,7 @@ if (isset($_POST["bookingBtn"])) {
         exit();
     }
 } else {
-    $_SESSION["account_created"] = "Error booking a slot. Please try again.";
+    $_SESSION["booking_created"] = "Error booking a slot. Please try again.";
     // header("Location: ../view/bookingpage.php");
     echo "fail";
     $conn->close();
