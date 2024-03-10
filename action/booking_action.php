@@ -8,6 +8,26 @@ if (isset($_POST["bookingBtn"])) {
     $date = mysqli_real_escape_string($conn, $_POST['date']);
     $busStop = mysqli_real_escape_string($conn, $_POST['stops']);
 
+    // Check if date and time are in the future
+    $currentDateTime = date("Y-m-d");
+    // Combine the booking date and time
+    $bookingDateTime = $date;
+    if (strtotime($bookingDateTime) <= strtotime($currentDateTime)) {
+        $_SESSION["booking_created"] = "Booking date and time must be in the future.";
+        $_SESSION["booked"] = false;
+        header("Location: ../view/bookingpage.php");
+        exit();
+    }
+    // Get the day of the week for the selected date
+    $selectedDayOfWeek = date('l', strtotime($date));
+
+    // Check if the selected day is Saturday or Sunday
+    if ($selectedDayOfWeek === 'Saturday' || $selectedDayOfWeek === 'Sunday') {
+        $_SESSION["booking_created"] = "Bookings are not allowed on Saturdays or Sundays.";
+        $_SESSION["booked"] = false;
+        header("Location: ../view/bookingpage.php");
+        exit();
+    }
     $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$date' AND `time_slotID` = $time ";
     // echo $check_booking_query;
     // exit();
@@ -16,6 +36,7 @@ if (isset($_POST["bookingBtn"])) {
     // exit();
     if (mysqli_num_rows($check_booking_result) > 0) {
         $_SESSION["booking_created"] = "User has aready booked a slot";
+        $_SESSION["booked"] = false;
         header("Location: ../view/bookingpage.php");
 
         exit();
@@ -26,9 +47,8 @@ if (isset($_POST["bookingBtn"])) {
     $route_result = mysqli_fetch_assoc($route_query_result);
     // var_dump($route_result);
     // exit();
-    $booking_status = "booked";
+    $default_booking_status = 1;
     $default_bid = 1;
-
     // assigning a bus to the passenger is both have the same route
     $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
     // echo $bus_query;
@@ -42,34 +62,25 @@ if (isset($_POST["bookingBtn"])) {
     $capacities = 0;
     $bid = 0;
     foreach ($bus_result as $row) {
-    // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
-    $bus_slots_query =  "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
-    $bus_slots_result = mysqli_query($conn, $bus_slots_query);
-    $capacities= mysqli_fetch_column( $bus_slots_result );
-    if($capacities< $row['capacity']){
-        $bid = $row['bid'];
-        break;
+        // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
+        $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
+        $bus_slots_result = mysqli_query($conn, $bus_slots_query);
+        $capacities = mysqli_fetch_column($bus_slots_result);
+        if ($capacities < $row['capacity']) {
+            $bid = $row['bid'];
+            break;
+        }
+        // echo $capacities[$row['bid']];
+        // exit();
     }
-    // echo $capacities[$row['bid']];
-    // exit();
-    };
-    // echo $busStop;
-    // foreach ($capacities as $key=>$cap) {
-    //     if ($cap < $bus_result[]) {
-    //         $bid = $key;
-    //         break;  // Exit the loop once the condition is met
-    //     }
-    //     else{
-    //         $bid = 0;
-    //     }
-    // }
-    if($bid ==0){
-            $_SESSION["booking_created"] = false;
-            header("Location: ../view/bookingpage.php");
-            // echo "fail";
-            exit();
+    ;
+    if ($bid == 0) {
+        $_SESSION["booking_created"] = false;
+        header("Location: ../view/bookingpage.php");
+        // echo "fail";
+        exit();
     }
-    $insert_booking_query = "INSERT INTO `Bookings`(`pid`,`bid`,`date_booked`, `time_slotID`, `bookingStatus`,`busStopID`) VALUES ('$userID',' $bid','$date','$time','$booking_status','$busStop')";
+    $insert_booking_query = "INSERT INTO `Bookings`(`pid`,`bid`,`date_booked`, `time_slotID`, `bookingStatus`,`busStopID`) VALUES ('$userID',' $bid','$date','$time','$default_booking_status','$busStop')";
     // echo $insert_booking_query;
     // exit();
     if (mysqli_query($conn, $insert_booking_query)) {
@@ -80,24 +91,26 @@ if (isset($_POST["bookingBtn"])) {
         $bookingID = mysqli_fetch_column($select_bookingID_result);
 
         $insert_Busbooking_query = "INSERT INTO `BusBooking`(`bid`,`bookingId`) VALUES ('$bid',' $bookingID')";
-        $insert_Busbooking_result = mysqli_query($conn, $insert_Busbooking_query); 
+        $insert_Busbooking_result = mysqli_query($conn, $insert_Busbooking_query);
 
         // Successful registration
-        $_SESSION["booking_created"] = true;
+        $_SESSION["booked"] = true;
+        $_SESSION["booking_created"] = "Booking successful";
         header("Location: ../view/bookingpage.php");
         // echo "success";
         exit();
     } else {
         // Registration failed
+        $_SESSION["booked"] = false;
         $_SESSION["booking_created"] = "Error creating account. Please try again.";
         header("Location: ../view/bookingpage.php");
         // echo "failed";
         exit();
     }
 } else {
+    $_SESSION["booked"] = false;
     $_SESSION["booking_created"] = "Error booking a slot. Please try again.";
-    // header("Location: ../view/bookingpage.php");
-    echo "fail";
+    header("Location: ../view/bookingpage.php");
     $conn->close();
     exit();
 

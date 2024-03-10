@@ -19,6 +19,9 @@ foreach ($results as $result) {
             ' . $result['stopName'] . ' 
         </td>
         <td>
+        ' . $result['status_name'] . ' 
+    </td>
+        <td>
             <a style="color: #e74c3c;" class = "delete_icon" href="../action/delete_booking.php?bookingId=' . $result['bookingId'] . '">
             <i class="fa-solid fa-trash-can"></i>
         </a>
