@@ -97,6 +97,7 @@
                 </div>
                 <div class="profile-actions">
                     <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="EditBio" id="bio">Edit Bio </button>
                     <button class="Editemail" id="Editemail">Change Email</button>
                     <button class = "ChangePassword" id="ChangePassword">Change Password</button>
                     <form method="" action ="../Login/logout.php"><button type ="submit" class = "Logout">Log Out</button></form>
@@ -107,12 +108,21 @@
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
                     <form id="editProfileForm" method="post" action="../action/edit_bio_username_action.php">
-                        <label for="bio">Bio:</label>
-                        <textarea id="bio" name="bio"></textarea>
                         <label for="firstName">First Name:</label>
                         <input type="text" id="firstName" name="firstName">
                         <label for="lastName">Last Name:</label>
                         <input type="text" id="lastName" name="lastName">
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+
+            <div id="editBioModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
+                    <form id="editProfileForm" method="post" action="../action/edit_bio_action.php">
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio" name="bio"></textarea>
                         <input type="submit" value="Save">
                     </form>
                 </div>
