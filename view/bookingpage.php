@@ -132,6 +132,22 @@
         </form>
     </section>
   </div>
-</body>
+  <script src = "..\Js\sweetalert.min.js"></script>
+  <script>
+    document.getElementById("booking-form").addEventListener("submit", function(event){
+      event.preventDefault();
+      Swal.fire({
+        title: "Thanks for booking!",
+        text: "Enjoy the ride!",
+        icon: "success",
+        confirmButtonText: "OK"
 
+      }).then((result) => {
+        if(result.isConfirmed){
+          document.getElementById("booking-form").submit();
+        }
+      });
+    });
+  </script>
+</body> 
 </html>
