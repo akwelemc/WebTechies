@@ -17,6 +17,7 @@ if (isset($_POST['bio']) && isset($_POST['firstName']) && isset($_POST['lastName
     $query = $conn->prepare("UPDATE people SET bio = ?, fname = ?, lname = ? WHERE pid = ?");
     $query->bind_param('sssi', $bio, $firstName, $lastName, $userID);
 
+    
     if ($query->execute()) {
         header("Location: ../admin/AdminProfile.php");
         exit;
@@ -30,7 +31,3 @@ if (isset($_POST['bio']) && isset($_POST['firstName']) && isset($_POST['lastName
     header("Location: ../admin/AdminProfile.php?error=missing_data");
     exit;
 }
-
-
-$conn->close();
-?>

@@ -13,6 +13,9 @@ document.getElementById("Edit").addEventListener("click", function() {
     openModal("editProfileModal");
 });
 
+document.getElementById("EditBio").addEventListener("click", function() {
+    openModal("editBioModal");
+});
 
 document.querySelector(".close").addEventListener("click", function() {
     closeModal("editProfileModal");

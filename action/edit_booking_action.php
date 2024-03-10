@@ -1,11 +1,12 @@
 <?php
 session_start();
 include("../settings/connection.php");
-
+include("../settings/core.php");
 if (isset($_POST['updateBookingBtn'])) {
     // Check if the required variables are set
     if (isset($_GET['bookingId']) && (isset($_POST['newDate']) || isset($_POST['newTime']) || isset($_POST['newStop']))) {
         // Sanitize input
+        $userID = userIdExist();
         $bookingId = mysqli_real_escape_string($conn, $_GET['bookingId']);
         $newDate = isset($_POST['newDate']) ? mysqli_real_escape_string($conn, $_POST['newDate']) : '';
         $newTime = isset($_POST['newTime']) ? mysqli_real_escape_string($conn, $_POST['newTime']) : '';
@@ -16,11 +17,11 @@ if (isset($_POST['updateBookingBtn'])) {
         // exit();
         if ($newDate != "") {
             // Check if date and time are in the future
-            echo $newDate;
-            exit();
+            // echo $newDate;
+            // exit();
             $currentDateTime = date("Y-m-d");
             // Combine the booking date and time
-            $bookingDateTime = $date;
+            $bookingDateTime = $newDate;
             if (strtotime($bookingDateTime) <= strtotime($currentDateTime)) {
                 $_SESSION["booking_updated"] = "Booking date and time must be in the future.";
                 $_SESSION["update"] = false;
@@ -37,6 +38,8 @@ if (isset($_POST['updateBookingBtn'])) {
                 header("Location: ../view/History.php");
                 exit();
             }
+            // echo"hh";
+            // exit();
             if ($newTime != "") {
                 $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$newDate' AND `time_slotID` = $newTime ";
                 // echo $check_booking_query;
