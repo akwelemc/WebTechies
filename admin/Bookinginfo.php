@@ -80,7 +80,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                    <?php include('../action/getbookingInfo_action.php'); ?>
                     </tbody>
                 </table> 
             </div>
