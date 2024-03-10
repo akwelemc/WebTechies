@@ -1,7 +1,7 @@
 <?php
 include("../settings/connection.php");
 include("../settings/core.php");
-session_start();
+
 function getTripDetails()
 {
     global $conn;

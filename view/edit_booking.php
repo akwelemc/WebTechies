@@ -39,7 +39,7 @@ if (isset($_GET["bookingId"])) {
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="../view/History.php">
                     <i class="fas fa-history"></i>
                     <span class="nav-item">History</span>
@@ -51,7 +51,7 @@ if (isset($_GET["bookingId"])) {
                     <span class="nav-item">Maps</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="../view/bookingpage.php">
                     <i class="fas fa-book"></i>
                     <span class="nav-item">Booking</span>
@@ -141,7 +141,7 @@ if (isset($_GET["bookingId"])) {
                     <button type="submit" name="updateBookingBtn" id="updateBooking">Submit</button>
                 </div>
             </form>
-</section>
+        </section>
 
     </div>
 </body>
