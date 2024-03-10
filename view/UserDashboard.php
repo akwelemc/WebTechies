@@ -1,3 +1,6 @@
+<?php
+    include("../action/get_history.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,8 +152,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    include("../function/display_tripDetails.php");
+                <?php
+                    
+                    $results = getTripDetails();
+                    
+                    $count = 0;
+                    foreach ($results as $result) {
+                        if ($count >= 5) {
+                            break; 
+                        }
+                        
+                        echo '
+                        <tr>
+                            <td>' . $result['bid'] . '</td>
+                            <td>' . $result['time']. '</td>
+                            <td>' . $result['date_booked'] . '</td>
+                            <td>' . $result['stopName'] . '</td>
+                            <td>
+                                <a style="color: #e74c3c;" class="delete_icon" href="../action/delete_booking.php?bookingId=' . $result['bookingId'] . '">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </a>
+                                <a style="color: #e74c3c;" class="edit_icon" href="../view/edit_assignment.php?chore_id=' . $result['bookingId'] . '">
+                                    <i class="fa-solid fa-pen-to-square"></i> 
+                                </a> 
+                            </td>
+                        </tr>';
+                        $count++;
+                    }
                     ?>
                 </tbody>
             </table>

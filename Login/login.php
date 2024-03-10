@@ -27,7 +27,7 @@
 
 
         <div class="register-section">
-            <p>Don't have an account? <span><a href="../Login/register.php">Register</a></span></p>
+            <p>Don't have an account? <span><a href="../Login/rolepage.php">Register</a></span></p>
         </div>
         
     </form>

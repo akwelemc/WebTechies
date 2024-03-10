@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2024 at 02:56 PM
+-- Generation Time: Mar 09, 2024 at 11:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -23,13 +23,13 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
-DROP DATABASE IF EXISTS WT2024;
-CREATE DATABASE WT2024;
-USE WT2024;
-
 --
 -- Table structure for table `Bookings`
 --
+
+DROP DATABASE IF EXISTS WT2024;
+CREATE DATABASE WT2024;
+USE WT2024;
 
 CREATE TABLE `Bookings` (
   `pid` int(11) NOT NULL,
@@ -57,10 +57,8 @@ INSERT INTO `Bookings` (`pid`, `bookingId`, `bid`, `date_booked`, `time_slotID`,
 (8, 10, 2, '2023-02-14', 4, 'booked', 9),
 (8, 11, 2, '2024-03-31', 1, 'booked', 10),
 (8, 12, 3, '2024-04-30', 3, 'booked', 7),
-(8, 13, 1, '2024-05-31', 1, 'booked', 1),
 (8, 14, 3, '2024-08-31', 1, 'booked', 7),
-(8, 15, 1, '2024-03-19', 5, 'booked', 2),
-(8, 16, 1, '2024-03-12', 1, 'booked', 1);
+(8, 15, 1, '2024-03-19', 5, 'booked', 2);
 
 -- --------------------------------------------------------
 
@@ -102,10 +100,8 @@ CREATE TABLE `BusBooking` (
 
 INSERT INTO `BusBooking` (`bid`, `bookingId`) VALUES
 (3, 12),
-(1, 13),
 (3, 14),
-(1, 15),
-(1, 16);
+(1, 15);
 
 -- --------------------------------------------------------
 
@@ -188,9 +184,16 @@ CREATE TABLE `BusStopRoutes` (
 
 CREATE TABLE `Driver` (
   `pid` int(11) NOT NULL,
-  `bid` int(11) NOT NULL,
-  `licenseNumber` int(11) NOT NULL
+  `bid` int(11) DEFAULT NULL,
+  `licenseNumber` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Driver`
+--
+
+INSERT INTO `Driver` (`pid`, `bid`, `licenseNumber`) VALUES
+(11, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -247,7 +250,10 @@ INSERT INTO `People` (`pid`, `role_id`, `fname`, `lname`, `dob`, `email`, `telnu
 (6, 3, 'Kane', 'Potts', '2013-03-23', 'abc@mailinator.com', '+139729546822', 0, '$2y$10$Z0NAGvQ6mJvitWaS4AiGvelDFREtma2g8fYr8By9jEWvkm/cWZUna', NULL),
 (7, 3, 'Aretha', 'Stokes', '2002-03-06', 'mityvyzyp@mailinator.com', '+769832942530', 1, '$2y$10$RSNQrmFjCScvI0c990piyulYDhV/qmF4gWmNtiZryllBHye0FHUMG', NULL),
 (8, 3, 'Troy', 'Hood', '1988-06-05', 'abcd@mailinator.com', '+521407243878', 1, '$2y$10$2GyVr1PsBzjFH/FUVEPj9.XHT2QTAtbyZb8TzObfRW.W2XZ1npTl2', NULL),
-(10, 2, 'Keelie', 'Joyner', '2000-07-10', 'abcdef@mailinator.com', '+471866280948', 0, '$2y$10$9MKUOUMsjZdTgu4/dP7r..9tDevMleDtE1NA9Mx66UQH75mrOeqkS', NULL);
+(10, 2, 'Keelie', 'Joyner', '2000-07-10', 'abcdef@mailinator.com', '+471866280948', 0, '$2y$10$9MKUOUMsjZdTgu4/dP7r..9tDevMleDtE1NA9Mx66UQH75mrOeqkS', NULL),
+(11, 1, 'Jerry', 'Sandoval', '2011-05-03', 'gynu@mailinator.com', '+442373586877', 0, '$2y$10$kuYGZux2Eez.pfR3DCapieNhzKIvlhia2XRHCXirY4WRPtYJgLwhO', NULL),
+(12, 1, 'Aurora', 'Barlow', '1981-07-07', 'vapupuxepy@mailinator.com', '+478842617533', 1, '$2y$10$b0DvcbEj.Tjgneqz/ME9nOe07yP8JYKvIbdmpaaX32OMow7YUb/Nu', NULL),
+(13, 1, 'Ima', 'Maldonado', '1991-06-26', 'fumyk@mailinator.com', '+176138502742', 0, '$2y$10$15zWKFRC3pnf.bYdyFJDpuKxmR4O/fcqY7nCT3UTUAcfKe6d9FMRS', NULL);
 
 -- --------------------------------------------------------
 
@@ -459,7 +465,7 @@ ALTER TABLE `DriverTracking`
 -- AUTO_INCREMENT for table `People`
 --
 ALTER TABLE `People`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Tracking`
