@@ -58,10 +58,10 @@
                     <h2>Profile</h2>
                 </div>    
                 <div class="user">
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
-                    </div>      
+                    </div>       -->
                     <img src="../images/profile.jpg" alt=""> 
                 </div>    
             </div> 
@@ -82,7 +82,9 @@
                         <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
                         <?php
                         include("../function/get_license_fxn.php");
+                        include("../function/get_bus_info.php");
                         ?>
+
                     </div>
                 </div>
                 <div class="profile-actions">

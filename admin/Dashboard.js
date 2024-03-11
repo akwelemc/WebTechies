@@ -1,7 +1,4 @@
 
-
-// ---------- CHARTS ----------
-
 // BAR CHART
 const barChartOptions = {
   series: [
