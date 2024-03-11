@@ -14,15 +14,20 @@ if (isset($_GET['bookingId'])) {
     mysqli_query($conn, $delete_busbooking_query);
 
     $get_current_status_query = "SELECT status_name FROM BookingStatus JOIN Bookings ON Bookings.bookingStatus =BookingStatus.status_id where bookingID =$booking_id";
-    // echo $get_current_status_query;
-    // exit();
     $get_current_status_result = mysqli_query($conn, $get_current_status_query);
-    $get_current_status = mysqli_fetch_column($get_current_status_result);
-    if ($get_current_status == "booked") {
-        $insert_cancelled_booking_query = "INSERT INTO `CancelledBookings`(`bookingID`) VALUES ('$bookingID')";
-        if (!mysqli_query($conn, $insert_cancelled_booking_query)) {
-            echo "hi";
-            exit();
+    $get_current_status_row = mysqli_fetch_assoc($get_current_status_result);
+    $get_current_status = $get_current_status_row['status_name'];
+    // echo "current status".$get_current_status;
+    // exit();
+    if ($get_current_status == "Booked") {
+        // echo "current  2status".$get_current_status;
+        // exit();
+        $insert_cancelled_booking_query = "INSERT INTO `CancelledBookings`(`bookingID`) VALUES ('$booking_id')";
+        // echo $insert_cancelled_booking_query;
+        // exit();
+        if (mysqli_query($conn, $insert_cancelled_booking_query) == false) {
+            // echo "hi";
+            // exit();
             $_SESSION["booking_Deletedmsg"] = "Booking deletion failed";
             $_SESSION["booking_deleted"] = false;
             header('Location: ../view/History.php');
