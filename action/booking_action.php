@@ -93,12 +93,21 @@ if (isset($_POST["bookingBtn"])) {
         $insert_Busbooking_query = "INSERT INTO `BusBooking`(`bid`,`bookingId`) VALUES ('$bid',' $bookingID')";
         $insert_Busbooking_result = mysqli_query($conn, $insert_Busbooking_query);
 
+        if( mysqli_query($conn, $insert_Busbooking_query)){
         // Successful registration
         $_SESSION["booked"] = true;
         $_SESSION["booking_created"] = "Booking successful";
         header("Location: ../view/bookingpage.php");
         // echo "success";
         exit();
+        }
+        else{
+            $_SESSION["booked"] = false;
+            $_SESSION["booking_created"] = "Error booking a slot. Please try again.";
+            header("Location: ../view/bookingpage.php");
+            $conn->close();
+            exit();
+        }
     } else {
         // Registration failed
         $_SESSION["booked"] = false;
