@@ -68,10 +68,10 @@
                     <h2>Help</h2>
                 </div>    
                 <div class="user">
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
-                    </div>      
+                    </div>       -->
                     <img src="../images/profile.jpg" alt=""> 
                 </div>    
             </div>  

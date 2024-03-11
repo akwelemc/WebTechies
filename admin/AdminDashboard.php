@@ -1,3 +1,6 @@
+<?php
+include "../function/stats_fxns.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +59,10 @@
                     <h2>Dashboard</h2>
                 </div>    
                 <div class="user">
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
-                    </div>      
+                    </div>       -->
                     <img src="../images/profile.jpg" alt=""> 
                 </div>    
             </div>    
@@ -72,7 +75,10 @@
                                 Total bookings
                             </span>
                             <span class="stat-value">
-                                400
+                            <?php
+                            $totalBookings = getTotalBookingCount();
+                            echo " $totalBookings";
+                            ?>
                             </span>
                         </div> 
                         <i class="fas fa-spinner icon" aria-hidden="true"></i>
@@ -85,10 +91,13 @@
                         <div class="stat-icon">
                             <div class="stat">
                                 <span class="title">
-                                   Pending booking
+                                   Daily Bookings
                             </span>
                             <span class="stat-value">
-                            100
+                            <?php
+                            $totalBookingsForDay = getTotalBookingCountForDay(date('Y-m-d')); //
+                            echo " $totalBookingsForDay";
+                            ?>
                         </span>
                         </div> 
                         <i class="fa fa-times-circle icon">
@@ -101,10 +110,13 @@
                         <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
-                                Chartered booking
+                                Cancelled bookings
                             </span>
                             <span class="stat-value">
-                                50
+                            
+                           <!-- $totalDeletedRides = getTotalDeletedRides();
+                            echo " $totalDeletedRides"; -->
+                            
                             </span>
                         </div> 
                         <i class="fas fa-check icon">
@@ -130,7 +142,7 @@
         
         
 
-        <div class="right">
+        <!-- <div class="right">
             <div class="secondbar">
                 <div class="box">
                     <div id="progressCard" class="outter-card" > 
@@ -198,7 +210,7 @@
                     </div>    
                 </div>         
             </div>    
-        </div>    
+        </div>     -->
 
             
 
