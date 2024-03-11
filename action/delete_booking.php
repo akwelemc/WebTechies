@@ -54,6 +54,6 @@ if (isset($_GET['bookingId'])) {
 $_SESSION["booking_Deletedmsg"] = "Booking deletion failed";
 $_SESSION["booking_deleted"] = false;
 header('Location: ../view/History.php');
+$conn->close();
 exit();
 
-$conn->close();
