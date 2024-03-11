@@ -55,7 +55,7 @@
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>Profile</h2>
+                    <h2>Admin Profile</h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">
@@ -68,7 +68,6 @@
 
             <div id="profile-page">
                 <div class="profile-header">
-                    <h1>Admin Profile</h1>
                 </div>
                 <div class="profile-info">
                     <img src="../images/profile.jpg" alt="Profile Picture">

@@ -56,7 +56,7 @@
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>Bookings Info</h2>
+                    <h2>Passengers Info</h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">
@@ -69,14 +69,14 @@
 
 
             <div class="table-container" style="width: 85%;">
-                <div><h3>Passengers Info</h3></div>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Contact</th>
                             <th>Destination</th>
-                            <th>Action</th>
+                            <th>Date</th>
+                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
