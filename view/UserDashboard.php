@@ -1,5 +1,5 @@
 <?php
-    include("../action/get_history.php");
+include("../action/get_history.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,9 +93,13 @@
                             <span class="title">
                                 Total Rides
                             </span>
-                            <span class="stat-value">
-                                20
-                            </span>
+                            <?php 
+                            include("../action/get_total_number_bookings.php");
+                            $result = getTotalBookings();
+                            echo '<span class="stat-value">'
+                                .$result.
+                            '</span>';
+                            ?>
                         </div>
                         <i class="fas fa-spinner icon" aria-hidden="true"></i>
                         </i>
@@ -109,9 +113,13 @@
                             <span class="title">
                                 Cancelled Rides
                             </span>
+                            <?php
+                            include("../function/get_cancelled_bookings_fxn.php");
+                            ?>
+                            <!-- 
                             <span class="stat-value">
                                 5
-                            </span>
+                            </span> -->
                         </div>
                         <i class="fa fa-times-circle icon">
                         </i>
@@ -125,9 +133,13 @@
                             <span class="title">
                                 Completed Rides
                             </span>
-                            <span class="stat-value">
-                                15
-                            </span>
+                            <?php 
+                            include("../action/get_total_completed_bookings.php");
+                            $result = getTotalCompletedBookings();
+                            echo '<span class="stat-value">'
+                                .$result.
+                            '</span>';
+                            ?>
                         </div>
                         <i class="fas fa-check icon">
                         </i>
@@ -153,20 +165,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                    
+                    <?php
+
                     $results = getTripDetails();
-                    
+
                     $count = 0;
                     foreach ($results as $result) {
                         if ($count >= 5) {
-                            break; 
+                            break;
                         }
-                        
+
                         echo '
                         <tr>
                             <td>' . $result['bid'] . '</td>
-                            <td>' . $result['time']. '</td>
+                            <td>' . $result['time'] . '</td>
                             <td>' . $result['date_booked'] . '</td>
                             <td>' . $result['stopName'] . '</td>
                             <td>' . $result['status_name'] . '</td>
