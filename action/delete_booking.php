@@ -13,9 +13,33 @@ if (isset($_GET['bookingId'])) {
     $delete_busbooking_query = "DELETE FROM busbooking WHERE bookingId = $booking_id";
     mysqli_query($conn, $delete_busbooking_query);
 
-    // Then delete from Bookings
-    $delete_bookings_query = "DELETE FROM Bookings WHERE bookingId = $booking_id";
-    mysqli_query($conn, $delete_bookings_query);
+    $get_current_status_query = "SELECT status_name FROM BookingStatus JOIN Bookings ON Bookings.bookingStatus =BookingStatus.status_id where bookingID =$booking_id";
+    $get_current_status_result = mysqli_query($conn, $get_current_status_query);
+    $get_current_status_row = mysqli_fetch_assoc($get_current_status_result);
+    $get_current_status = $get_current_status_row['status_name'];
+    // echo "current status".$get_current_status;
+    // exit();
+    if ($get_current_status == "Booked") {
+        // echo "current  2status".$get_current_status;
+        // exit();
+        $insert_cancelled_booking_query = "INSERT INTO `CancelledBookings`(`bookingID`) VALUES ('$booking_id')";
+        // echo $insert_cancelled_booking_query;
+        // exit();
+        if (mysqli_query($conn, $insert_cancelled_booking_query) == false) {
+            // echo "hi";
+            // exit();
+            $_SESSION["booking_Deletedmsg"] = "Booking deletion failed";
+            $_SESSION["booking_deleted"] = false;
+            header('Location: ../view/History.php');
+            exit();
+        }
+    }
+    $select_bookingStatus = "SELECT status_id FROM BookingStatus WHERE status_name = 'deleted'";
+    $select_bookingID_result = mysqli_query($conn, $select_bookingStatus);
+    $status_id = mysqli_fetch_column($select_bookingID_result);
+    // Then update status to 'deleted' in Bookings
+    $update_status_query = "UPDATE `Bookings` SET `bookingStatus`='$status_id' WHERE bookingId = $booking_id";
+    $delete_result = mysqli_query($conn, $update_status_query);
     // Check if the deletion was successful
     if ($delete_result == true) {
         $_SESSION["booking_deleted"] = true;
@@ -24,10 +48,12 @@ if (isset($_GET['bookingId'])) {
         header('Location: ../view/History.php');
         exit();
     }
-}
 
+}
 // If the booking ID is not set or deletion fails, redirect to the History page
 $_SESSION["booking_Deletedmsg"] = "Booking deletion failed";
 $_SESSION["booking_deleted"] = false;
 header('Location: ../view/History.php');
+exit();
+
 $conn->close();

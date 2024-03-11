@@ -28,7 +28,7 @@ if (isset($_POST["bookingBtn"])) {
         header("Location: ../view/bookingpage.php");
         exit();
     }
-    $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$date' AND `time_slotID` = $time ";
+    $check_booking_query = "SELECT * FROM `Bookings` JOIN BookingSTatus ON BookingStatus.status_id = Bookings.bookingStatus WHERE pid = $userID AND date_booked = '$date' AND `time_slotID` = $time AND BookingStatus.status_name!= 'deleted' AND BookingStatus.status_name!= 'completed'";
     // echo $check_booking_query;
     // exit();
     $check_booking_result = mysqli_query($conn, $check_booking_query);

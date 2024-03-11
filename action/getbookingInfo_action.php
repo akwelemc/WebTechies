@@ -47,4 +47,3 @@ if ($results === false) {
 
 
 $conn->close();
-?>
