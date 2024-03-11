@@ -17,6 +17,7 @@ body {
     text-align: center;
     margin-left: 10%;
     font: cursive;
+    font-size: 24px;
     color:#fff;
 }
 
@@ -39,6 +40,7 @@ body {
     margin: 0.5px;
     height: 100%; 
     font: cursive;
+    font-size: 16px;
 }
 
 button:hover{
