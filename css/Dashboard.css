@@ -137,10 +137,16 @@ a:hover{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
+  background: #081f5c;
   padding:10px 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
+
+}
+
+h2{
+  font-size: 35px;
+  color: white;
 
 }
 .search-box{
