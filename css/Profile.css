@@ -127,6 +127,8 @@ a:hover{
 
 .main-title{
   float: right;
+  margin: 0;
+  margin-right: -10%;
 }
 
 .firstbar img{
@@ -400,3 +402,16 @@ label {
   background-color: rgba(34, 93, 134, 0.8);
 }
 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
