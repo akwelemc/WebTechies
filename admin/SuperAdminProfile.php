@@ -10,46 +10,59 @@
     
 </head>
 <body>
-<nav>
-        <ul>
-            <li>
-                <a href="../admin/AdminDashboard.php" class="logo">
-                    <img src="../images/Bus.png" alt="">
-                    <span class="nav-item">BusBoss</span>
-                </a>
-            </li>
-            <li>
-                <a href="../admin/AdminDashboard.php">
-                    <i class="fas fa-home"></i>
-                    <span class="nav-item">Home</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="../admin/AdminProfile.php">
-                    <i class="fas fa-user"></i>
-                    <span class="nav-item">Profile</span>
-                </a>
-            </li>
-            <li >
-              <a href="../admin/bookinginfo.php">
-                  <i class="fas fa-book"></i>
-                  <span class="nav-item">Booking Info</span>
-              </a>
-            </li>
-            <li>
-                <a href="../admin/AdminHelp.php">
-                    <i class="fas fa-question-circle"></i>
-                    <span class="nav-item">Help</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Login/logout.php" class="logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="nav-item">Log out</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <nav>
+            <ul>
+                <li>
+                    <a href="../admin/SuperAdminDashboard.php" class="logo">
+                        <img src="../images/Bus.png" alt="">
+                        <span class="nav-item">BusBoss</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="../admin/SuperAdminDashboard.php">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a>
+                </li>
+                <li class="active" >
+                    <a href="../admin/SuperAdminProfile.php">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/bookings.php">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item"> Bookings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/People.php">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-item"> People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/Drivers.php">
+                        <i class="fas fa-id-card"></i>
+                        <span class="nav-item"> Drivers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/Buses.php">
+                        <i class="fas fa-bus-alt"></i>
+                        <span class="nav-item">Buses</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../Login/logout.php" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         
         <div class="main">
             <div class="firstbar">
@@ -79,10 +92,6 @@
                         <p><strong>Email:</strong> johndoe@example.com</p>
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
                         <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
-                        <?php
-                        include("../function/get_license_fxn.php");
-                        include("../function/get_bus_info.php");
-                        ?>
 
                     </div>
                 </div>
@@ -108,19 +117,6 @@
                     </form>
                 </div>
             </div>
-
-            <div id="editBioModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('editBioModal')">&times;</span>
-                    <form id="editProfileForm" method="post" action="../action/edit_AdminBio_action.php">
-                        <label for="bio">Bio:</label>
-                        <textarea id="bio" name="bio"></textarea>
-                        <input type="submit" id="save" value="Save">
-                    </form>
-                </div>
-            </div>
-
-
 
 
             <div id="changeEmailModal" class="modal" >

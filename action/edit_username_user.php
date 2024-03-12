@@ -11,6 +11,7 @@ include "../settings/core.php";
 
 $userID = userIdExist();
 
+
 if (isset($_POST['saveUpdate'])) {
     $firstName = isset($_POST['firstName']) ? mysqli_real_escape_string($conn, $_POST['firstName']):'';
     $lastName = isset($_POST['lastName']) ? mysqli_real_escape_string($conn, $_POST['lastName']):'';
@@ -69,3 +70,4 @@ if (isset($_POST['saveUpdate'])) {
     header("Location: ../view/Profile.php");
     exit;
 }
+?>

@@ -13,13 +13,23 @@ document.getElementById("Edit").addEventListener("click", function() {
     openModal("editProfileModal");
 });
 
-document.getElementById("EditBio").addEventListener("click", function() {
+document.getElementById("bio").addEventListener("click", function() {
     openModal("editBioModal");
+});
+
+document.querySelector(".close").addEventListener("click", function() {
+    closeModal("editBioModal");
 });
 
 document.querySelector(".close").addEventListener("click", function() {
     closeModal("editProfileModal");
 });
+
+document.querySelector(".close").addEventListener("click", function() {
+    closeModal("editProfileModal");
+});
+
+
 
 
 document.getElementById("ChangePassword").addEventListener("click", function() {
