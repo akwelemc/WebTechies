@@ -81,6 +81,47 @@ if (isset($_POST['updateBookingBtn'])) {
                 header("Location: ../view/History.php");
                 exit();
             }
+            else{
+                // // query to select the route from BusStop table
+                $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $newStop";
+                $route_query_result = mysqli_query($conn, $route_query);
+                $route_result = mysqli_fetch_assoc($route_query_result);
+                // var_dump($route_result);
+                // exit();
+                $default_booking_status = 1;
+                $default_bid = 1;
+                // assigning a bus to the passenger is both have the same route
+                $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
+                // echo $bus_query;
+                // exit();
+                $bus_query_result = mysqli_query($conn, $bus_query);
+                $bus_result = mysqli_fetch_all($bus_query_result, MYSQLI_ASSOC);
+                // var_dump($bus_result);
+                // exit();
+                // check which bus has space
+
+                $capacities = 0;
+                $bid = 0;
+                foreach ($bus_result as $row) {
+                    // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
+                    $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
+                    $bus_slots_result = mysqli_query($conn, $bus_slots_query);
+                    $capacities = mysqli_fetch_column($bus_slots_result);
+                    if ($capacities < $row['capacity']) {
+                        $bid = $row['bid'];
+                        break;
+                    }
+                    // echo $capacities[$row['bid']];
+                    // exit();
+                };
+                    if ($bid == 0) {
+                        $_SESSION["booking"] = false;
+                        $_SESSION["booking_created"] = "No available bus";
+                        header("Location: ../view/bookingpage.php");
+                        // echo "fail";
+                        exit();
+                    }
+            }
         }
         // Check if at least one field is provided
         if (empty($newDate) && empty($newTime) && empty($newStop)&& empty($newStatus)) {
@@ -89,6 +130,48 @@ if (isset($_POST['updateBookingBtn'])) {
             header('Location: ../view/History.php');
             exit();
         }
+
+
+            // // query to select the route from BusStop table
+            $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $newStop";
+            $route_query_result = mysqli_query($conn, $route_query);
+            $route_result = mysqli_fetch_assoc($route_query_result);
+            // var_dump($route_result);
+            // exit();
+            $default_booking_status = 1;
+            $default_bid = 1;
+            // assigning a bus to the passenger is both have the same route
+            $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
+            // echo $bus_query;
+            // exit();
+            $bus_query_result = mysqli_query($conn, $bus_query);
+            $bus_result = mysqli_fetch_all($bus_query_result, MYSQLI_ASSOC);
+            // var_dump($bus_result);
+            // exit();
+            // check which bus has space
+
+            $capacities = 0;
+            $bid = 0;
+            foreach ($bus_result as $row) {
+                // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
+                $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
+                $bus_slots_result = mysqli_query($conn, $bus_slots_query);
+                $capacities = mysqli_fetch_column($bus_slots_result);
+                if ($capacities < $row['capacity']) {
+                    $bid = $row['bid'];
+                    break;
+                }
+                // echo $capacities[$row['bid']];
+                // exit();
+            }
+            ;
+            if ($bid == 0) {
+                $_SESSION["booking"] = false;
+                $_SESSION["booking_created"] = "No available bus";
+                header("Location: ../view/bookingpage.php");
+                // echo "fail";
+                exit();
+            }
 
         // Update query
         $update_query = "UPDATE Bookings SET";
@@ -110,6 +193,7 @@ if (isset($_POST['updateBookingBtn'])) {
         if (!empty($newStatus)) {
             $update_fields[] = " bookingStatus = '$newStatus'";
         }
+        $update_fields[]=" bid = '$bid'";
 
         $update_query .= implode(', ', $update_fields);
 
@@ -138,45 +222,3 @@ if (isset($_POST['updateBookingBtn'])) {
         exit();
     }
 }
-
-
-    // // // query to select the route from BusStop table
-    // $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $busStop";
-    // $route_query_result = mysqli_query($conn, $route_query);
-    // $route_result = mysqli_fetch_assoc($route_query_result);
-    // // var_dump($route_result);
-    // // exit();
-    // $default_booking_status = 1;
-    // $default_bid = 1;
-    // // assigning a bus to the passenger is both have the same route
-    // $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
-    // // echo $bus_query;
-    // // exit();
-    // $bus_query_result = mysqli_query($conn, $bus_query);
-    // $bus_result = mysqli_fetch_all($bus_query_result, MYSQLI_ASSOC);
-    // // var_dump($bus_result);
-    // // exit();
-    // // check which bus has space
-
-    // $capacities = 0;
-    // $bid = 0;
-    // foreach ($bus_result as $row) {
-    //     // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
-    //     $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
-    //     $bus_slots_result = mysqli_query($conn, $bus_slots_query);
-    //     $capacities = mysqli_fetch_column($bus_slots_result);
-    //     if ($capacities < $row['capacity']) {
-    //         $bid = $row['bid'];
-    //         break;
-    //     }
-    //     // echo $capacities[$row['bid']];
-    //     // exit();
-    // }
-    // ;
-    // if ($bid == 0) {
-    //     $_SESSION["booking"] = false;
-    //     $_SESSION["booking_created"] = "No available bus";
-    //     header("Location: ../view/bookingpage.php");
-    //     // echo "fail";
-    //     exit();
-    // }

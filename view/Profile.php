@@ -83,18 +83,29 @@
         </div>
         
 
+
             <div id="profile-page">
                 <div class="profile-header">
                     <h1>Profile</h1>
                 </div>
-                <div class="profile-info">
-                    <img src="../images/profile.jpg" alt="Profile Picture">
-                    <div class="user-details">
-                        <?php
-                        include("../function/get_user_profile.php");
-                        ?>
-        
+
+        <div id="profile-page">
+            <div class="profile-header">
+                <h1>Profile</h1>
+            </div>
+            <div class="profile-info">
+                <img src="../images/profile.jpg" alt="Profile Picture">
+                <div class="user-details">
+                    <?php
+                    include("../function/get_user_profile.php");
+                    ?>
+                    <!-- <p><strong>Name:</strong> John Doe</p>
+
                         <!-- <p><strong>Email:</strong> johndoe@example.com</p>
+
+                       <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Email:</strong> johndoe@example.com</p>
+
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
                         <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p>  -->
                     </div>
