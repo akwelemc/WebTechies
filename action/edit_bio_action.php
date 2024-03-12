@@ -9,22 +9,24 @@ if (!isset($_SESSION['user_id'])) {
 
 $userID = userIdExist();
 
-if ( isset($_POST['firstName']) && isset($_POST['lastName'])) {
-    $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
-    $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
+if (isset($_POST['bio'])) {
+    $bio = mysqli_real_escape_string($conn, $_POST['bio']);
 
-    $query = $conn->prepare("UPDATE people SET fname = ?, lname = ? WHERE pid = ?");
-    $query->bind_param('ssi', $firstName, $lastName, $userID);
+  
+    $query = $conn->prepare("UPDATE people SET bio = ? WHERE pid = ?");
+    $query->bind_param('si', $bio, $userID);
 
-    
     if ($query->execute()) {
+       
         header("Location: ../view/Profile.php");
         exit;
     } else {
+        
         header("Location: ../view/Profile.php?error=db");
         exit;
     }
 } else {
+    
     header("Location: ../view/Profile.php?error=missing_data");
     exit;
 }

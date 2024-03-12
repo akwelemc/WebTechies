@@ -65,7 +65,15 @@ include "../function/stats_fxns.php"
                     </div>       -->
                     <img src="../images/profile.jpg" alt=""> 
                 </div>    
-            </div>    
+            </div> 
+            <div class="middlebar">
+                <h1>Welcome (firstnamehere),</h1>
+
+                <h3>Today you would be using (route) route</h3>
+            </div>
+            
+
+
             <div class="middlebar" >
                 <div class="new-box">
                     <div id="progressCard" class="outter-card" > 

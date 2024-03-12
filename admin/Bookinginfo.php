@@ -68,7 +68,7 @@
             </div> 
 
 
-            <div class="table-container" style="width: 85%;">
+            <div class="table-container">
                 <table>
                     <thead>
                         <tr>

@@ -7,9 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$userID = userIdExist();
+$userID = $_SESSION['user_id'];
 
-if ( isset($_POST['firstName']) && isset($_POST['lastName'])) {
+if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
     $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
     $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
 
@@ -18,14 +18,18 @@ if ( isset($_POST['firstName']) && isset($_POST['lastName'])) {
 
     
     if ($query->execute()) {
-        header("Location: ../view/Profile.php");
+        header("Location: ../admin/AdminProfile.php");
         exit;
     } else {
-        header("Location: ../view/Profile.php?error=db");
+  
+        header("Location: ../admin/AdminProfile.php?error=db");
         exit;
     }
 } else {
-    header("Location: ../view/Profile.php?error=missing_data");
+
+    header("Location: ../admin/AdminProfile.php?error=missing_data");
     exit;
 }
-?>
+
+
+
