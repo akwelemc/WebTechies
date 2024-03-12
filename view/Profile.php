@@ -80,9 +80,6 @@
             </div> 
 
             <div id="profile-page">
-                <div class="profile-header">
-                    <h1>Profile</h1>
-                </div>
                 <div class="profile-info">
                     <img src="../images/profile.jpg" alt="Profile Picture">
                     <div class="user-details">
