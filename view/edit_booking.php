@@ -105,7 +105,7 @@ if (isset($_GET["bookingId"])) {
                         <option disabled selected value="0">Choose a bus stop</option>
                         <?php
                         include("../action/get_busStops.php");
-                        $results = getBusStop();
+                            $results = getBusStop();
                         foreach ($results as $stops) {
                             echo "<option value='{$stops['bsid']}'>{$stops['stopName']}</option>";
                         }
