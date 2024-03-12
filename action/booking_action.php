@@ -75,7 +75,8 @@ if (isset($_POST["bookingBtn"])) {
     }
     ;
     if ($bid == 0) {
-        $_SESSION["booking_created"] = false;
+        $_SESSION["booking"] = false;
+        $_SESSION["booking_created"] = "No available bus";
         header("Location: ../view/bookingpage.php");
         // echo "fail";
         exit();
