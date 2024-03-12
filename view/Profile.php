@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="../css/Profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
@@ -45,7 +43,6 @@
                     <span class="nav-item">Maps</span>
                 </a>
             </li>
-
             <li>
                 <a href="../view/bookingpage.php">
                     <i class="fas fa-book"></i>
@@ -70,24 +67,12 @@
     <div class="main">
         <div class="firstbar">
             <div class="head-title">
-
                 <h2>User Profile</h2>
             </div>
             <div class="user">
-                <!-- <div class="search-box">
-                        <i class="fa-solid fa-search"> </i>    
-                        <input type="text" placeholder="Search"/>
-                    </div>       -->
                 <img src="../images/profile.jpg" alt="">
             </div>
         </div>
-        
-
-
-            <div id="profile-page">
-                <div class="profile-header">
-                    <h1>Profile</h1>
-                </div>
 
         <div id="profile-page">
             <div class="profile-header">
@@ -99,101 +84,80 @@
                     <?php
                     include("../function/get_user_profile.php");
                     ?>
-                    <!-- <p><strong>Name:</strong> John Doe</p>
-
-                        <!-- <p><strong>Email:</strong> johndoe@example.com</p>
-
-                       <p><strong>Name:</strong> John Doe</p>
-                        <p><strong>Email:</strong> johndoe@example.com</p>
-
-                        <p><strong>Date of Birth:</strong> January 1, 1990</p>
-                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p>  -->
-                    </div>
-                </div>
-                <div class="profile-actions">
-                    <button class="Edit" id="Edit">Edit Bio/Username</button>
-                    <button class="EditBio" id="bio">Edit Bio </button>
-                    <button class="Editemail" id="Editemail">Change Email</button>
-                    <button class="ChangePassword" id="ChangePassword">Change Password</button>
-                    <form method="" action="../Login/logout.php"><button type="submit" class="Logout">Log Out</button>
-                    </form>
                 </div>
             </div>
 
-            <div id="editProfileModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
-                    <form id="editProfileForm" method="post" action="../action/edit_username_user.php">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" id="firstName" name="firstName">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" id="lastName" name="lastName">
-                        <input type="submit" id="save" value="Save">
-                    </form>
-                </div>
+            <div class="profile-actions">
+                <button class="Edit" id="Edit">Edit Username</button>
+                <button class="EditBio" id="bio">Edit Bio</button>
+                <button class="Editemail" id="Editemail">Change Email</button>
+                <button class="ChangePassword" id="ChangePassword">Change Password</button>
+                <form method="" action="../Login/logout.php"><button type="submit" class="Logout">Log Out</button>
+                </form>
             </div>
+        </div>
 
-
-
-            <div id="editBioModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('editBioModal')">&times;</span>
-                    <form id="editProfileForm" method="post" action="../action/edit_bio_action.php">
-                        <label for="bio">Bio:</label>
-                        <textarea id="bio" name="bio"></textarea>
-                        <input type="submit" id="save" value="Save">
-                    </form>
-                </div>
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
+                <form id="editProfileForm" method="post" action="../action/edit_username_user.php">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName">
+                    <input type="submit" id="save" value="Save">
+                </form>
             </div>
-        
+        </div>
 
-
-            <div id="changeEmailModal" class="modal" >
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('changeEmailModal')">&times;</span>
-                    <form id="changeEmailForm" method="post" action="../action/change_userEmail_action.php">
-                        <label for="currentEmail">Current Email:</label>
-                        <input type="text" id="currentEmail" name="currentEmail">
-                        <label for="newEmail">New Email:</label>
-                        <input type="text" id="newEmail" name="newEmail">
-                        <input type="submit" id="save" value="Save">
-                    </form>
-                </div>
+        <div id="editBioModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('editBioModal')">&times;</span>
+                <form id="editProfileForm" method="post" action="../action/edit_bio_action.php">
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio"></textarea>
+                    <input type="submit" id="save" value="Save">
+                </form>
             </div>
+        </div>
 
-
-
-
-            <div id="changePasswordModal" class="Password_modal">
-                <div class="password-modal-content">
-                    <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
-                    <form id="changePasswordForm" method="post" action="../action/change_userPassword_action.php">
-                        <label for="currentPassword">Current Password:</label>
-                        <input type="password" id="currentPassword" name="currentPassword">
-                        <label for="newPassword">New Password:</label>
-                        <input type="password" id="newPassword" name="newPassword">
-                        <label for="confirmPassword">Confirm New Password:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword">
-                        <input type="submit" id="save" value="Save">
-                    </form>
-                </div>
+        <div id="changeEmailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('changeEmailModal')">&times;</span>
+                <form id="changeEmailForm" method="post" action="../action/change_userEmail_action.php">
+                    <label for="currentEmail">Current Email:</label>
+                    <input type="text" id="currentEmail" name="currentEmail">
+                    <label for="newEmail">New Email:</label>
+                    <input type="text" id="newEmail" name="newEmail">
+                    <input type="submit" id="save" value="Save">
+                </form>
             </div>
+        </div>
 
+        <div id="changePasswordModal" class="Password_modal">
+            <div class="password-modal-content">
+                <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
+                <form id="changePasswordForm" method="post" action="../action/change_userPassword_action.php">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" name="currentPassword">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword">
+                    <label for="confirmPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                    <input type="submit" id="save" value="Save">
+                </form>
+            </div>
+        </div>
     </div>
+
     <script src="../js/Profile.js"></script>
     <script>
         <?php
-        // Check the value of $_SESSION["username_updated"]
         if (isset($_SESSION["username_update"])) {
-            // Check if it's a success or error
             $type = ($_SESSION["username_update"] === true) ? 'success' : 'error';
-
-            // Get the message from $_SESSION["username_updated_created"]
             $message = $_SESSION["username_msg"];
-            // Unset the session variables
             unset($_SESSION["username_update"]);
             unset($_SESSION["username_msg"]);
-            // Output JavaScript code to show the alert
             echo "showAlert('$message', '$type');";
         }
         ?>
@@ -204,11 +168,8 @@
                 showConfirmButton: false,
                 timer: 2000
             });
-
-
         }
     </script>
 </body>
 
 </html>
-
