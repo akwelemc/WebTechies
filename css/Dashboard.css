@@ -11,11 +11,11 @@
 }
 
 body{
-  background: #f7f2eb;
+  background-image: url('../images/dashboard.jpg');
   display: flex;
- 
+  background-repeat: no-repeat;
+  background-size: cover;
   justify-content: space-between;
- 
   width: 100;
 }
 
@@ -55,7 +55,7 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  background: #7096d1;
+  background: #92bbff;
   width: 90px;
   overflow: hidden;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@ nav{
 
 a{
   position: relative;
-  color: rgb(85, 83, 83);
+  color: black;
   font-size: 14px;
   display: table;
   width: 280px;
@@ -120,9 +120,10 @@ a:hover{
 
 .main{
   position: relative;
-  background: #ebe9e9;
+  background: #fff;
   width: 100%;
   padding: 0.5rem;
+  
 }
 
 .firstbar img{
@@ -147,6 +148,7 @@ a:hover{
 h2{
   font-size: 35px;
   color: white;
+  font-family: 'Bookman Old Style';
 
 }
 .search-box{
@@ -179,7 +181,7 @@ h2{
 }
 
 .secondbar{
-  background: #fff;
+  background: #081f5c;
   padding: 2rem;
   border-radius: 10px;  
 }
@@ -198,7 +200,7 @@ h2{
 }
 
 .outter-card{
-  background:rgb(138, 184, 208);
+  background: #fff9f0;
   border-radius: 10px;
   padding: 1.2rem;
   width: 290px;
@@ -207,6 +209,7 @@ h2{
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.5s ease-in-out;
+  margin-top: -30px;
 }
 
 
@@ -225,14 +228,16 @@ h2{
 }
 
 .title{
-    font-size:16px;
+    font-size:20px;
     font-weight: 200;
+    color: black;
 }
 
 .stat-value{
     font-size: 24px;
     font-family:'Courier New', Courier, monospace;
     font-weight: 600;
+    color:black;
 }
 
 
@@ -244,7 +249,7 @@ h2{
 }
 
 .middlebar{
-  background: #fff;
+  background: #081f5c;
   padding: 1rem;
   border-radius: 10px;
   margin: 0;
@@ -279,8 +284,9 @@ table {
 }
 
 thead {
-  background:rgb(138, 184, 208);
+  background:#accbff;
   color: #fff;
+  font-size: 18px;
 }
 
 th {
@@ -294,7 +300,7 @@ tbody {
 
 td {
   padding: 15px;
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
 }
 
