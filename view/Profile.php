@@ -107,7 +107,7 @@
             <div id="editProfileModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
-                    <form id="editProfileForm" method="post" action="../action/edit_bio_username_action.php">
+                    <form id="editProfileForm" method="post" action="../action/edit_username_user.php">
                         <label for="firstName">First Name:</label>
                         <input type="text" id="firstName" name="firstName">
                         <label for="lastName">Last Name:</label>
