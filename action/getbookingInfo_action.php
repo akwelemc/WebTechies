@@ -17,8 +17,9 @@ $sql = "SELECT Bookings.bookingId, Bus.bid, TimeSlots.time, Bookings.date_booked
         JOIN TimeSlots ON TimeSlots.slotID = Bookings.time_slotID
         JOIN BusStop ON BusStop.bsid = Bookings.busStopID
         JOIN Bus ON Bus.bid = Bookings.bid
+        JOIN Driver On Driver.bid = Bookings.bid
         JOIN People ON People.pid = Bookings.pid
-        WHERE Bookings.pid = $userID";
+        WHERE Driver.pid = $userID";
 
 $results = $conn->query($sql);
 
@@ -34,9 +35,8 @@ if ($results === false) {
             echo '<td>' . $row['fullName'] . '</td>';
             echo '<td>' . $row['telnumber'] . '</td>';
             echo '<td>' . $row['stopName'] . '</td>';
-            echo '<td>';
-            
-            echo '</td>';
+            echo '<td>' . $row['date_booked'] . '</td>';
+            echo '<td>'. $row['time'].'</td>';
             echo '</tr>';
         }
     } else {
@@ -47,4 +47,3 @@ if ($results === false) {
 
 
 $conn->close();
-?>

@@ -34,20 +34,23 @@ if (isset($_POST['signInbtn'])) {
             $conn->close();
             exit();
         } else {
-            $_SESSION["password_incorrect"] = "Password incorrect";
+            $_SESSION["login_msg"] = "Password incorrect";
+            $_SESSION['login']= false;
             header('Location: ../Login/login.php');
-            echo"Incorrect password";
             $conn->close();
             exit();
         }
     } else {
-        $_SESSION["email_DNE"] = "Account doesn't exist";
+        $_SESSION["login_msg"] = "Account doesn't exist";
+        $_SESSION['login']= false;
         header('Location: ../Login/login.php');
         $conn->close();
         exit();
     }
 } else {
     // redirect to login
+    $_SESSION["login_msg"] = "Unable to log in";
+    $_SESSION['login']= false;
     header('Location: ../Login/login.php');
     $conn->close();
     exit();

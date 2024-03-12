@@ -55,7 +55,7 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  background: #fff;
+  background: #7096d1;
   width: 90px;
   overflow: hidden;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -105,6 +105,7 @@ nav .fas{
   position: relative;
   top: 12px;
   margin-left: 10px;
+  color: black;
 }
 
 a:hover{
@@ -136,10 +137,16 @@ a:hover{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #fff;
+  background: #081f5c;
   padding:10px 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
+
+}
+
+h2{
+  font-size: 36px;
+  color: white;
 
 }
 .search-box{

@@ -28,7 +28,7 @@ if (isset($_POST["bookingBtn"])) {
         header("Location: ../view/bookingpage.php");
         exit();
     }
-    $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$date' AND `time_slotID` = $time ";
+    $check_booking_query = "SELECT * FROM `Bookings` JOIN BookingSTatus ON BookingStatus.status_id = Bookings.bookingStatus WHERE pid = $userID AND date_booked = '$date' AND `time_slotID` = $time AND BookingStatus.status_name!= 'deleted' AND BookingStatus.status_name!= 'completed'";
     // echo $check_booking_query;
     // exit();
     $check_booking_result = mysqli_query($conn, $check_booking_query);
@@ -93,12 +93,21 @@ if (isset($_POST["bookingBtn"])) {
         $insert_Busbooking_query = "INSERT INTO `BusBooking`(`bid`,`bookingId`) VALUES ('$bid',' $bookingID')";
         $insert_Busbooking_result = mysqli_query($conn, $insert_Busbooking_query);
 
+        if( mysqli_query($conn, $insert_Busbooking_query)){
         // Successful registration
         $_SESSION["booked"] = true;
         $_SESSION["booking_created"] = "Booking successful";
         header("Location: ../view/bookingpage.php");
         // echo "success";
         exit();
+        }
+        else{
+            $_SESSION["booked"] = false;
+            $_SESSION["booking_created"] = "Error booking a slot. Please try again.";
+            header("Location: ../view/bookingpage.php");
+            $conn->close();
+            exit();
+        }
     } else {
         // Registration failed
         $_SESSION["booked"] = false;

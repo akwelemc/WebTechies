@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Log in</title>
 </head>
 <body>
@@ -32,5 +36,31 @@
         
     </form>
     <script src="../Js/login.js"></script>
+    <script>
+    <?php
+    // Check the value of $_SESSION["booked"]
+    if (isset($_SESSION["login"])) {
+      // Check if it's a success or error
+      $type = ($_SESSION["login"] === true) ? 'success' : 'error';
+
+      // Get the message from $_SESSION["booked_created"]
+      $message = $_SESSION["login_msg"];
+      // Unset the session variables
+      unset($_SESSION["login"]);
+      unset($_SESSION["login_msg"]);
+      // Output JavaScript code to show the alert
+      echo "showAlert('$message', '$type');";
+    }
+    ?>
+    function showAlert(message, type) {
+      Swal.fire({
+        icon: type,
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+      });
+
+    }
+  </script>
 </body>
 </html>
