@@ -1,6 +1,6 @@
 <?php
 include_once("../settings/connection.php");
-include_once("../setting/core.php");
+include_once("../settings/core.php");
 
 function getNumberOfCancelledBookings()
 {
