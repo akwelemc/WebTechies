@@ -1,5 +1,5 @@
-<?php 
-    session_start();
+<?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,15 +96,14 @@
                     ?>
                     <!-- <p><strong>Name:</strong> John Doe</p>
 
-<!--             <div id="profile-page">
+         <div id="profile-page">
                 <div class="profile-info">
                     <img src="../images/profile.jpg" alt="Profile Picture">
                     <div class="user-details">
                         <?php
                         include("../function/get_user_profile.php");
                         ?>
-                        <!-- <p><strong>Name:</strong> John Doe</p>
- -->
+                       <p><strong>Name:</strong> John Doe</p>
                         <p><strong>Email:</strong> johndoe@example.com</p>
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
                         <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->

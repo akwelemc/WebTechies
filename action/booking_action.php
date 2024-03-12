@@ -1,9 +1,9 @@
 <?php
 include_once "../settings/connection.php";
 include_once "../settings/core.php";
+$userID = userIdExist();
 if (isset($_POST["bookingBtn"])) {
     // Collecting inputs from user
-    $userID = userIdExist();
     $time = mysqli_real_escape_string($conn, $_POST['time']);
     $date = mysqli_real_escape_string($conn, $_POST['date']);
     $busStop = mysqli_real_escape_string($conn, $_POST['stops']);
