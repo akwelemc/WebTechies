@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="profile-actions">
-                    <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="Edit" id="Edit">Edit Username</button>
                     <button class="EditBio" id="bio">Edit Bio </button>
                     <button class="Editemail" id="Editemail">Change Email</button>
                     <button class = "ChangePassword" id="ChangePassword">Change Password</button>
