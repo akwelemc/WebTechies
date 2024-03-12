@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,6 +81,13 @@ session_start();
                 <img src="../images/profile.jpg" alt="">
             </div>
         </div>
+        
+
+
+            <div id="profile-page">
+                <div class="profile-header">
+                    <h1>Profile</h1>
+                </div>
 
         <div id="profile-page">
             <div class="profile-header">
@@ -96,28 +101,24 @@ session_start();
                     ?>
                     <!-- <p><strong>Name:</strong> John Doe</p>
 
-         <div id="profile-page">
-                <div class="profile-info">
-                    <img src="../images/profile.jpg" alt="Profile Picture">
-                    <div class="user-details">
-                        <?php
-                        include("../function/get_user_profile.php");
-                        ?>
+                        <!-- <p><strong>Email:</strong> johndoe@example.com</p>
+
                        <p><strong>Name:</strong> John Doe</p>
                         <p><strong>Email:</strong> johndoe@example.com</p>
+
                         <p><strong>Date of Birth:</strong> January 1, 1990</p>
-                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
-
-
-            <div class="profile-actions">
-                <button class="Edit" id="Edit">Edit Bio/Username</button>
-                <button class="EditBio" id="bio">Edit Bio </button>
-                <button class="Editemail" id="Editemail">Change Email</button>
-                <button class="ChangePassword" id="ChangePassword">Change Password</button>
-                <form method="" action="../Login/logout.php"><button type="submit" class="Logout">Log Out</button>
-                </form>
+                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p>  -->
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="EditBio" id="bio">Edit Bio </button>
+                    <button class="Editemail" id="Editemail">Change Email</button>
+                    <button class="ChangePassword" id="ChangePassword">Change Password</button>
+                    <form method="" action="../Login/logout.php"><button type="submit" class="Logout">Log Out</button>
+                    </form>
+                </div>
             </div>
-        </div>
 
             <div id="editProfileModal" class="modal">
                 <div class="modal-content">
@@ -143,7 +144,8 @@ session_start();
                         <input type="submit" id="save" value="Save">
                     </form>
                 </div>
-        </div>
+            </div>
+        
 
 
             <div id="changeEmailModal" class="modal" >
@@ -177,12 +179,6 @@ session_start();
                 </div>
             </div>
 
-
-
-
-
-
-
     </div>
     <script src="../js/Profile.js"></script>
     <script>
@@ -212,7 +208,6 @@ session_start();
 
         }
     </script>
-   <script src="../Js/Profile.js"></script>
 </body>
 
 </html>
