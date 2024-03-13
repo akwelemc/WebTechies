@@ -81,7 +81,7 @@
 
             <div id="profile-page">
                 <div class="profile-info">
-                    <img src="../images/profile.jpg" alt="Profile Picture">
+                    <img src="../images/profile1.png" alt="Profile Picture">
                     <div class="user-details">
                         <?php
                         include("../function/get_user_profile.php");
