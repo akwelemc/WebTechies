@@ -82,7 +82,7 @@ include("../action/get_history.php");
                     <i class="fa-solid fa-search"> </i>
                     <input type="text" placeholder="Search" />
                 </div> -->
-                <img src="../images/profile.jpg" alt="">
+                <img src="../images/profile1.png" alt="">
             </div>
         </div>
         <div class="middlebar">
