@@ -1,5 +1,7 @@
 <?php
 include("../action/get_history.php");
+include_once("../settings/core.php");
+userIdExist();
 ?>
 <!DOCTYPE html>
 <html lang="en">

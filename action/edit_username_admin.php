@@ -9,13 +9,12 @@ if (!isset($_SESSION['user_id'])) {
 
 $userID = $_SESSION['user_id'];
 
-if (isset($_POST['bio']) && isset($_POST['firstName']) && isset($_POST['lastName'])) {
-    $bio = mysqli_real_escape_string($conn, $_POST['bio']);
+if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
     $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
     $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
 
-    $query = $conn->prepare("UPDATE people SET bio = ?, fname = ?, lname = ? WHERE pid = ?");
-    $query->bind_param('sssi', $bio, $firstName, $lastName, $userID);
+    $query = $conn->prepare("UPDATE people SET fname = ?, lname = ? WHERE pid = ?");
+    $query->bind_param('ssi', $firstName, $lastName, $userID);
 
     
     if ($query->execute()) {
@@ -31,3 +30,6 @@ if (isset($_POST['bio']) && isset($_POST['firstName']) && isset($_POST['lastName
     header("Location: ../admin/AdminProfile.php?error=missing_data");
     exit;
 }
+
+
+

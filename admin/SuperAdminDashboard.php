@@ -14,35 +14,48 @@ include "../function/stats_fxns.php"
     <nav>
             <ul>
                 <li>
-                    <a href="../admin/AdminDashboard.php" class="logo">
+                    <a href="../admin/SuperAdminDashboard.php" class="logo">
                         <img src="../images/Bus.png" alt="">
                         <span class="nav-item">BusBoss</span>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="../admin/AdminDashboard.php">
+                    <a href="../admin/SuperAdminDashboard.php">
                         <i class="fas fa-home"></i>
                         <span class="nav-item">Home</span>
                     </a>
                 </li>
                 <li >
-                    <a href="../admin/AdminProfile.php">
+                    <a href="../admin/SuperAdminProfile.php">
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
                     </a>
                 </li>
                 <li>
-              <a href="../admin/bookinginfo.php">
-                  <i class="fas fa-book"></i>
-                  <span class="nav-item">Booking Info</span>
-              </a>
-            </li>
-                <li>
-                    <a href="../admin/AdminHelp.php">
-                        <i class="fas fa-question-circle"></i>
-                        <span class="nav-item">Help</span>
+                    <a href="../admin/bookings.php">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item"> Bookings</span>
                     </a>
                 </li>
+                <li>
+                    <a href="../admin/People.php">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-item"> People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/Drivers.php">
+                        <i class="fas fa-id-card"></i>
+                        <span class="nav-item"> Drivers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/Buses.php">
+                        <i class="fas fa-bus-alt"></i>
+                        <span class="nav-item">Buses</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="../Login/logout.php" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
@@ -65,15 +78,7 @@ include "../function/stats_fxns.php"
                     </div>       -->
                     <img src="../images/profile.jpg" alt=""> 
                 </div>    
-            </div> 
-            <div class="middlebar">
-                <h1>Welcome (firstnamehere),</h1>
-
-                <h3>Today you would be using (route) route</h3>
-            </div>
-            
-
-
+            </div>    
             <div class="middlebar" >
                 <div class="new-box">
                     <div id="progressCard" class="outter-card" > 
@@ -122,8 +127,6 @@ include "../function/stats_fxns.php"
                             </span>
                             <span class="stat-value">
                             
-                           <!-- $totalDeletedRides = getTotalDeletedRides();
-                            echo " $totalDeletedRides"; -->
                             
                             </span>
                         </div> 
@@ -147,87 +150,8 @@ include "../function/stats_fxns.php"
                 </div>
             </div>
         </div>        
-        
-        
 
-        <!-- <div class="right">
-            <div class="secondbar">
-                <div class="box">
-                    <div id="progressCard" class="outter-card" > 
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Passengers
-                            </span>    
-                            <span class="stat-value">
-                                700
-                            </span>    
-                            </div> 
-                            <i class="fas fa-spinner icon" aria-hidden="true"></i>
-                            </i>
-                        </div>    
-                        
-                    </div>    
-
-
-                    <div id="incompleteCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                               Total Trips
-                            </span>    
-                            <span class="stat-value">
-                                75
-                            </span>    
-                            </div> 
-                            <i class="fa fa-times-circle icon">
-                            </i>    
-                        </div>    
-                        
-                    </div>    
-
-                    <div id="incompleteCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Number of cancelled rides
-                            </span>    
-                            <span class="stat-value">
-                                14
-                            </span>    
-                            </div> 
-                            <i class="fa fa-times-circle icon">
-                            </i>    
-                        </div>    
-                        
-                    </div>    
-
-                    <div id="completedCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Number of Completed Rides
-                            </span>    
-                            <span class="stat-value">
-                                300
-                            </span>    
-                            </div> 
-                            <i class="fas fa-check icon">
-                            </i>    
-                        </div>    
-                    </div>    
-                </div>         
-            </div>    
-        </div>     -->
-
-            
-
-    
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
     <script src="Dashboard.js"></script> 
-
-
 </body>
 </html>

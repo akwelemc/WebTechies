@@ -1,3 +1,7 @@
+<?php
+include("../settings/core.php");
+ userIdExist();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
