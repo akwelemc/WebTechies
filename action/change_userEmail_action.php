@@ -13,6 +13,8 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
     $currentEmail = mysqli_real_escape_string($conn, $_POST['currentEmail']);
     $newEmail = mysqli_real_escape_string($conn, $_POST['newEmail']);
 
+    
+
     $query = "SELECT * FROM people WHERE pid = '$userID' AND email = '$currentEmail'";
     $result = mysqli_query($conn, $query);
 
