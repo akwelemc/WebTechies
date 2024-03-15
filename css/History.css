@@ -55,7 +55,7 @@ nav{
   bottom: 0;
   height: 100vh;
   left: 0;
-  background: #7096d1;
+  background: #92bbff;
   width: 90px;
   overflow: hidden;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@ nav{
 
 a{
   position: relative;
-  color: rgb(85, 83, 83);
+  color: black;
   font-size: 14px;
   display: table;
   width: 280px;
@@ -147,6 +147,7 @@ a:hover{
 h2{
   font-size: 36px;
   color: white;
+  font-family: 'Bookman Old Style';
 
 }
 .search-box{
@@ -275,8 +276,9 @@ table {
 }
 
 thead {
-  background:rgb(138, 184, 208);
+  background:#accbff;
   color: #fff;
+  font-size: 18px;
 }
 
 th {
@@ -290,7 +292,7 @@ tbody {
 
 td {
   padding: 15px;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
 }
 

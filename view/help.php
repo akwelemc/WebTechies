@@ -76,7 +76,7 @@ include("../settings/core.php");
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile2.jpg" alt=""> 
                 </div>    
             </div>  
 
@@ -117,7 +117,7 @@ include("../settings/core.php");
                         <strong>Feedback:</strong> <br>
                         We value your feedback! Share your thoughts, suggestions, or report any issues you encounter.
                     </p>
-                    <p>For further assistance or inquiries, contact our support team at <a href="mailto:support@busmanagementsystem.com">support@busmanagementsystem.com</a>.</p>
+                    <p>For further assistance or inquiries, contact our support team at <a href="mailto:support@busmanagementsystem.com">support@busmanagementsystem.com</a></p>
                     <p>Thank you for choosing our Bus Management System. We hope it helps streamline your bus operations!</p>
                     
                     <h3>Tips for Efficient Bus Management:</h3>

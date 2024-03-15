@@ -84,7 +84,7 @@ userIdExist();
                     <i class="fa-solid fa-search"> </i>
                     <input type="text" placeholder="Search" />
                 </div> -->
-                <img src="../images/profile1.png" alt="">
+                <img src="../images/defaultprofile2.jpg" alt="">
             </div>
         </div>
         <div class="middlebar">

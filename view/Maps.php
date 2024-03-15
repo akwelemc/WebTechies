@@ -92,7 +92,7 @@ include("../settings/core.php");
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile2.jpg" alt=""> 
                 </div>    
             </div> 
             <div id="map">
