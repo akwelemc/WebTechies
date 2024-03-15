@@ -28,28 +28,49 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword']) && isset($_
                 $updateResult = mysqli_query($conn, $updateQuery);
 
                 if ($updateResult) {
+                    unset($_SESSION["user_id"]);
+                    unset($_SESSION["role_id"]);
+                    unset($_SESSION["user_fname"]);
+                    unset($_SESSION["user_lname"]); 
+                    handleBookingError("Password changed succesfully.");           
                     header("Location: ../login/login.php");
                     exit;
                 } else {
+                    handleBookingError("Update failed. Please try again.");
                     header("Location: ../view/Profile.php?error=update_failed");
                     exit;
                 }
             } else {
+                handleBookingError("Password mismatch. Please try again.");
                 header("Location: ../view/Profile.php?error=password_mismatch");
                 exit;
             }
         } else {
+            handleBookingError("Password mismatch. Please try again.");
             header("Location: ../view/Profile.php?error=current_password_mismatch");
             exit;
         }
     } else {
+        handleBookingError("Error changing password. Please try again.");
         header("Location: ../view/Profile.php?error=user_data_retrieval_failed");
         exit;
     }
 } else {
+    handleBookingError("No data entered. Please try again.");
     header("Location: ../view/Profile.php?error=missing_data");
     exit;
 }
 
-$conn->close();
-?>
+function handleBookingError($errorMessage) {
+    $_SESSION["password_msg"] = false;
+    $_SESSION["password_update"] = $errorMessage;
+    header("Location: ../view/Profile.php");
+    exit();
+}
+
+function handleBookingSuccess($successMessage) {
+    $_SESSION["password_msg"] = true;
+    $_SESSION["password_update"] = $successMessage;
+    header("Location: ../view/Profile.php");
+    exit();
+}
