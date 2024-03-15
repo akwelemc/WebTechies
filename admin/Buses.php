@@ -96,10 +96,28 @@
                 </div>
             </div>
 
+            <div id="addBusStopModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('addBusStopModal')">&times;</span>
+                    <h2 style="color: black;">Add Bus Stop</h2>
+                    <form id="addBusStopForm">
+                        <label for="stopName">Stop Name:</label>
+                        <input type="text" id="stopName" name="stopName" required>
+                        <label for="stopLocation">Stop Location:</label>
+                        <input type="text" id="stopLocation" name="stopLocation" required>
+                        <label for="arrivalTime">Arrival Time:</label>
+                        <input type="time" id="arrivalTime" name="arrivalTime" required>
+                        <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
+                    </form>
+                </div>
+            </div>
+
+
 
             <div class="table-container">
                 <div>
                     <h3 class="main-title"><a href="#" id="addBus">Add Bus</a></h3>
+                    <h3 class="main-title" style="float:left"><a href="#" id="addBusStop">Add Bus Stop</a></h3>
                 </div> 
                 <table>
                     <thead>
