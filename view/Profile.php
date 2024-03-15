@@ -75,13 +75,13 @@
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile2.jpg" alt=""> 
                 </div>    
             </div> 
 
             <div id="profile-page">
                 <div class="profile-info">
-                    <img src="../images/profile1.png" alt="Profile Picture">
+                    <img src="../images/defaultprofile2.jpg" alt="Profile Picture">
                     <div class="user-details">
                         <?php
                         include("../function/get_user_profile.php");
