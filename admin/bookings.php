@@ -11,7 +11,7 @@
     
 </head>
 <body>
-    <nav>
+<nav>
             <ul>
                 <li>
                     <a href="../admin/SuperAdminDashboard.php" class="logo">
@@ -31,13 +31,13 @@
                         <span class="nav-item">Profile</span>
                     </a>
                 </li>
-                <li class="active">
+                <li  class="active">
                     <a href="../admin/bookings.php">
                         <i class="fas fa-book"></i>
                         <span class="nav-item"> Bookings</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/People.php">
                         <i class="fas fa-users"></i>
                         <span class="nav-item"> People</span>
@@ -49,12 +49,19 @@
                         <span class="nav-item"> Drivers</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/Buses.php">
                         <i class="fas fa-bus-alt"></i>
                         <span class="nav-item">Buses</span>
                     </a>
                 </li>
+                <li>
+                    <a href="../admin/Busstop.php">
+                        <i class="fas fa-ban"></i>
+                        <span class="nav-item">Bus Stop</span>
+                    </a>
+                </li>
+
 
                 <li>
                     <a href="../Login/logout.php" class="logout">
