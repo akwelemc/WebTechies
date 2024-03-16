@@ -91,14 +91,13 @@
                             <th>Name</th>
                             <th>DOB</th>
                             <th>Contact</th>
-                            <th>Gender</th>
-                            <th>Destination</th>
-                            <th>Date</th>
-                            <th>Time</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    <?php
+                    include("../action/getAllPassengers.php");
+                    ?>
                     </tbody>
                 </table> 
             </div>

@@ -21,4 +21,12 @@ window.addEventListener("click", function (event) {
     }
 });
 
+function showAlert(message, type) {
+    Swal.fire({
+        icon: type,
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+    });
 
+}

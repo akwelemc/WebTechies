@@ -64,37 +64,43 @@
         </ul>
     </nav>
 
-    <div class="main">
-        <div class="firstbar">
-            <div class="head-title">
-                <h2>User Profile</h2>
-            </div>
-            <div class="user">
-                <img src="../images/profile.jpg" alt="">
-            </div>
-        </div>
+        
+        <div class="main">
+            <div class="firstbar">
+                <div class="head-title">
+                    
+                    <h2>User Profile</h2>
+                </div>    
+                <div class="user">
+                    <!-- <div class="search-box">
+                        <i class="fa-solid fa-search"> </i>    
+                        <input type="text" placeholder="Search"/>
+                    </div>       -->
+                    <img src="../images/defaultprofile2.jpg" alt=""> 
+                </div>    
+            </div> 
 
-        <div id="profile-page">
-            <div class="profile-header">
-                <h1>Profile</h1>
-            </div>
-            <div class="profile-info">
-                <img src="../images/profile.jpg" alt="Profile Picture">
-                <div class="user-details">
-                    <?php
-                    include("../function/get_user_profile.php");
-                    ?>
+            <div id="profile-page">
+                <div class="profile-info">
+                    <img src="../images/defaultprofile2.jpg" alt="Profile Picture">
+                    <div class="user-details">
+                        <?php
+                        include("../function/get_user_profile.php");
+                        ?>
+                        <!-- <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Email:</strong> johndoe@example.com</p>
+                        <p><strong>Date of Birth:</strong> January 1, 1990</p>
+                        <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis non justo suscipit consectetur.</p> -->
+                    </div>
                 </div>
-            </div>
+                <div class="profile-actions">
+                    <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="EditBio" id="bio">Edit Bio </button>
+                    <button class="Editemail" id="Editemail">Change Email</button>
+                    <button class = "ChangePassword" id="ChangePassword">Change Password</button>
+                    <form method="" action ="../Login/logout.php"><button type ="submit" class = "Logout">Log Out</button></form>
+                </div>
 
-            <div class="profile-actions">
-                <button class="Edit" id="Edit">Edit Username</button>
-                <button class="EditBio" id="bio">Edit Bio</button>
-                <button class="Editemail" id="Editemail">Change Email</button>
-                <button class="ChangePassword" id="ChangePassword">Change Password</button>
-                <form method="" action="../Login/logout.php"><button type="submit" class="Logout">Log Out</button>
-                </form>
-            </div>
         </div>
 
         <div id="editProfileModal" class="modal">
@@ -144,7 +150,7 @@
                     <input type="password" id="newPassword" name="newPassword">
                     <label for="confirmPassword">Confirm New Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword">
-                    <input type="submit" id="save" value="Save">
+                    <input type="submit" id="save" name = "saveUpdate" value="Save">
                 </form>
             </div>
         </div>
@@ -158,6 +164,20 @@
             $message = $_SESSION["username_msg"];
             unset($_SESSION["username_update"]);
             unset($_SESSION["username_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["password_update"])) {
+            $type = ($_SESSION["password_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["password_msg"];
+            unset($_SESSION["password_update"]);
+            unset($_SESSION["password_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["email_update"])) {
+            $type = ($_SESSION["email_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["email_msg"];
+            unset($_SESSION["email_update"]);
+            unset($_SESSION["email_msg"]);
             echo "showAlert('$message', '$type');";
         }
         ?>

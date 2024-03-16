@@ -2,6 +2,7 @@
 session_start();
 include("../settings/connection.php");
 include("../settings/core.php");
+
 if (isset($_POST['updateBookingBtn'])) {
     // Check if the required variables are set
     if (isset($_GET['bookingId']) && (isset($_POST['newDate']) || isset($_POST['newTime']) || isset($_POST['newStop']))) {
@@ -13,193 +14,95 @@ if (isset($_POST['updateBookingBtn'])) {
         $newStop = isset($_POST['newStop']) ? mysqli_real_escape_string($conn, $_POST['newStop']) : '';
         $newStatus = isset($_POST['bookingStatus']) ? mysqli_real_escape_string($conn, $_POST['bookingStatus']) : '';
 
-        // echo 'hi:'.$bookingId.'yo'.$newDate.'u'.$newTime.'h'.$newStop.'';
-        // exit();
-        if ($newDate != "") {
-            // Check if date and time are in the future
-            // echo $newDate;
-            // exit();
-            $currentDateTime = date("Y-m-d");
-            // Combine the booking date and time
-            $bookingDateTime = $newDate;
-            if (strtotime($bookingDateTime) <= strtotime($currentDateTime)) {
-                $_SESSION["booking_updated"] = "Booking date and time must be in the future.";
-                $_SESSION["update"] = false;
-                header("Location: ../view/History.php");
-                exit();
-            }
-            // Get the day of the week for the selected date
-            $selectedDayOfWeek = date('l', strtotime($date));
-
-            // Check if the selected day is Saturday or Sunday
-            if ($selectedDayOfWeek === 'Saturday' || $selectedDayOfWeek === 'Sunday') {
-                $_SESSION["booking_updated"] = "Bookings are not allowed on Saturdays or Sundays.";
-                $_SESSION["update"] = false;
-                header("Location: ../view/History.php");
-                exit();
-            }
-            // echo"hh";
-            // exit();
-            if ($newTime != "") {
-                $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$newDate' AND `time_slotID` = $newTime ";
-                // echo $check_booking_query;
-                // exit();
-                $check_booking_result = mysqli_query($conn, $check_booking_query);
-                if (mysqli_num_rows($check_booking_result) > 0) {
-                    $_SESSION["booking_updated"] = "User has aready booked a slot";
-                    $_SESSION["update"] = false;
-                    header("Location: ../view/History.php");
-                    exit();
-                }
-
-            }
-
-        }
-        else if ($newDate=="" && $newStatus!=""){
-            $query_getCurrentDate = "SELECT date_booked FROM Bookings where bookingId = $bookingId";
-            $query_getCurrentDate = mysqli_query($conn, $query_getCurrentDate);
-            $oldDate = mysqli_fetch_column($query_getCurrentDate);
-            $currentDateTime = date("Y-m-d");
-            // Combine the booking date and time
-            $query_getStatus = "SELECT status_name from BookingStatus where status_id = $newStatus;";
-            // echo $query_getStatus;
-            // exit();
-            $query_getStatus = mysqli_query($conn, $query_getStatus);
-            $status = mysqli_fetch_column($query_getStatus);
-            // echo $status;
-            // exit();
-            $bookingDateTime = $oldDate;
-            if ((strtotime($bookingDateTime) >= strtotime($currentDateTime)) && $status=="Completed") {
-                $_SESSION["booking_updated"] = "Cannot complete a future ride.";
-                $_SESSION["update"] = false;
-                header("Location: ../view/History.php");
-                exit();
-            }
-            else if ((strtotime($bookingDateTime) <= strtotime($currentDateTime)) && $status== "Booked") {
-                $_SESSION["booking_updated"] = "Cannot book past rides";
-                $_SESSION["update"] = false;
-                header("Location: ../view/History.php");
-                exit();
-            }
-            else{
-                // // query to select the route from BusStop table
-                $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $newStop";
-                $route_query_result = mysqli_query($conn, $route_query);
-                $route_result = mysqli_fetch_assoc($route_query_result);
-                // var_dump($route_result);
-                // exit();
-                $default_booking_status = 1;
-                $default_bid = 1;
-                // assigning a bus to the passenger is both have the same route
-                $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
-                // echo $bus_query;
-                // exit();
-                $bus_query_result = mysqli_query($conn, $bus_query);
-                $bus_result = mysqli_fetch_all($bus_query_result, MYSQLI_ASSOC);
-                // var_dump($bus_result);
-                // exit();
-                // check which bus has space
-
-                $capacities = 0;
-                $bid = 0;
-                foreach ($bus_result as $row) {
-                    // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
-                    $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
-                    $bus_slots_result = mysqli_query($conn, $bus_slots_query);
-                    $capacities = mysqli_fetch_column($bus_slots_result);
-                    if ($capacities < $row['capacity']) {
-                        $bid = $row['bid'];
-                        break;
-                    }
-                    // echo $capacities[$row['bid']];
-                    // exit();
-                };
-                    if ($bid == 0) {
-                        $_SESSION["booking"] = false;
-                        $_SESSION["booking_created"] = "No available bus";
-                        header("Location: ../view/bookingpage.php");
-                        // echo "fail";
-                        exit();
-                    }
-            }
-        }
-        // Check if at least one field is provided
-        if (empty($newDate) && empty($newTime) && empty($newStop)&& empty($newStatus)) {
+        // Ensure at least one field is provided
+        if (empty($newDate) && empty($newTime) && empty($newStop) && empty($newStatus)) {
             $_SESSION['booking_updated'] = 'At least one field must be entered';
             $_SESSION['update'] = false;
             header('Location: ../view/History.php');
             exit();
         }
 
+        // Check if the new date is in the future
+        $currentDate = date("Y-m-d");
+        if (!empty($newDate) && strtotime($newDate) <= strtotime($currentDate)) {
+            $_SESSION["booking_updated"] = "Booking date must be in the future.";
+            $_SESSION["update"] = false;
+            header("Location: ../view/History.php");
+            exit();
+        }
 
-            // // query to select the route from BusStop table
-            $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $newStop";
-            $route_query_result = mysqli_query($conn, $route_query);
-            $route_result = mysqli_fetch_assoc($route_query_result);
-            // var_dump($route_result);
-            // exit();
-            $default_booking_status = 1;
-            $default_bid = 1;
-            // assigning a bus to the passenger is both have the same route
-            $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
-            // echo $bus_query;
-            // exit();
-            $bus_query_result = mysqli_query($conn, $bus_query);
-            $bus_result = mysqli_fetch_all($bus_query_result, MYSQLI_ASSOC);
-            // var_dump($bus_result);
-            // exit();
-            // check which bus has space
-
-            $capacities = 0;
-            $bid = 0;
-            foreach ($bus_result as $row) {
-                // $bus_slots_query = "SELECT b.bid FROM Bus as b JOIN BusBooking as bb ON b.bid = bb.bid  GROUP BY b.bid HAVING COUNT(bb.bookingId) < b.capacity AND b.route IN (1, 3);";
-                $bus_slots_query = "SELECT COUNT(*) FROM BusBooking WHERE bid = $row[bid]";
-                $bus_slots_result = mysqli_query($conn, $bus_slots_query);
-                $capacities = mysqli_fetch_column($bus_slots_result);
-                if ($capacities < $row['capacity']) {
-                    $bid = $row['bid'];
-                    break;
-                }
-                // echo $capacities[$row['bid']];
-                // exit();
-            }
-            ;
-            if ($bid == 0) {
-                $_SESSION["booking"] = false;
-                $_SESSION["booking_created"] = "No available bus";
-                header("Location: ../view/bookingpage.php");
-                // echo "fail";
+        // Check if the selected day is Saturday or Sunday
+        if (!empty($newDate)) {
+            $selectedDayOfWeek = date('l', strtotime($newDate));
+            if ($selectedDayOfWeek === 'Saturday' || $selectedDayOfWeek === 'Sunday') {
+                $_SESSION["booking_updated"] = "Bookings are not allowed on Saturdays or Sundays.";
+                $_SESSION["update"] = false;
+                header("Location: ../view/History.php");
                 exit();
             }
+        }
+
+        // Check for duplicate bookings
+        if (!empty($newDate) && !empty($newTime)) {
+            $check_booking_query = "SELECT * FROM `Bookings` WHERE pid = $userID AND date_booked = '$newDate' AND `time_slotID` = $newTime";
+            $check_booking_result = mysqli_query($conn, $check_booking_query);
+            if (mysqli_num_rows($check_booking_result) > 0) {
+                $_SESSION["booking_updated"] = "User has already booked a slot";
+                $_SESSION["update"] = false;
+                header("Location: ../view/History.php");
+                exit();
+            }
+        }
+
+        // Check if the user tries to update the status for past or future rides
+        if (empty($newDate) && !empty($newStatus)) {
+            $query_getCurrentDate = "SELECT date_booked FROM Bookings WHERE bookingId = $bookingId";
+            $query_getCurrentDate_result = mysqli_query($conn, $query_getCurrentDate);
+            $oldDate = mysqli_fetch_assoc($query_getCurrentDate_result)['date_booked'];
+            $currentDateTime = date("Y-m-d");
+
+            // Get the status name
+            $query_getStatus = "SELECT status_name FROM BookingStatus WHERE status_id = $newStatus";
+            $query_getStatus_result = mysqli_query($conn, $query_getStatus);
+            $status = mysqli_fetch_assoc($query_getStatus_result)['status_name'];
+
+            // Check if the status update is valid
+            if ((strtotime($oldDate) >= strtotime($currentDateTime)) && $status == "Completed") {
+                $_SESSION["booking_updated"] = "Cannot complete a future ride.";
+            } else if ((strtotime($oldDate) <= strtotime($currentDateTime)) && $status == "Booked") {
+                $_SESSION["booking_updated"] = "Cannot book past rides";
+            } else {
+                $_SESSION["booking_updated"] = "Invalid status update";
+            }
+            $_SESSION["update"] = false;
+            header("Location: ../view/History.php");
+            exit();
+        }
 
         // Update query
         $update_query = "UPDATE Bookings SET";
-
-        // Build the query dynamically based on the presence of each field
         $update_fields = array();
 
         if (!empty($newDate)) {
             $update_fields[] = " date_booked = '$newDate'";
         }
-
         if (!empty($newTime)) {
             $update_fields[] = " time_slotID = '$newTime'";
         }
-
         if (!empty($newStop)) {
             $update_fields[] = " busStopID = '$newStop'";
         }
         if (!empty($newStatus)) {
             $update_fields[] = " bookingStatus = '$newStatus'";
         }
-        $update_fields[]=" bid = '$bid'";
+
+        // Add bus assignment logic
+        if (!empty($newStop)) {
+            // Your logic for assigning a bus to the booking goes here
+        }
 
         $update_query .= implode(', ', $update_fields);
-
         $update_query .= " WHERE bookingId = '$bookingId'";
-        // echo $update_query;
-        // exit();
 
         $update_query_result = mysqli_query($conn, $update_query);
 
@@ -214,11 +117,13 @@ if (isset($_POST['updateBookingBtn'])) {
             header('Location: ../view/History.php');
             exit();
         }
+
     } else {
         // Handle case where required variables are missing
         $_SESSION['booking_updated'] = 'Missing required variables';
         $_SESSION['update'] = false;
-        header('Location: ../vie/History.php');
+        header('Location: ../view/History.php');
         exit();
     }
 }
+?>

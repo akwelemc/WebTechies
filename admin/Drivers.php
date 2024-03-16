@@ -88,24 +88,26 @@
             
             
             <div class="table-container">
-                <div>
+                <!-- <div>
                     <h3 class="main-title"><a href="#" id="addDriver">Add Driver</a></h3>
-                </div> 
+                </div>  -->
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>DOB</th>
+                            <th>Email</th>
+                            <th>license Number</th>
                             <th>Contact</th>
-                            <th>Gender</th>
                             <th>Assigned Bus</th>
-                            <th>Time</th>
-                            <th>Route</th>
-                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                    
+
+
+                    <?php
+                    include("../action/getDrivers.php");
+                    ?>
                     </tbody>
                     </table> 
             </div>
@@ -114,7 +116,7 @@
         
         
         
-        <div id="addDriverModal" class="modal">
+        <!-- <div id="addDriverModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addDriverModal')">&times;</span>
                 <h2 style="color: black;">Add Driver</h2>
@@ -132,7 +134,9 @@
                     <button type="submit">Add Driver</button>
                 </form>
             </div>
-        </div>
+        </div> -->
+    
         <script src="../js/Driver.js"></script>
+
 </body> 
 </html>    
