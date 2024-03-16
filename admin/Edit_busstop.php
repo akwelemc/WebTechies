@@ -88,11 +88,11 @@
                 <form action="#" method="POST" class="edit-form">
                     <div class="form-group">
                         <label for="stopName">Stop Name:</label>
-                        <input type="text" id="stopName" name="stopName" placeholder="Enter stop name" required>
+                        <input type="text" id="stopName" name="stopName" placeholder="Enter stop name" >
                     </div>
                     <div class="form-group">
                         <label for="location">Location:</label>
-                        <input type="text" id="location" name="location" placeholder="Enter location" required>
+                        <input type="text" id="location" name="location" placeholder="Enter location" >
                     </div>
                     <div class="form-group">
                         <label for="description">routeDescription</label>

@@ -24,23 +24,6 @@ if (isset($_GET["bsid"])) {
         $types .= 'i';
         $params[] = $_POST['description'];
     }
-    if (!empty($_POST['reg_number'])) {
-        $sql = "SELECT * FROM Bus WHERE registrationNumber= ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $_POST['reg_number']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            // Bus name already exists for another bus
-            $_SESSION['bus_updated'] = false;
-            $_SESSION['bus_msg'] = "Bus already exists. Please check the registration number";
-            header("Location: ../admin/Buses.php");
-            exit();
-        }
-        $updates[] = "registrationNumber=?";
-        $types .= 's';
-        $params[] = $_POST['reg_number'];
-    }
     if (!empty($_POST['route'])) {
         $booking_check_sql = "SELECT COUNT(*) AS num_bookings FROM Bookings WHERE bid = ?";
         $booking_stmt = $conn->prepare($booking_check_sql);
@@ -51,8 +34,8 @@ if (isset($_GET["bsid"])) {
     
         // If there are bookings associated with the bus, prevent deletion
         if ($num_bookings > 0) {
-            $_SESSION['bus_deleted'] = false;
-            $_SESSION['bus_message'] = "Cannot chnage the route of bus with booked passengers.";
+            $_SESSION['busStop_updated'] = false;
+            $_SESSION['busStop_updated'] = "Cannot change the route of bus with booked passengers.";
         }
         $updates[] = "route_id=?";
         $types .= 'i';
