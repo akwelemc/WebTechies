@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drivers</title>
     <link rel="stylesheet" href="../css/Profile.css">
-    
     <link rel="stylesheet" href="../css/Dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     
 </head>
@@ -72,6 +72,7 @@
                 </li>
             </ul>
         </nav>
+     
         
         <div class="main">
             <div class="firstbar">
@@ -103,38 +104,16 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
                     <?php
                     include("../action/getDrivers.php");
                     ?>
-                    </tbody>
+                        </tbody>
                     </table> 
             </div>
         </div>
         
         
         
-        
-        <!-- <div id="addDriverModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('addDriverModal')">&times;</span>
-                <h2 style="color: black;">Add Driver</h2>
-                <form id="addDriverForm">
-                    <label for="driverName">Driver Name:</label>
-                    <input type="text" id="driverName" name="driverName" required>
-                    <label for="licenseNumber">License Number:</label>
-                    <input type="text" id="licenseNumber" name="licenseNumber" required>
-                    <label for="assignBus">Assign Bus:</label>
-                    <select id="assignBus" name="assignBus" required>
-                        <option value="">Select Bus</option>
-                        <option value="bus1">Bus 1</option>
-                        <option value="bus2">Bus 2</option>
-                    </select>
-                    <button type="submit">Add Driver</button>
-                </form>
-            </div>
-        </div> -->
     
         <script src="../js/Driver.js"></script>
 

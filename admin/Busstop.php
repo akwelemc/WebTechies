@@ -83,23 +83,33 @@
             </div> 
 
             
-
-
+            
             <div id="addBusStopModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('addBusStopModal')">&times;</span>
                     <h2 style="color: black;">Add Bus Stop</h2>
-                    <form id="addBusStopForm">
+                    <form id="addBusStopForm" method ="post" action ="../action/addBusStop.php">
                         <label for="stopName">Stop Name:</label>
                         <input type="text" id="stopName" name="stopName" required>
-                        <label for="Bsid">Stop Bsid</label>
-                        <input type="text" id="Bsid" name="Bsid" required>
-                        <label for="routeDescription">Route Description:</label>
-                        <input type="text" id="routeDescription" name="routeDescription" required>
-                        <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
+                        <label for="stopLocation">Description</label>
+                        <input type="text" id="stopDescription" name="stopDescription" required>
+                        <label for="arrivalTime">Route</label>
+                        <select id="route" name="route" required>
+                            <option disabled selected value="0">Choose a route</option>
+                            <?php
+                            include_once("../action/get_routes.php");
+                            $results = getRoute();
+
+                            foreach ($results as $result) {
+                                echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
+                            }
+
+                            ?>
+                        </select> <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
                     </form>
                 </div>
             </div>
+
 
 
             <div class="table-container">
@@ -141,6 +151,37 @@
     document.querySelector(".close").addEventListener("click", function () {
         closeModal("addBusStopModal");
     });
+
+
+
+    
+        <?php
+       
+        if (isset($_SESSION["bus_stop_added"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["bus_stop_added"] === true) ? 'success' : 'error';
+
+            // Get the message f
+            $message = $_SESSION["bus_stop_message"];
+            // Unset the session variables
+            unset($_SESSION["bus_stop_added"]);
+            unset($_SESSION["bus_stop_message"]);
+            echo "showAlert('$message', '$type');";
+        }
+      
+        
+
+        ?>
+        function showAlert(message, type) {
+            Swal.fire({
+                icon: type,
+                title: message,
+                showConfirmButton: false,
+                timer: 2000
+            });
+
+        }
+      
 
     </script>
 
