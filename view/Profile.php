@@ -173,6 +173,13 @@
             unset($_SESSION["password_msg"]);
             echo "showAlert('$message', '$type');";
         }
+        if (isset($_SESSION["email_update"])) {
+            $type = ($_SESSION["email_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["email_msg"];
+            unset($_SESSION["email_update"]);
+            unset($_SESSION["email_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
         ?>
         function showAlert(message, type) {
             Swal.fire({

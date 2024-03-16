@@ -61,7 +61,7 @@ session_start();
         </a>
       </li>
       <li>
-        <a href="../view/login.php" class="logout">
+        <a href="../Login/logout.php" class="logout">
           <i class="fas fa-sign-out-alt"></i>
           <span class="nav-item">Log out</span>
         </a>
