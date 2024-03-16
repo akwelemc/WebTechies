@@ -2,12 +2,12 @@
 include "../settings/connection.php";
 include "../settings/core.php";
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../login/login.php");
-    exit();
-}
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: ../login/login.php");
+//     exit();
+// }
 
-$userID = $_SESSION['user_id'];
+$userID = userIdExist();
 
 if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
     // echo'done';
@@ -20,8 +20,8 @@ if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
 
 
     if ($query->execute()) {
-        // echo'done4';
-        // exit();
+        echo'done4';
+        exit();
         $_SESSION['username_msg'] = 'Username updated';
         $_SESSION['username_update'] = true;
         header("Location: " . $_SERVER['HTTP_REFERER']);
