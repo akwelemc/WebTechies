@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="../admin/Buses.php">
+                <a href="../admin/Busstop.php">
                     <i class="fas fa-ban"></i>
                     <span class="nav-item">Bus Stop</span>
                 </a>

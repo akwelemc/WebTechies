@@ -17,9 +17,8 @@ session_start();
 
 
 </head>
-
 <body>
-    <nav>
+    <nav>   
         <ul>
             <li>
                 <a href="../admin/SuperAdminDashboard.php" class="logo">
@@ -27,25 +26,25 @@ session_start();
                     <span class="nav-item">BusBoss</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="../admin/SuperAdminDashboard.php">
                     <i class="fas fa-home"></i>
                     <span class="nav-item">Home</span>
                 </a>
             </li>
-            <li>
+            <li  >
                 <a href="../admin/SuperAdminProfile.php">
                     <i class="fas fa-user"></i>
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="../admin/bookings.php">
                     <i class="fas fa-book"></i>
                     <span class="nav-item"> Bookings</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="../admin/People.php">
                     <i class="fas fa-users"></i>
                     <span class="nav-item"> People</span>
@@ -57,10 +56,16 @@ session_start();
                     <span class="nav-item"> Drivers</span>
                 </a>
             </li>
-            <li class="active">
+            <li class="active" >
                 <a href="../admin/Buses.php">
                     <i class="fas fa-bus-alt"></i>
                     <span class="nav-item">Buses</span>
+                </a>
+            </li>
+            <li >
+                <a href="../admin/Busstop.php">
+                    <i class="fas fa-ban"></i>
+                    <span class="nav-item">Bus Stop</span>
                 </a>
             </li>
 
@@ -88,7 +93,7 @@ session_start();
         <div id="addBusModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addBusModal')">&times;</span>
-                <h2>Add Bus</h2>
+                <h2 style="color: black;">Add Bus</h2>
                 <form id="addBusForm" method="post" action="../action/addBus.php">
                     <label for="busName">Bus Name:</label>
                     <input type="text" id="busName" name="busName" required>
@@ -121,7 +126,7 @@ session_start();
         <div class="table-container">
             <div>
                 <h3 class="main-title"><a href="#" id="addBus">Add Bus</a></h3>
-                <h3 class="main-title" style="float:left"><a href="#" id="addBusStop">Add Bus Stop</a></h3>
+                
             </div>
             <table>
                 <thead>
