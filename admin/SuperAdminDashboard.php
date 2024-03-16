@@ -89,8 +89,9 @@ include "../function/stats_fxns.php"
                             </span>
                             <span class="stat-value">
                             <?php
+                            include "../action/getAllBookings.php";
                             $totalBookings = getTotalBookingCount();
-                            echo " $totalBookings";
+                            echo $totalBookings;
                             ?>
                             </span>
                         </div> 
@@ -104,12 +105,13 @@ include "../function/stats_fxns.php"
                         <div class="stat-icon">
                             <div class="stat">
                                 <span class="title">
-                                   Daily Bookings
+                                    Total Number of Completed rides
                             </span>
                             <span class="stat-value">
                             <?php
-                            $totalBookingsForDay = getTotalBookingCountForDay(date('Y-m-d')); //
-                            echo " $totalBookingsForDay";
+                            include "../action/getAllCompletedBookings.php";
+                            $totalBookingsForDay = getAllCompletedBookings(); //
+                            echo $totalBookingsForDay;
                             ?>
                         </span>
                         </div> 
@@ -127,7 +129,10 @@ include "../function/stats_fxns.php"
                             </span>
                             <span class="stat-value">
                             
-                            
+                            <?php
+                                include("../action/getAllCancelledBookings.php");
+                                echo getAllfCancelledBookings();
+                                ?>
                             </span>
                         </div> 
                         <i class="fas fa-check icon">
