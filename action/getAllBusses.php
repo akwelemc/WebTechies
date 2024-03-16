@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["capacity"] . "</td>";
         echo "<td>" . $row["registrationNumber"] . "</td>";
         echo "<td>" . $row["route"] . "</td>";
-        echo "<td><a href='edit_bus.php?id=" . $row["bid"] . "'>Edit</a> | <a href='delete_bus.php?id=" . $row["bid"] . "'>Delete</a></td>";
+        echo "<td><a href='../admin/edit_bus.php?bid=" . $row["bid"] . "'>Edit</a> | <a href='../action/delete_bus.php?bid=" . $row["bid"] . "'>Delete</a></td>";
         echo "</tr>";
     }
 } else {

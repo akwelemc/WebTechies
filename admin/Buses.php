@@ -1,6 +1,6 @@
 <?php
-// include("../settings/core.php");
-// userIdExist();
+session_start();
+// session_abort();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="../css/Dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script src="sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -121,14 +120,24 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addBusStopModal')">&times;</span>
                 <h2 style="color: black;">Add Bus Stop</h2>
-                <form id="addBusStopForm">
+                <form id="addBusStopForm" method ="post" action ="../action/addBusStop.php">
                     <label for="stopName">Stop Name:</label>
                     <input type="text" id="stopName" name="stopName" required>
                     <label for="stopLocation">Description</label>
                     <input type="text" id="stopDescription" name="stopDescription" required>
-                    <label for="arrivalTime">Arrival Time:</label>
-                    <input type="time" id="arrivalTime" name="arrivalTime" required>
-                    <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
+                    <label for="arrivalTime">Route</label>
+                    <select id="route" name="route" required>
+                        <option disabled selected value="0">Choose a route</option>
+                        <?php
+                        include_once("../action/get_routes.php");
+                        $results = getRoute();
+
+                        foreach ($results as $result) {
+                            echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
+                        }
+
+                        ?>
+                    </select> <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
                 </form>
             </div>
         </div>
@@ -152,9 +161,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <?php
-                        include("../action/getAllBusses.php");
-                        ?>
+                    <?php
+                    include("../action/getAllBusses.php");
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -163,45 +172,68 @@
 
 
 
-    <script src="../js/Buses.js"></script>
     <script>
-            <?php
-            // Check the value of $_SESSION["booked"]
-            if (isset($_SESSION["bus_added"])) {
-                // Check if it's a success or error
-                $type = ($_SESSION["bus_added"] === true) ? 'success' : 'error';
+        <?php
+        // Check the value of $_SESSION["booked"]
+        if (isset($_SESSION["bus_added"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["bus_added"] === true) ? 'success' : 'error';
 
-                // Get the message from $_SESSION["booked_created"]
-                $message = $_SESSION["bus_msg"];
-                // Unset the session variables
-                unset($_SESSION["bus_added"]);
-                unset($_SESSION["bus_msg"]);
-                // Output JavaScript code to show the alert
-                echo "showAlert('$message', '$type');";
-            }
-            if (isset($_SESSION["update"])) {
-                // Check if it's a success or error
-                $type = ($_SESSION["update"] === true) ? 'success' : 'error';
+            // Get the message from $_SESSION["booked_created"]
+            $message = $_SESSION["bus_msg"];
+            // Unset the session variables
+            unset($_SESSION["bus_added"]);
+            unset($_SESSION["bus_msg"]);
+            // Output JavaScript code to show the alert
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["bus_stop_added"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["bus_stop_added"] === true) ? 'success' : 'error';
 
-                // Get the message f
-                $message = $_SESSION["booking_updated"];
-                // Unset the session variables
-                unset($_SESSION["update"]);
-                unset($_SESSION["booking_updated"]);
-                echo "showAlert('$message', '$type');";
-            }
+            // Get the message f
+            $message = $_SESSION["bus_stop_message"];
+            // Unset the session variables
+            unset($_SESSION["bus_stop_added"]);
+            unset($_SESSION["bus_stop_message"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["bus_deleted"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["bus_deleted"] === true) ? 'success' : 'error';
 
-            ?>
-            function showAlert(message, type) {
-                Swal.fire({
-                    icon: type,
-                    title: message,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+            // Get the message f
+            $message = $_SESSION["bus_message"];
+            // Unset the session variables
+            unset($_SESSION["bus_deleted"]);
+            unset($_SESSION["bus_message"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["bus_updated"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["bus_updated"] === true) ? 'success' : 'error';
 
-            }
-        </script>
+            // Get the message f
+            $message = $_SESSION["bus_message"];
+            // Unset the session variables
+            unset($_SESSION["bus_updated"]);
+            unset($_SESSION["bus_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+
+        ?>
+        function showAlert(message, type) {
+            Swal.fire({
+                icon: type,
+                title: message,
+                showConfirmButton: false,
+                timer: 2000
+            });
+
+        }
+    </script>    
+    <script src="../js/Buses.js"></script>
+
 </body>
 
 </html>
