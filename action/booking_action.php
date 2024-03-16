@@ -38,7 +38,13 @@ if (isset($_POST["bookingBtn"])) {
     // Find available bus
     $route_query = "SELECT `route_id` FROM BusStop WHERE bsid = $busStop";
     $route_result = mysqli_fetch_assoc(mysqli_query($conn, $route_query));
+    if($route_result["route_id"] == "3") {
+        $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = 1 OR route_id = 3 OR route_id = 2";
+    }
+
+    else{
     $bus_query = "SELECT bid, capacity FROM Bus WHERE route_id = $route_result[route_id] OR route_id = 3";
+    }
     $bus_result = mysqli_query($conn, $bus_query);
     $bid = 0;
     while ($row = mysqli_fetch_assoc($bus_result)) {
