@@ -14,7 +14,7 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
     $newEmail = mysqli_real_escape_string($conn, $_POST['newEmail']);
 
   // Ensure that the user email is unique
-  $check_email_query = "SELECT * FROM People WHERE email = '$email'";
+  $check_email_query = "SELECT * FROM People WHERE email = '$newEmail'";
   $check_email_result = mysqli_query($conn, $check_email_query);
 
 
@@ -22,7 +22,7 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
   if (mysqli_num_rows($check_email_result) > 0) {
     $_SESSION['email_update'] = false;
     $_SESSION["email_msg"] = "Account with this email already exists";
-    header("Location: ../Login/register.php");
+    header("Location: ../view/Profile.php");
     // echo "email fail";
     exit();
   }
@@ -35,7 +35,7 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
 
         if ($updateResult) {
             header("Location: ../view/Profile.php");
-            handleBookingError("Email changed");
+            handleBookingSuccess("Email changed");
             exit;
         } else {
             handleBookingError("Update failed. Please try again.");
