@@ -44,7 +44,7 @@ nav:hover{
 
 nav li:hover,
 .active{
-  background: #44414158;
+  background: #fff;
     
   
 }
@@ -255,6 +255,8 @@ h2{
   margin: 0;
   height: 30%;
   margin-top: 2%;
+  
+
  
   
 }

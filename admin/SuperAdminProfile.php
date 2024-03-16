@@ -6,7 +6,7 @@
     <title>AdminProfile</title>
     <link rel="stylesheet" href="../css/Profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <script src="sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </head>
 <body>
@@ -155,8 +155,39 @@
 
         </div>
 
-
-
+    <script>
+        <?php
+        if (isset($_SESSION["username_update"])) {
+            $type = ($_SESSION["username_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["username_msg"];
+            unset($_SESSION["username_update"]);
+            unset($_SESSION["username_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["password_update"])) {
+            $type = ($_SESSION["password_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["password_msg"];
+            unset($_SESSION["password_update"]);
+            unset($_SESSION["password_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["email_update"])) {
+            $type = ($_SESSION["email_update"] === true) ? 'success' : 'error';
+            $message = $_SESSION["email_msg"];
+            unset($_SESSION["email_update"]);
+            unset($_SESSION["email_msg"]);
+            echo "showAlert('$message', '$type');";
+        }
+        ?>
+        function showAlert(message, type) {
+            Swal.fire({
+                icon: type,
+                title: message,
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }
+    </script>
     <script src="../js/Profile.js"></script>
     </body> 
 </html>    

@@ -23,10 +23,15 @@ if (isset($_POST['signInbtn'])) {
             $_SESSION['user_fname'] = $result['fname'];
             $_SESSION['user_lname'] = $result['lname'];
             $_SESSION['role_id'] = $result['role_id'];
-            if ($_SESSION['role_id'] == 2 ||$_SESSION['role_id'] == 1 ) {
+            if ($_SESSION['role_id'] == 2) {
                 header('Location: ../admin/AdminDashboard.php');
                 $conn->close();
                 exit();
+            }
+            else if($_SESSION['role_id'] == 1 ){
+                header('Location: ../admin/SuperAdminDashboard.php');
+                $conn->close();
+                exit();   
             }
             // echo'hii2';
             // exit();

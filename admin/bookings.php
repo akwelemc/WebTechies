@@ -86,10 +86,15 @@
                             <th>Destination</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Status</th>
+                            <th>Bus</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    <?php
+                    include("../action/getALlBookingInfo.php");
+                    ?>
                     </tbody>
                 </table> 
             </div>
