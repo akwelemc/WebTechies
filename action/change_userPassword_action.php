@@ -62,15 +62,15 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword']) && isset($_
 }
 
 function handleBookingError($errorMessage) {
-    $_SESSION["password_msg"] = false;
-    $_SESSION["password_update"] = $errorMessage;
+    $_SESSION["password_update"] = false;
+    $_SESSION["password_msg"] = $errorMessage;
     header("Location: ../view/Profile.php");
     exit();
 }
 
 function handleBookingSuccess($successMessage) {
-    $_SESSION["password_msg"] = true;
-    $_SESSION["password_update"] = $successMessage;
+    $_SESSION["password_update"] = true;
+    $_SESSION["password_msg"] = $successMessage;
     header("Location: ../view/Profile.php");
     exit();
 }

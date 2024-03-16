@@ -1,3 +1,7 @@
+<?php
+include_once("../setting/core.php");
+userIdExist();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +94,13 @@
                         <label for="regNumber">Registration Number:</label>
                         <input type="text" id="regNumber" name="regNumber" required>
                         <label for="route">Route:</label>
-                        <input type="text" id="route" name="route" required>
+                        <select type="text" id="route" name="route" required>
+
+                        <?php 
+                        include("../action/get_routes.php");
+
+                        ?>
+                    
                         <button type="submit">Add Bus</button>
                     </form>
                 </div>
