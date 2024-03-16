@@ -88,7 +88,7 @@ session_start();
         <div id="addBusModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addBusModal')">&times;</span>
-                <h2>Add Bus</h2>
+                <h2 style="color: black;">Add Bus </h2>
                 <form id="addBusForm" method="post" action="../action/addBus.php">
                     <label for="busName">Bus Name:</label>
                     <input type="text" id="busName" name="busName" required>
