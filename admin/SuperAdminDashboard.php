@@ -11,7 +11,7 @@ include "../function/stats_fxns.php"
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <nav>
+<nav>
             <ul>
                 <li>
                     <a href="../admin/SuperAdminDashboard.php" class="logo">
@@ -19,25 +19,25 @@ include "../function/stats_fxns.php"
                         <span class="nav-item">BusBoss</span>
                     </a>
                 </li>
-                <li class="active">
+                <li class="active" >
                     <a href="../admin/SuperAdminDashboard.php">
                         <i class="fas fa-home"></i>
                         <span class="nav-item">Home</span>
                     </a>
                 </li>
-                <li >
+                <li  >
                     <a href="../admin/SuperAdminProfile.php">
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/bookings.php">
                         <i class="fas fa-book"></i>
                         <span class="nav-item"> Bookings</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/People.php">
                         <i class="fas fa-users"></i>
                         <span class="nav-item"> People</span>
@@ -49,12 +49,19 @@ include "../function/stats_fxns.php"
                         <span class="nav-item"> Drivers</span>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="../admin/Buses.php">
                         <i class="fas fa-bus-alt"></i>
                         <span class="nav-item">Buses</span>
                     </a>
                 </li>
+                <li >
+                    <a href="../admin/Busstop.php">
+                        <i class="fas fa-ban"></i>
+                        <span class="nav-item">Bus Stop</span>
+                    </a>
+                </li>
+
 
                 <li>
                     <a href="../Login/logout.php" class="logout">
