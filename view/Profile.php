@@ -150,7 +150,7 @@
                     <input type="password" id="newPassword" name="newPassword">
                     <label for="confirmPassword">Confirm New Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword">
-                    <input type="submit" id="save" value="Save">
+                    <input type="submit" id="save" name = "saveUpdate" value="Save">
                 </form>
             </div>
         </div>

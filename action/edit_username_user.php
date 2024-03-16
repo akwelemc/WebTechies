@@ -22,7 +22,7 @@ if (isset($_POST['saveUpdate'])) {
     if (empty($firstName)&& empty($lastName)) {
         $_SESSION['username_msg'] = 'At least one field must be entered';
         $_SESSION['username_update'] = false;
-        header('Location: ../view/Profile.php');
+        header("Location: ".$_SERVER['HTTP_REFERER']);
         exit();
     }
 
@@ -54,20 +54,20 @@ if (isset($_POST['saveUpdate'])) {
     // exit();
     
     if (mysqli_query($conn, $update_query)) {
-        header("Location: ../view/Profile.php");
         $_SESSION['username_msg'] = 'Username updated';
         $_SESSION['username_update'] = true;
-        exit;
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+        exit();
     } else {
         $_SESSION['username_msg'] = 'Unable to update name';
         $_SESSION['username_update'] = false;
-        header("Location: ../view/Profile.php?error=db");
-        exit;
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+        exit();
     }
 } else {
-    $_SESSION['username_msg'] = 'Unable to update name';
+    $_SESSION['username_msg'] = 'Unable to update name. Try again';
     $_SESSION['username_update'] = false;
-    header("Location: ../view/Profile.php");
-    exit;
+    header("Location: ".$_SERVER['HTTP_REFERER']);
+    exit();
 }
 ?>
