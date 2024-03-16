@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="profile-actions">
-                    <button class="Edit" id="Edit">Edit Bio/Username</button>
+                    <button class="Edit" id="Edit">Edit Username</button>
                     <button class="EditBio" id="bio">Edit Bio </button>
                     <button class="Editemail" id="Editemail">Change Email</button>
                     <button class = "ChangePassword" id="ChangePassword">Change Password</button>
@@ -111,7 +111,7 @@
                     <input type="text" id="firstName" name="firstName">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName">
-                    <input type="submit" id="save" value="Save">
+                    <input type="submit" id="save" name="saveUpdate" value="Save">
                 </form>
             </div>
         </div>

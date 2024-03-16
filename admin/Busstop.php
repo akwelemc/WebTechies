@@ -129,6 +129,9 @@
                     </thead>
                     <tbody>
                     
+                    <?php
+                    include_once("../action/getAllBusStops.php");
+                    ?>
                     </tbody>
                 </table> 
             </div>
@@ -166,6 +169,17 @@
             // Unset the session variables
             unset($_SESSION["bus_stop_added"]);
             unset($_SESSION["bus_stop_message"]);
+            echo "showAlert('$message', '$type');";
+        }
+        if (isset($_SESSION["busStop_deleted"])) {
+            // Check if it's a success or error
+            $type = ($_SESSION["busStop_deleted"] === true) ? 'success' : 'error';
+
+            // Get the message f
+            $message = $_SESSION["busStop_msg"];
+            // Unset the session variables
+            unset($_SESSION["busStop_deleted"]);
+            unset($_SESSION["busStop_msg"]);
             echo "showAlert('$message', '$type');";
         }
       
