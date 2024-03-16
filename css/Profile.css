@@ -279,6 +279,7 @@ background-color: rgb(34,93,134) ;
   overflow: auto;
 }
 
+
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -414,4 +415,42 @@ select {
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+
+.form-container {
+  width: 30%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto; 
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+
+.form-group {
+  margin-bottom: 20px;
+  
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  background-color:rgb(34, 93, 134);
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+}
+button[type="submit"]:hover {
+  background-color: #0056b3;
+ 
 }
