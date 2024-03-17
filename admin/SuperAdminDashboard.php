@@ -76,19 +76,19 @@ include "../function/stats_fxns.php"
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>Dashboard</h2>
+                    <h2>SUPER ADMIN DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
             </div>    
             <div class="middlebar" >
                 <div class="new-box">
-                    <div id="progressCard" class="outter-card" > 
+                    <div id="progressCard" class="outter-card1" > 
                         <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
@@ -108,7 +108,7 @@ include "../function/stats_fxns.php"
                     </div> 
                     
                     
-                    <div id="incompleteCard" class="outter-card" >
+                    <div id="incompleteCard" class="outter-card2" >
                         <div class="stat-icon">
                             <div class="stat">
                                 <span class="title">
@@ -128,7 +128,7 @@ include "../function/stats_fxns.php"
                         
                     </div>
     
-                    <div id="completedCard" class="outter-card" >
+                    <div id="completedCard" class="outter-card3" >
                         <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
