@@ -335,17 +335,30 @@ a:hover{
 }
 
 .middlebar{
-    background: #fff9f0;
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 0;
-    height: 30%;
-    margin-top: 2%;
-    
-  
-   
-    
-  }
+  background: black;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0;
+  height: 30%;
+  margin-top: 2%;
+ 
+}
+
+
+
+.middlebar1 {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+}
+
+.center-content {
+    text-align: center;
+}
 
 h1 {
     font-size: 24px;
@@ -366,7 +379,6 @@ h1 {
     font-size: 16px;
     font-style: italic;
 }
-
 .tabular--wrapper {
 
     margin-top: 1rem;
