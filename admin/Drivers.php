@@ -111,11 +111,7 @@
                     </table> 
             </div>
         </div>
-        
-        
-        
-    
-        <script src="../js/Driver.js"></script>
 
+    <script src="../js/Driver.js"></script>
 </body> 
 </html>    

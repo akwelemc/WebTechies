@@ -38,12 +38,7 @@
                     <span class="nav-item">History</span>
                 </a>
             </li>
-            <li>
-                <a href="../view/Maps.php">
-                    <i class="fas fa-map"></i>
-                    <span class="nav-item">Maps</span>
-                </a>
-            </li>
+
             <li>
                 <a href="../view/bookingpage.php">
                     <i class="fas fa-book"></i>
