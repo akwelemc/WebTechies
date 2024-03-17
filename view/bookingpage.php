@@ -66,7 +66,7 @@ session_start();
   <div class="main">
     <div class="firstbar">
       <div class="head-title">
-        <h2>BOOKINGS<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
+        <h2><img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px">BOOKINGS</h2>
       </div>
       <div class="user">
         <!-- <div class="search-box">
