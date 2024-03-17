@@ -94,7 +94,8 @@ include_once "../action/get_profile_data.php";
                             </span>
                             <span class="stat-value">
                             <?php
-                            $totalBookings = getTotalBookingCount();
+                            include("../action/get_total_bookingsDriver.php");
+                            $totalBookings = getTotalBookingsCountDriver();
                             echo " $totalBookings";
                             ?>
                             </span>
