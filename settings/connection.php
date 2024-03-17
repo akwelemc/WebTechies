@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db_name = 'WT2024';
 $name = 'root';
-$password = '';
+$password = 'cs341webtech';
 
 $conn = new mysqli($host, $name, $password, $db_name);
 
