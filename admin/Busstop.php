@@ -78,26 +78,26 @@ if (isset($_GET["bsid"])) {
             </li>
         </ul>
     </nav>
-<!-- <<<<<<< Chelsea
 
+        
     <div class="main">
         <div class="firstbar">
             <div class="head-title">
-
-                <h2>Bus Stops</h2>
-            </div>
+                    
+                <h2><img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px">BUS STOPS</h2>
+            </div>    
             <div class="user">
-                <img src="../images/profile.jpg" alt="">
-            </div>
-        </div>
+                <img src="../images/defaultprofile3.png" alt=""> 
+            </div>    
+        </div> 
 
-
-
+            
+            
         <div id="addBusStopModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('addBusStopModal')">&times;</span>
                 <h2 style="color: black;">Add Bus Stop</h2>
-                <form id="addBusStopForm" method="post" action="../action/addBusStop.php">
+                <form id="addBusStopForm" method ="post" action ="../action/addBusStop.php">
                     <label for="stopName">Stop Name:</label>
                     <input type="text" id="stopName" name="stopName" required>
                     <label for="stopLocation">Description</label>
@@ -106,84 +106,46 @@ if (isset($_GET["bsid"])) {
                     <select id="route" name="route" required>
                         <option disabled selected value="0">Choose a route</option>
                         <?php
-//                         include_once("../action/get_routes.php");
-//                         $results = getRoute();
+                        include_once("../action/get_routes.php");
+                        $results = getRoute();
 
-//                         foreach ($results as $result) {
-//                             echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
-//                         }
+                        foreach ($results as $result) {
+                                echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
+                        }
 
                         ?>
                     </select> <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
                 </form>
-======= -->
-        
-        <div class="main">
-            <div class="firstbar">
-                <div class="head-title">
-                    
-                    <h2>BUS STOPS<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
-                </div>    
-                <div class="user">
-                    <img src="../images/defaultprofile3.png" alt=""> 
-                </div>    
-            </div> 
-
+            </div>
+        </div>
+                <div class="table-container">
+                    <div>
+                        <h3 class="main-title" style="float:left"><a href="#" id="addBusStop">Add Bus Stop</a></h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bsid</th>
+                                <th>routeDescription</th>
+                                <th>Stop Name</th>
+                                <th>Route</th>
+                                <th>Action</th>
             
+                            </tr>
+                        </thead>
+                        <tbody>
             
-            <div id="addBusStopModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('addBusStopModal')">&times;</span>
-                    <h2 style="color: black;">Add Bus Stop</h2>
-                    <form id="addBusStopForm" method ="post" action ="../action/addBusStop.php">
-                        <label for="stopName">Stop Name:</label>
-                        <input type="text" id="stopName" name="stopName" required>
-                        <label for="stopLocation">Description</label>
-                        <input type="text" id="stopDescription" name="stopDescription" required>
-                        <label for="arrivalTime">Route</label>
-                        <select id="route" name="route" required>
-                            <option disabled selected value="0">Choose a route</option>
                             <?php
-                            include_once("../action/get_routes.php");
-                            $results = getRoute();
-
-                            foreach ($results as $result) {
-                                echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
-                            }
-
+                            include_once("../action/getAllBusStops.php");
                             ?>
-                        </select> <button type="submit" style="margin-top: 10px;">Add Bus Stop</button>
-                    </form>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="table-container">
-            <div>
-                <h3 class="main-title" style="float:left"><a href="#" id="addBusStop">Add Bus Stop</a></h3>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Bsid</th>
-                        <th>routeDescription</th>
-                        <th>Stop Name</th>
-                        <th>Route</th>
-                        <th>Action</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php
-                    include_once("../action/getAllBusStops.php");
-                    ?>
-                </tbody>
-            </table>
-        </div>
     </div>
+
+
+
 
 
     <script>
