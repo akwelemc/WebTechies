@@ -44,7 +44,7 @@ nav:hover{
 
 nav li:hover,
 .active{
-    background: #44414158;
+    background: #fff;
     
   
 }
@@ -137,17 +137,23 @@ a:hover{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #081f5c;
-  padding:10px 2rem;
+  background: #fff;
+  padding:0.5px 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
+  
 
 }
 
+.firstbar .head-title h2 {
+  display: flex; 
+  align-items: center; 
+}
+
 h2{
-  font-size: 36px;
-  color: white;
-  font-family: 'Bookman Old Style';
+  font-size: 55px;
+  color: black;
+  font-family: 'Lemon Jelly', cursive;
 
 }
 .search-box{

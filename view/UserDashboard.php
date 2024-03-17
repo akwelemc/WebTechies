@@ -66,15 +66,21 @@ userIdExist();
         <div class="firstbar">
             <div class="head-title">
 
-                <h2>Dashboard</h2>
+               <h2>DASHBOARD</h2>
             </div>
             <div class="user">
-                <img src="../images/defaultprofile2.jpg" alt="">
+
+                <!-- <div class="search-box">
+                    <i class="fa-solid fa-search"> </i>
+                    <input type="text" placeholder="Search" />
+                </div> -->
+                <img src="../images/defaultprofile3.png" alt="">
+
             </div>
         </div>
         <div class="middlebar">
             <div class="box">
-                <div id="progressCard" class="outter-card">
+                <div id="progressCard" class="outter-card1">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
@@ -94,7 +100,7 @@ userIdExist();
                 </div>
 
 
-                <div id="incompleteCard" class="outter-card">
+                <div id="incompleteCard" class="outter-card2">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
@@ -110,7 +116,7 @@ userIdExist();
 
                 </div>
 
-                <div id="completedCard" class="outter-card">
+                <div id="completedCard" class="outter-card3">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
