@@ -68,7 +68,21 @@ include_once "../action/get_profile_data.php";
                     </div>       -->
                     <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
-            </div> 
+            </div>
+            <div class="middlebar1">
+                <?php 
+                    $result = getProfileDetails();
+                    echo "<h1>Welcome, <strong>{$result['fname']}</strong>!</h1>"; 
+                ?>
+
+                <div class="message-container">
+                    <p class="message">Get ready for an amazing journey ahead! Remember to enjoy every moment and stay focused. Your passengers are looking forward to a safe and delightful ride with you.</p>
+                </div>
+
+                <h3 class="route-info">Today's route: (route name)</h3>
+            </div>
+
+
 
             <div class="middlebar" >
                 <div class="new-box">
