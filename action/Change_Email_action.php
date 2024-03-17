@@ -17,14 +17,14 @@ if (isset($_POST['currentEmail']) && isset($_POST['newEmail'])) {
     $query = "SELECT * FROM people WHERE email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $newEmail);
-    echo $stmt;
-    exit();
+    // echo $stmt;
+    // exit();
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo"true";
-        exit();
+        // echo"true";
+        // exit();
         $_SESSION['email_update'] = false;
         $_SESSION["email_msg"] = "Email update failed. Email already exists.";
         header("Location: ../admin/AdminProfile.php");
