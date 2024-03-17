@@ -42,12 +42,6 @@ userIdExist();
                 </a>
             </li>
             <li>
-                <a href="../view/Maps.php">
-                    <i class="fas fa-map"></i>
-                    <span class="nav-item">Maps</span>
-                </a>
-            </li>
-            <li>
                 <a href="../view/bookingpage.php">
                     <i class="fas fa-book"></i>
                     <span class="nav-item">Booking</span>
@@ -60,11 +54,6 @@ userIdExist();
                 </a>
             </li>
             <li>
-                <!-- <form action="../Login/logout.php" name="logout_btn">
-                <button class="logout-btn">Log Out</button>
-                <i class="fas fa-sign-out-alt"></i>
-                    <span class="nav-item">Log out</span>    
-            </form> -->
                 <a href="../Login/logout.php" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="nav-item">Log out</span>
@@ -77,19 +66,21 @@ userIdExist();
         <div class="firstbar">
             <div class="head-title">
 
-                <h2>Dashboard</h2>
+               <h2>DASHBOARD</h2>
             </div>
             <div class="user">
+
                 <!-- <div class="search-box">
                     <i class="fa-solid fa-search"> </i>
                     <input type="text" placeholder="Search" />
                 </div> -->
-                <img src="../images/defaultprofile2.jpg" alt="">
+                <img src="../images/defaultprofile3.png" alt="">
+
             </div>
         </div>
         <div class="middlebar">
             <div class="box">
-                <div id="progressCard" class="outter-card">
+                <div id="progressCard" class="outter-card1">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
@@ -109,7 +100,7 @@ userIdExist();
                 </div>
 
 
-                <div id="incompleteCard" class="outter-card">
+                <div id="incompleteCard" class="outter-card2">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">
@@ -118,10 +109,6 @@ userIdExist();
                             <?php
                             include("../function/get_cancelled_bookings_fxn.php");
                             ?>
-                            <!-- 
-                            <span class="stat-value">
-                                5
-                            </span> -->
                         </div>
                         <i class="fa fa-times-circle icon">
                         </i>
@@ -129,7 +116,7 @@ userIdExist();
 
                 </div>
 
-                <div id="completedCard" class="outter-card">
+                <div id="completedCard" class="outter-card3">
                     <div class="stat-icon">
                         <div class="stat">
                             <span class="title">

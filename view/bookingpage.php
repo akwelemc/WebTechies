@@ -42,12 +42,6 @@ session_start();
           <span class="nav-item">History</span>
         </a>
       </li>
-      <li>
-        <a href="../view/Maps.php">
-          <i class="fas fa-map"></i>
-          <span class="nav-item">Maps</span>
-        </a>
-      </li>
       <li class="active">
         <a href="../view/bookingpage.php">
           <i class="fas fa-book"></i>
@@ -72,14 +66,14 @@ session_start();
   <div class="main">
     <div class="firstbar">
       <div class="head-title">
-        <h2>Bookings</h2>
+        <h2>BOOKINGS<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
       </div>
       <div class="user">
         <!-- <div class="search-box">
           <i class="fa-solid fa-search"> </i>
           <input type="text" placeholder="Search" />
         </div> -->
-        <img src="../images/defaultprofile2.jpg" alt="">
+        <img src="../images/defaultprofile3.png" alt="">
       </div>
     </div>
 

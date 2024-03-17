@@ -77,11 +77,11 @@
         <div class="main">
             <div class="firstbar">
                 <div class="head-title">
-                    <h2>Driver Info</h2>
+                    <h2>DRIVER INFO<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>  
                  
                 <div class="user">
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
             </div>
 
@@ -111,11 +111,7 @@
                     </table> 
             </div>
         </div>
-        
-        
-        
-    
-        <script src="../js/Driver.js"></script>
 
+    <script src="../js/Driver.js"></script>
 </body> 
 </html>    

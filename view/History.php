@@ -38,12 +38,7 @@
                     <span class="nav-item">History</span>
                 </a>
             </li>
-            <li>
-                <a href="../view/Maps.php">
-                    <i class="fas fa-map"></i>
-                    <span class="nav-item">Maps</span>
-                </a>
-            </li>
+
             <li>
                 <a href="../view/bookingpage.php">
                     <i class="fas fa-book"></i>
@@ -70,14 +65,14 @@
         <div class="firstbar">
             <div class="head-title">
 
-                <h2>History</h2>
+                <h2>HISTORY<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
             </div>
             <div class="user">
                 <!-- <div class="search-box">
                     <i class="fa-solid fa-search"> </i>
                     <input type="text" placeholder="Search" />
                 </div> -->
-                <img src="../images/defaultprofile2.jpg" alt="">
+                <img src="../images/defaultprofile3.png" alt="">
             </div>
         </div>
 
