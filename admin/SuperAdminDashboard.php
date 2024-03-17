@@ -76,14 +76,16 @@ include "../function/stats_fxns.php"
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>SUPER ADMIN DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
+                    <h2>SUPER ADMIN DASHBOARD</h2>
                 </div>    
                 <div class="user">
+
                     <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
                     <img src="../images/defaultprofile3.png" alt=""> 
+
                 </div>    
             </div>    
             <div class="middlebar" >
@@ -149,21 +151,56 @@ include "../function/stats_fxns.php"
                 </div>       
             </div>
             
-            <div class="middlebar2">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>            
+                    
 
-                <div class="charts-card">
-                    <h2 class="chart-title">Top 5 Products</h2>
-                    <div id="bar-chart"></div>
-                </div>
+        </div>
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const xValues = ["Total bookings", "Total Number of Completed rides","Cancelled bookings"];
+                const yValues = [<?php echo $totalBookings; ?>, <?php echo $totalBookingsForDay; ?>,<?php echo getAllfCancelledBookings(); ?>];
+                const barColors = ["#b91d47", "#00aba9", "#2b5797"];
+
+                new Chart("myChart", {
+                    type: "pie",
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "Bus Management stats",
+                            fontSize: 20, // Adjust font size as needed
+                            fontColor: '#333', // Adjust font color as needed
+                            fontStyle: 'bold' // Make the title bold
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        aspectRatio: 1,
+                        scales: {
+                            yAxes: [{
+                                display: false
+                            }],
+                            xAxes: [{
+                                display: false
+                            }]
+                        }
+                    }
+                });
+            });
+        </script>
+
     
-                <div class="charts-card">
-                    <h2 class="chart-title">Purchase and Sales Orders</h2>
-                    <div id="area-chart"></div>
-                </div>
-            </div>
-        </div>        
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-    <script src="Dashboard.js"></script> 
 </body>
 </html>
