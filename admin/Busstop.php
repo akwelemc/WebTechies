@@ -75,10 +75,10 @@
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>Bus Stops</h2>
+                    <h2>BUS STOPS<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>    
                 <div class="user">
-                    <img src="../images/profile.jpg" alt=""> 
+                    <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
             </div> 
 
