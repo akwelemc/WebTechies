@@ -60,7 +60,7 @@ include "../function/get_driver_route.php";
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>DRIVER DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
+                    <h2><img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px">DRIVER DASHBOARD</h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">

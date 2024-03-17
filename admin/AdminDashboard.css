@@ -1,5 +1,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+@import url("https://fonts.googleapis.com/css2?family=PT Sans:wght@400;500;600;700");
 
 *{
   margin: 0;
@@ -176,7 +177,8 @@ a:hover{
   h2{
     font-size: 48px;
     color: black;
-    font-family: 'Lemon Jelly', cursive;
+    font-family: 'PT Sans', sans-serif;
+
     
   
   }
@@ -333,7 +335,7 @@ a:hover{
 }
 
 .middlebar{
-  background: black;
+  background: #fff9f0;
   padding: 1rem;
   border-radius: 10px;
   margin: 0;

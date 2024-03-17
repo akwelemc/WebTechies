@@ -78,7 +78,7 @@ if (isset($_GET["bookingId"])) {
                     <i class="fa-solid fa-search"> </i>    
                     <input type="text" placeholder="Search"/>
                 </div>       -->
-                <img src="../images/profile.jpg" alt=""> 
+                <img src="../images/defaultprofile3.png" alt=""> 
             </div>    
         </div> 
 

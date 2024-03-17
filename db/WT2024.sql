@@ -20,16 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Database: `WT2024`
 --
-
+DROP DATABASE IF EXISTS WT2024;
+CREATE DATABASE WT2024;
+USE WT2024;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `Bookings`
 --
-
-DROP DATABASE IF EXISTS WT2024;
-CREATE DATABASE WT2024;
-USE WT2024;
 
 CREATE TABLE `Bookings` (
   `pid` int(11) NOT NULL,
