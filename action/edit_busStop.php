@@ -1,12 +1,33 @@
 <?php
 session_start();
 
-if (isset($_GET["bsid"])) {
-    // Include your database connection file
-    include_once '../settings/connection.php';
+// Include your database connection file
+include_once '../settings/connection.php';
 
-    // Get the booking ID from the URL parameter
-    $bid = $_GET["bsid"];
+if (isset($_GET["bsid"])) {
+    // Get the bus stop ID from the URL parameter
+    $bsid = $_GET["bsid"];
+
+    // Initialize session variables
+    $_SESSION['busStop_updated'] = false;
+    $_SESSION['busStop_update_message'] = "";
+
+    // Check if the new stop name already exists
+    $newStopName = $_POST['stopName'];
+    $checkQuery = "SELECT COUNT(*) AS num_stops FROM BusStop WHERE stopName = ? AND bsid != ?";
+    $checkStmt = $conn->prepare($checkQuery);
+    $checkStmt->bind_param("si", $newStopName, $bsid);
+    $checkStmt->execute();
+    $checkResult = $checkStmt->get_result();
+    $numStops = $checkResult->fetch_assoc()['num_stops'];
+
+    if ($numStops > 0) {
+        // If the new stop name already exists for another stop, set an error message and redirect
+        $_SESSION['busStop_updated'] = false;
+        $_SESSION['busStop_update_message'] = "A bus stop with the same name already exists.";
+        header("Location: ../admin/Busstop.php");
+        exit();
+    }
 
     // Initialize variables to store updated values
     $updates = array();
@@ -20,51 +41,36 @@ if (isset($_GET["bsid"])) {
         $params[] = $_POST['stopName']; // Add the value to the bind parameters array
     }
     if (!empty($_POST['description'])) {
-        $updates[] = "routDescription=?";
-        $types .= 'i';
+        $updates[] = "routeDescription=?";
+        $types .= 's';
         $params[] = $_POST['description'];
     }
     if (!empty($_POST['route'])) {
-        $booking_check_sql = "SELECT COUNT(*) AS num_bookings FROM Bookings WHERE bid = ?";
-        $booking_stmt = $conn->prepare($booking_check_sql);
-        $booking_stmt->bind_param("i", $bus_id);
-        $booking_stmt->execute();
-        $booking_result = $booking_stmt->get_result();
-        $num_bookings = $booking_result->fetch_assoc()['num_bookings'];
-    
-        // If there are bookings associated with the bus, prevent deletion
-        if ($num_bookings > 0) {
-            $_SESSION['busStop_updated'] = false;
-            $_SESSION['busStop_updated'] = "Cannot change the route of bus with booked passengers.";
-        }
         $updates[] = "route_id=?";
         $types .= 'i';
         $params[] = $_POST['route'];
     }
 
     // Construct the SQL query dynamically
-    $sql = "UPDATE Bus SET " . implode(", ", $updates) . " WHERE bid=?";
+    $sql = "UPDATE BusStop SET " . implode(", ", $updates) . " WHERE bsid=?";
     $stmt = $conn->prepare($sql);
 
-    // Add the bid to the bind parameters array
-    $types .= 'i'; // Add type for bid
-    $params[] = $bid; // Add the bid value to the bind parameters array
-
-    // Add the types as the first element in the params array
-    array_unshift($params, $types);
+    // Add the bsid to the bind parameters array
+    $types .= 'i'; // Add type for bsid
+    $params[] = $bsid; // Add the bsid value to the bind parameters array
 
     // Bind parameters dynamically
-    call_user_func_array(array($stmt, 'bind_param'), refValues($params));
+    $stmt->bind_param($types, ...$params);
 
     // Execute the update query
     if ($stmt->execute()) {
         // Set success message in session variable
         $_SESSION['busStop_updated'] = true;
-        $_SESSION['busStop_message'] = "Bus Stop updated successfully.";
+        $_SESSION['busStop_update_message'] = "Bus stop updated successfully.";
     } else {
         // Set error message in session variable
         $_SESSION['busStop_updated'] = false;
-        $_SESSION['busStop_message'] = "Error updating booking: " . $stmt->error;
+        $_SESSION['busStop_update_message'] = "Error updating bus stop: " . $stmt->error;
     }
 
     // Close statement
@@ -73,20 +79,13 @@ if (isset($_GET["bsid"])) {
     $conn->close();
 
     // Redirect back to the page where the edit request was made
-    header("Location: ../admin/Buses.php");
+    header("Location: ../admin/Busstop.php");
     exit();
 } else {
     // If the form was not submitted properly, redirect to an error page or handle it accordingly
-    header("Location: ../admin/Buses.php");
+    $_SESSION['busStop_updated'] = false;
+    $_SESSION['busStop_update_message'] = "No bus stop ID specified.";
+    header("Location: ../admin/Busstop.php");
     exit();
 }
 
-// Helper function to pass parameters by reference
-function refValues($arr){
-    $refs = array();
-    foreach($arr as $key => $value)
-        $refs[$key] = &$arr[$key];
-    return $refs;
-}
-
-?>

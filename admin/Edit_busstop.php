@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (isset($_GET["bsid"])) {
+    $bsId = $_GET["bsid"];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,14 +91,24 @@
             </div> 
 
             <div class="form-container">
-                <form action="#" method="POST" class="edit-form">
+                <form action= "<?php echo '../action/edit_busStop.php?bsid='.$bsId?>" method="POST" class="edit-form">
                     <div class="form-group">
                         <label for="stopName">Stop Name:</label>
                         <input type="text" id="stopName" name="stopName" placeholder="Enter stop name" >
                     </div>
                     <div class="form-group">
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" name="location" placeholder="Enter location" >
+                    <label for="stopRoute">Route:</label>
+                    <select id="route" name="route" required>
+                        <option disabled selected value="0">Choose a route</option>
+                        <?php
+                        include_once("../action/get_routes.php");
+                        $results = getRoute();
+
+                        foreach ($results as $result) {
+                            echo "<option value = '{$result['route_id']}'>{$result['route']}</option>";
+                        }
+                        ?>
+                    </select>
                     </div>
                     <div class="form-group">
                         <label for="description">routeDescription</label>
