@@ -334,6 +334,7 @@ a:hover{
 }
 
   
+<<<<<<< HEAD
 .middlebar{
     background: black;
     padding: 1rem;
@@ -346,3 +347,93 @@ a:hover{
    
     
   }
+=======
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.message-container {
+    margin-top: 20px;
+}
+
+.message {
+    font-size: 18px;
+    color: #333;
+}
+
+.route-info {
+    margin-top: 20px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.tabular--wrapper {
+
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 3rem;
+    width: 90%;
+     
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10%;
+    padding: 3rem;
+   
+  
+  }
+  
+  thead {
+    background:#accbff;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  th {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  tbody {
+    background: #f2f2f2;
+  }
+  
+  td {
+    padding: 15px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  tr:nth-child(even) {
+    background: #fff;
+  }
+  
+  tfoot {
+    background: rgba(113, 90, 186, 255);
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  tfoot td {
+    padding: 15px;
+  }
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust as needed */
+}
+
+/* Make the chart canvas bigger */
+canvas#myChart {
+    width: 100%;
+    max-width: 800px; /* Adjust maximum width as needed */
+    height: auto;
+}
+  
+>>>>>>> 862842a6acd35291330e2e3c36109dee38450770

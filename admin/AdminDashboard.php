@@ -1,5 +1,8 @@
 <?php
-include "../function/stats_fxns.php"
+
+
+include_once "../function/stats_fxns.php";
+include_once "../action/get_profile_data.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +59,7 @@ include "../function/stats_fxns.php"
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>ADMIN DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
+                    <h2>DRIVER DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">
@@ -66,6 +69,7 @@ include "../function/stats_fxns.php"
                     <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
             </div> 
+
             <div class="middlebar" >
                 <div class="new-box">
                     <div id="progressCard" class="outter-card1" > 
@@ -114,9 +118,10 @@ include "../function/stats_fxns.php"
                             </span>
                             <span class="stat-value">
                             
-                           <!-- $totalDeletedRides = getTotalDeletedRides();
-                            echo " $totalDeletedRides"; -->
-                            
+                            <?php
+                                include("../action/getAllCancelledBookings.php");
+                                echo getAllfCancelledBookings();
+                                ?>
                             </span>
                         </div> 
                         <i class="fas fa-check icon">
@@ -125,101 +130,57 @@ include "../function/stats_fxns.php"
                     </div>
                 </div>       
             </div>
-            
-            <div class="middlebar2">
-
-                <div class="charts-card">
-                    <h2 class="chart-title">Top 5 Products</h2>
-                    <div id="bar-chart"></div>
-                </div>
-    
-                <div class="charts-card">
-                    <h2 class="chart-title">Purchase and Sales Orders</h2>
-                    <div id="area-chart"></div>
-                </div>
-            </div>
-        </div>        
-        
-        
-
-        <!-- <div class="right">
-            <div class="secondbar">
-                <div class="box">
-                    <div id="progressCard" class="outter-card" > 
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Passengers
-                            </span>    
-                            <span class="stat-value">
-                                700
-                            </span>    
-                            </div> 
-                            <i class="fas fa-spinner icon" aria-hidden="true"></i>
-                            </i>
-                        </div>    
-                        
-                    </div>    
-
-
-                    <div id="incompleteCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                               Total Trips
-                            </span>    
-                            <span class="stat-value">
-                                75
-                            </span>    
-                            </div> 
-                            <i class="fa fa-times-circle icon">
-                            </i>    
-                        </div>    
-                        
-                    </div>    
-
-                    <div id="incompleteCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Number of cancelled rides
-                            </span>    
-                            <span class="stat-value">
-                                14
-                            </span>    
-                            </div> 
-                            <i class="fa fa-times-circle icon">
-                            </i>    
-                        </div>    
-                        
-                    </div>    
-
-                    <div id="completedCard" class="outter-card" >
-                        <div class="stat-icon">
-                            <div class="stat">
-                            <span class="title">
-                                Total Number of Completed Rides
-                            </span>    
-                            <span class="stat-value">
-                                300
-                            </span>    
-                            </div> 
-                            <i class="fas fa-check icon">
-                            </i>    
-                        </div>    
-                    </div>    
-                </div>         
-            </div>    
-        </div>     -->
 
             
+                <div class="chart-container">
+                    <canvas id="myChart"></canvas>
+                </div>            
+                    
+        </div>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-    
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-    <script src="Dashboard.js"></script> 
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const xValues = ["Total bookings", "Daily Bookings","Cancelled bookings"];
+            const yValues = [<?php echo $totalBookings; ?>, <?php echo $totalBookingsForDay; ?>,<?php echo getAllfCancelledBookings(); ?>];
+            const barColors = ["#b91d47", "#00aba9", "#2b5797"];
 
-
+            new Chart("myChart", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Bus Management stats",
+                        fontSize: 20, // Adjust font size as needed
+                        fontColor: '#333', // Adjust font color as needed
+                        fontStyle: 'bold' // Make the title bold
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    aspectRatio: 1,
+                    scales: {
+                        yAxes: [{
+                            display: false
+                        }],
+                        xAxes: [{
+                            display: false
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
+        
+        
 </body>
 </html>
