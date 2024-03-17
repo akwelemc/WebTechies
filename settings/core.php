@@ -1,8 +1,7 @@
 <?php
 
-
+session_start();
 function userIdExist() {
-    session_start();
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
         // Redirect to login page if user is not logged in
@@ -16,4 +15,5 @@ function userIdExist() {
     // Return the user ID
     return $_SESSION['user_id'];
 }
+session_abort();
 

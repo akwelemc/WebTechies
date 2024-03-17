@@ -115,7 +115,8 @@ include "../function/get_driver_route.php";
                             </span>
                             <span class="stat-value">
                             <?php
-                            $totalBookingsForDay = getTotalBookingCountForDay(date('Y-m-d')); //
+                            // include("../function/stats_fxns.php");
+                            $totalBookingsForDay = getTotalBookingCountForDay(); //
                             echo " $totalBookingsForDay";
                             ?>
                         </span>
