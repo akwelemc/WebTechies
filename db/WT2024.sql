@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2024 at 11:49 PM
+-- Generation Time: Mar 17, 2024 at 03:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,7 +37,7 @@ CREATE TABLE `Bookings` (
   `bid` int(11) NOT NULL,
   `date_booked` date NOT NULL,
   `time_slotID` int(11) NOT NULL,
-  `bookingStatus` varchar(25) NOT NULL,
+  `bookingStatus` int(11) NOT NULL,
   `busStopID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -46,19 +46,36 @@ CREATE TABLE `Bookings` (
 --
 
 INSERT INTO `Bookings` (`pid`, `bookingId`, `bid`, `date_booked`, `time_slotID`, `bookingStatus`, `busStopID`) VALUES
-(8, 1, 1, '2023-02-12', 70000, 'booked', 1),
-(8, 2, 1, '2023-02-12', 70000, 'booked', 1),
-(8, 3, 1, '2025-04-13', 73000, 'booked', 5),
-(8, 4, 1, '2025-04-13', 73000, 'booked', 5),
-(8, 5, 1, '2025-04-13', 73000, 'booked', 5),
-(8, 6, 1, '2023-02-14', 70000, 'booked', 4),
-(8, 7, 1, '2023-02-14', 2, 'booked', 4),
-(8, 8, 1, '2023-02-14', 3, 'booked', 4),
-(8, 10, 2, '2023-02-14', 4, 'booked', 9),
-(8, 11, 2, '2024-03-31', 1, 'booked', 10),
-(8, 12, 3, '2024-04-30', 3, 'booked', 7),
-(8, 14, 3, '2024-08-31', 1, 'booked', 7),
-(8, 15, 1, '2024-03-19', 5, 'booked', 2);
+(16, 1, 9, '2024-03-20', 3, 3, 5),
+(15, 2, 9, '2024-03-21', 5, 1, 3),
+(16, 3, 9, '2024-03-18', 2, 3, 4),
+(16, 4, 7, '2024-03-20', 5, 3, 8),
+(16, 5, 7, '2024-03-19', 4, 1, 8),
+(16, 6, 7, '2024-03-19', 3, 1, 6),
+(16, 7, 9, '2024-03-20', 1, 1, 12),
+(16, 8, 7, '2024-03-20', 6, 3, 8),
+(16, 9, 9, '2024-03-20', 2, 1, 5),
+(16, 10, 7, '2024-03-21', 5, 3, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `BookingStatus`
+--
+
+CREATE TABLE `BookingStatus` (
+  `status_id` int(11) NOT NULL,
+  `status_name` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `BookingStatus`
+--
+
+INSERT INTO `BookingStatus` (`status_id`, `status_name`) VALUES
+(1, 'Booked'),
+(2, 'Completed'),
+(3, 'deleted');
 
 -- --------------------------------------------------------
 
@@ -79,9 +96,10 @@ CREATE TABLE `Bus` (
 --
 
 INSERT INTO `Bus` (`bid`, `busName`, `capacity`, `registrationNumber`, `route_id`) VALUES
-(1, 'Coach', 50, 'GR23-2023', 1),
-(2, 'Coach', 50, 'GR24-2023', 2),
-(3, 'Coach', 50, 'GR26-2023', 3);
+(7, 'Jakpa Express', 50, 'Gr1234', 2),
+(8, 'Jakpa express 2', 25, 'Gr1234-2', 2),
+(9, 'Alinko', 100, 'Gr1234-3', 1),
+(10, 'Coach', 50, 'Gr1456', 2);
 
 -- --------------------------------------------------------
 
@@ -99,9 +117,11 @@ CREATE TABLE `BusBooking` (
 --
 
 INSERT INTO `BusBooking` (`bid`, `bookingId`) VALUES
-(3, 12),
-(3, 14),
-(1, 15);
+(9, 2),
+(7, 5),
+(7, 6),
+(9, 7),
+(9, 9);
 
 -- --------------------------------------------------------
 
@@ -146,23 +166,14 @@ INSERT INTO `BusStop` (`bsid`, `routeDescription`, `stopName`, `route_id`) VALUE
 (3, '', 'Atomic', 1),
 (4, '', 'Achimota', 1),
 (5, '', 'Kwabenya', 1),
-(6, '', 'Spanner', 3),
+(6, '', 'Spanner', 1),
 (7, '', 'Christ the King', 3),
 (8, '', 'Kitase', 2),
 (9, '', 'Oyarifa', 2),
 (10, '', 'Adenta', 2),
-(11, '', 'Madina', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `BusStopBus`
---
-
-CREATE TABLE `BusStopBus` (
-  `bsid` int(11) NOT NULL,
-  `bid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(11, '', 'Madina', 2),
+(12, 'Along the way', 'pimpinee', 1),
+(15, 'South Kantamanso', 'Kwadaso', 2);
 
 -- --------------------------------------------------------
 
@@ -179,13 +190,35 @@ CREATE TABLE `BusStopRoutes` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `CancelledBookings`
+--
+
+CREATE TABLE `CancelledBookings` (
+  `bookingID` int(11) NOT NULL,
+  `cid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `CancelledBookings`
+--
+
+INSERT INTO `CancelledBookings` (`bookingID`, `cid`) VALUES
+(1, 1),
+(3, 3),
+(4, 4),
+(8, 2),
+(10, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Driver`
 --
 
 CREATE TABLE `Driver` (
   `pid` int(11) NOT NULL,
   `bid` int(11) DEFAULT NULL,
-  `licenseNumber` int(11) DEFAULT NULL
+  `licenseNumber` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -193,31 +226,8 @@ CREATE TABLE `Driver` (
 --
 
 INSERT INTO `Driver` (`pid`, `bid`, `licenseNumber`) VALUES
-(11, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `DriverTracking`
---
-
-CREATE TABLE `DriverTracking` (
-  `track_id` int(11) NOT NULL,
-  `driver_pid` int(11) NOT NULL,
-  `driver_bid` int(11) NOT NULL,
-  `dTid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `PassengerBookings`
---
-
-CREATE TABLE `PassengerBookings` (
-  `pid` int(11) NOT NULL,
-  `bookingId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(17, 9, '472'),
+(19, 9, '354');
 
 -- --------------------------------------------------------
 
@@ -249,11 +259,17 @@ INSERT INTO `People` (`pid`, `role_id`, `fname`, `lname`, `dob`, `email`, `telnu
 (5, 3, 'Harding', 'Bell', '1975-11-16', 'kyjuguj@mailinator.com', '+367533953986', 0, '$2y$10$rCQKhodpnFqWhvzDFgMDiukmDZm/fu2KYDjwSGJ9HH7/W/K6N3pHO', NULL),
 (6, 3, 'Kane', 'Potts', '2013-03-23', 'abc@mailinator.com', '+139729546822', 0, '$2y$10$Z0NAGvQ6mJvitWaS4AiGvelDFREtma2g8fYr8By9jEWvkm/cWZUna', NULL),
 (7, 3, 'Aretha', 'Stokes', '2002-03-06', 'mityvyzyp@mailinator.com', '+769832942530', 1, '$2y$10$RSNQrmFjCScvI0c990piyulYDhV/qmF4gWmNtiZryllBHye0FHUMG', NULL),
-(8, 3, 'Troy', 'Hood', '1988-06-05', 'abcd@mailinator.com', '+521407243878', 1, '$2y$10$2GyVr1PsBzjFH/FUVEPj9.XHT2QTAtbyZb8TzObfRW.W2XZ1npTl2', NULL),
-(10, 2, 'Keelie', 'Joyner', '2000-07-10', 'abcdef@mailinator.com', '+471866280948', 0, '$2y$10$9MKUOUMsjZdTgu4/dP7r..9tDevMleDtE1NA9Mx66UQH75mrOeqkS', NULL),
+(8, 1, 'Chelsea ', 'Owusu', '1988-06-05', 'chelsea.owusu@ashesi.edu.gh', '+521407243878', 1, '$2y$10$jZJrXJt1C2Y1sxVnj8j3XuioPcp8rTuyKDTCo5HfmmsOGh8Ry3Xle', 'I love my life'),
+(10, 2, '', 'lamar', '2000-07-10', 'abcdef@mailinator.com', '+471866280948', 0, '$2y$10$bGcUw8cC32GWqsLKj2tCEeQpW32C0ahiczW0xUllS.cNRSdSlhAce', 'I drive for life'),
 (11, 1, 'Jerry', 'Sandoval', '2011-05-03', 'gynu@mailinator.com', '+442373586877', 0, '$2y$10$kuYGZux2Eez.pfR3DCapieNhzKIvlhia2XRHCXirY4WRPtYJgLwhO', NULL),
 (12, 1, 'Aurora', 'Barlow', '1981-07-07', 'vapupuxepy@mailinator.com', '+478842617533', 1, '$2y$10$b0DvcbEj.Tjgneqz/ME9nOe07yP8JYKvIbdmpaaX32OMow7YUb/Nu', NULL),
-(13, 1, 'Ima', 'Maldonado', '1991-06-26', 'fumyk@mailinator.com', '+176138502742', 0, '$2y$10$15zWKFRC3pnf.bYdyFJDpuKxmR4O/fcqY7nCT3UTUAcfKe6d9FMRS', NULL);
+(13, 1, 'Ima', 'Maldonado', '1991-06-26', 'fumyk@mailinator.com', '+176138502742', 0, '$2y$10$15zWKFRC3pnf.bYdyFJDpuKxmR4O/fcqY7nCT3UTUAcfKe6d9FMRS', NULL),
+(14, 2, 'Leonard', 'Welch', '2010-02-10', 'zulefe@mailinator.com', '+894826949912', 1, '$2y$10$VndNBgfKMYteIBZTwOLRIeEZWD65EAQ5xPxNaEuX9TMX92Hr8/2Bi', NULL),
+(15, 1, 'Chelsea', 'Banks', '2001-03-26', 'meqyqykufa@mailinator.com', '+989492293964', 1, '$2y$10$gNvorO2eesf3Jym2cBnd5ervAHZMRgMesVD1COKaSLnGpfEnH3966', NULL),
+(16, 3, 'Chelsea', 'Grant', '2001-08-21', 'abcd@mailinator.com', '+614308524532', 0, '$2y$10$wW7zvfsmdqui2DhWbaECxuI0dD9bIynF9JCF2gIAllfhvGUORNT.u', 'I love Web Tech'),
+(17, 2, 'Rafael', 'Jacobson', '1987-07-11', 'aaaa@mailinator.com', '+228621147330', 0, '$2y$10$rGEAl5FOBzzL15q6pbb48eh90zc7qulsxl82hsxkUnPB/qu7QiNfG', NULL),
+(18, 3, 'Avram', 'Moon', '1982-02-10', 'buke@mailinator.com', '+863122611483', 0, '$2y$10$8kI5wJJhTZXVB7UOqQXBr.79MexCm95kauIiFP9HcB9hB7mZQidn.', NULL),
+(19, 2, 'Mufutau', 'Olsen', '1972-11-19', 'gufivitiwu@mailinator.com', '+632325235415', 0, '$2y$10$ZhLJ7Z6cOMyMCasJqgy5M.PlDvFaj1JlKMPLP6YN/tffL0LapxZmS', NULL);
 
 -- --------------------------------------------------------
 
@@ -345,7 +361,15 @@ CREATE TABLE `Tracking` (
 ALTER TABLE `Bookings`
   ADD PRIMARY KEY (`bookingId`),
   ADD KEY `pid` (`pid`),
-  ADD KEY `busStopID` (`busStopID`);
+  ADD KEY `busStopID` (`busStopID`),
+  ADD KEY `bookingStatus` (`bookingStatus`),
+  ADD KEY `bid` (`bid`);
+
+--
+-- Indexes for table `BookingStatus`
+--
+ALTER TABLE `BookingStatus`
+  ADD PRIMARY KEY (`status_id`);
 
 --
 -- Indexes for table `Bus`
@@ -377,13 +401,6 @@ ALTER TABLE `BusStop`
   ADD KEY `route_id` (`route_id`);
 
 --
--- Indexes for table `BusStopBus`
---
-ALTER TABLE `BusStopBus`
-  ADD KEY `busId` (`bid`) USING BTREE,
-  ADD KEY `bsid` (`bsid`);
-
---
 -- Indexes for table `BusStopRoutes`
 --
 ALTER TABLE `BusStopRoutes`
@@ -392,27 +409,19 @@ ALTER TABLE `BusStopRoutes`
   ADD KEY `route_id` (`route_id`);
 
 --
+-- Indexes for table `CancelledBookings`
+--
+ALTER TABLE `CancelledBookings`
+  ADD PRIMARY KEY (`cid`),
+  ADD KEY `bookingID` (`bookingID`);
+
+--
 -- Indexes for table `Driver`
 --
 ALTER TABLE `Driver`
   ADD PRIMARY KEY (`pid`),
   ADD KEY `bid` (`bid`),
   ADD KEY `pid` (`pid`);
-
---
--- Indexes for table `DriverTracking`
---
-ALTER TABLE `DriverTracking`
-  ADD PRIMARY KEY (`dTid`),
-  ADD KEY `driver_pid` (`driver_pid`),
-  ADD KEY `track_id` (`track_id`);
-
---
--- Indexes for table `PassengerBookings`
---
-ALTER TABLE `PassengerBookings`
-  ADD KEY `pid` (`pid`),
-  ADD KEY `bookingId` (`bookingId`);
 
 --
 -- Indexes for table `People`
@@ -453,19 +462,31 @@ ALTER TABLE `Tracking`
 -- AUTO_INCREMENT for table `Bookings`
 --
 ALTER TABLE `Bookings`
-  MODIFY `bookingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `bookingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `DriverTracking`
+-- AUTO_INCREMENT for table `Bus`
 --
-ALTER TABLE `DriverTracking`
-  MODIFY `track_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `Bus`
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `BusStop`
+--
+ALTER TABLE `BusStop`
+  MODIFY `bsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `CancelledBookings`
+--
+ALTER TABLE `CancelledBookings`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `People`
 --
 ALTER TABLE `People`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `Tracking`
@@ -478,23 +499,22 @@ ALTER TABLE `Tracking`
 --
 
 --
+-- Constraints for table `Bookings`
+--
+ALTER TABLE `Bookings`
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`bookingStatus`) REFERENCES `bookingstatus` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `Bus`
 --
 ALTER TABLE `Bus`
-  ADD CONSTRAINT `bus_ibfk_1` FOREIGN KEY (`route_id`) REFERENCES `Routes` (`route_id`);
+  ADD CONSTRAINT `bus_ibfk_1` FOREIGN KEY (`route_id`) REFERENCES `Routes` (`route_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `BusBooking`
 --
 ALTER TABLE `BusBooking`
-  ADD CONSTRAINT `busbooking_ibfk_3` FOREIGN KEY (`bookingId`) REFERENCES `Bookings` (`bookingId`),
-  ADD CONSTRAINT `busbooking_ibfk_4` FOREIGN KEY (`bid`) REFERENCES `Bus` (`bid`);
-
---
--- Constraints for table `BusRoutes`
---
-ALTER TABLE `BusRoutes`
-  ADD CONSTRAINT `busroutes_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `Bus` (`bid`);
+  ADD CONSTRAINT `busbooking_ibfk_3` FOREIGN KEY (`bookingId`) REFERENCES `Bookings` (`bookingId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `BusStop`
@@ -503,29 +523,16 @@ ALTER TABLE `BusStop`
   ADD CONSTRAINT `busstop_ibfk_1` FOREIGN KEY (`route_id`) REFERENCES `Routes` (`route_id`);
 
 --
--- Constraints for table `BusStopBus`
+-- Constraints for table `CancelledBookings`
 --
-ALTER TABLE `BusStopBus`
-  ADD CONSTRAINT `busstopbus_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `Bus` (`bid`);
+ALTER TABLE `CancelledBookings`
+  ADD CONSTRAINT `cancelledbookings_ibfk_1` FOREIGN KEY (`bookingID`) REFERENCES `Bookings` (`bookingId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Driver`
 --
 ALTER TABLE `Driver`
-  ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `Bus` (`bid`);
-
---
--- Constraints for table `DriverTracking`
---
-ALTER TABLE `DriverTracking`
-  ADD CONSTRAINT `drivertracking_ibfk_1` FOREIGN KEY (`driver_pid`) REFERENCES `Driver` (`pid`),
-  ADD CONSTRAINT `drivertracking_ibfk_2` FOREIGN KEY (`track_id`) REFERENCES `Tracking` (`track_id`);
-
---
--- Constraints for table `PassengerBookings`
---
-ALTER TABLE `PassengerBookings`
-  ADD CONSTRAINT `passengerbookings_ibfk_1` FOREIGN KEY (`bookingId`) REFERENCES `Bookings` (`bookingId`);
+  ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `Bus` (`bid`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `Tracking`
