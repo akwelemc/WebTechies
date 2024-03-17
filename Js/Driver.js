@@ -1,17 +1,24 @@
+document.addEventListener("DOMContentLoaded", function() {
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
 
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-}
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
 
+    document.getElementById("AssignDriver").addEventListener("click", function () {
+        openModal("AssignDriverModal");
+    });
 
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
+    document.querySelector(".close").addEventListener("click", function () {
+        closeModal("AssignDriverModal");
+    });
 
-document.getElementById("addDriver").addEventListener("click", function () {
-    openModal("addDriverModal");
-});
-
-document.querySelector(".close").addEventListener("click", function () {
-    closeModal("addDriverModal");
+    // Close modal if user clicks outside of it
+    window.addEventListener("click", function (event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal("AssignDriverModal");
+        }
+    });
 });

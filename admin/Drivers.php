@@ -1,3 +1,7 @@
+<?php 
+include("../settings/core.php");
+userIdExist();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,37 @@
     <link rel="stylesheet" href="../css/Dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <style>
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 60%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
     
 </head>
 <body>
@@ -85,13 +119,33 @@
                 </div>    
             </div>
 
+
+            <div id="AssignDriverModal" class="modal">
+                <div class="modal-content">
+                <span class="close" onclick="closeModal('AssignDriverModal')">&times;</span>
+                    <h2>Assign Driver</h2>
+                    <form id="assignDriverForm">
+                        <label for="driverSelect">Select Driver:</label>
+                        <select id="driverSelect" name="driver" required>
+                            <!-- Options for existing drivers will be populated dynamically -->
+                        </select><br>
+                        <label for="busSelect">Select Bus:</label>
+                        <select id="busSelect" name="bus" required>
+                            <!-- Options for available buses will be populated dynamically -->
+                        </select><br>
+                        <button type="submit">Assign Driver</button>
+                    </form>
+                </div>
+            </div>
+
+
       
             
             
             <div class="table-container">
-                <!-- <div>
-                    <h3 class="main-title"><a href="#" id="addDriver">Add Driver</a></h3>
-                </div>  -->
+                <div>
+                    <h3 class="main-title"><a href="#" id="AssignDriver">Assign Driver</a></h3>
+                </div> 
                 <table>
                     <thead>
                         <tr>
@@ -112,6 +166,38 @@
             </div>
         </div>
 
-    <script src="../js/Driver.js"></script>
+    <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    function openModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "block";
+        }
+    }
+
+    function closeModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    document.getElementById("AssignDriver").addEventListener("click", function () {
+        openModal("AssignDriverModal");
+    });
+
+    document.querySelector(".close").addEventListener("click", function () {
+        closeModal("AssignDriverModal");
+    });
+
+    // Close modal if user clicks outside of it
+    window.addEventListener("click", function (event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal("AssignDriverModal");
+        }
+    });
+});
+
+    </script>
 </body> 
 </html>    
