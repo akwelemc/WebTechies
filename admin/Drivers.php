@@ -120,32 +120,38 @@ userIdExist();
             </div>
 
 
-            <div id="AssignDriverModal" class="modal">
+            <!-- <div id="AssignDriverModal" class="modal">
                 <div class="modal-content">
                 <span class="close" onclick="closeModal('AssignDriverModal')">&times;</span>
                     <h2>Assign Driver</h2>
-                    <form id="assignDriverForm">
+                    <form id="assignDriverForm" method="post" action="../action/assignDriver.php">
                         <label for="driverSelect">Select Driver:</label>
-                        <select id="driverSelect" name="driver" required>
-                            <!-- Options for existing drivers will be populated dynamically -->
-                        </select><br>
+                        <select id="driverSelect" name="driver_id" required>
+                            <option value = -1>Select a driver </option>
+                        <?php
+                        // include_once("../action/getAllDriver.php");
+                        ?>
+                    </select><br>
                         <label for="busSelect">Select Bus:</label>
-                        <select id="busSelect" name="bus" required>
-                            <!-- Options for available buses will be populated dynamically -->
-                        </select><br>
+                        <select id="busSelect" name="bus_id" required>
+                        <option value = -1>Select a bus </option>
+                        <option value = 0>Unassign a driver</option>
+                        <?php
+                        // include_once("../action/getBusses.php");
+                        ?>                        </select><br>
                         <button type="submit">Assign Driver</button>
                     </form>
                 </div>
-            </div>
+            </div> -->
 
 
       
             
             
             <div class="table-container">
-                <div>
+                <!-- <div>
                     <h3 class="main-title"><a href="#" id="AssignDriver">Assign Driver</a></h3>
-                </div> 
+                </div>  -->
                 <table>
                     <thead>
                         <tr>

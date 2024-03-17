@@ -99,7 +99,7 @@ include "../function/stats_fxns.php"
                             <span class="stat-value">
                             <?php
                             include "../action/getAllBookings.php";
-                            $totalBookings = getTotalBookingCount();
+                            $totalBookings = getTotalBookingsCount();
                             echo $totalBookings;
                             ?>
                             </span>
