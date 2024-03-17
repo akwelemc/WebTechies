@@ -3,6 +3,7 @@
 
 include_once "../function/stats_fxns.php";
 include_once "../action/get_profile_data.php";
+include "../function/get_driver_route.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +80,7 @@ include_once "../action/get_profile_data.php";
                     <p class="message">Get ready for an amazing journey ahead! Remember to enjoy every moment and stay focused. Your passengers are looking forward to a safe and delightful ride with you.</p>
                 </div>
 
-                <h3 class="route-info">Today's route: (route name)</h3>
+                <h3 class="route-info">Today's route: <?php echo getRoute(); ?> </h3>
             </div>
 
 
