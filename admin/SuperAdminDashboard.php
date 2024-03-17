@@ -76,7 +76,7 @@ include "../function/stats_fxns.php"
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>SUPER ADMIN DASHBOARD</h2>
+                    <h2>SUPER ADMIN DASHBOARD<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>    
                 <div class="user">
 
