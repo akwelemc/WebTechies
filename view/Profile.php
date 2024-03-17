@@ -69,20 +69,20 @@
             <div class="firstbar">
                 <div class="head-title">
                     
-                    <h2>User Profile</h2>
+                    <h2>USER PROFILE<img src="../images/bus10.jpg" alt="bus" style=" width:120px;height:120px"></h2>
                 </div>    
                 <div class="user">
                     <!-- <div class="search-box">
                         <i class="fa-solid fa-search"> </i>    
                         <input type="text" placeholder="Search"/>
                     </div>       -->
-                    <img src="../images/defaultprofile2.jpg" alt=""> 
+                    <img src="../images/defaultprofile3.png" alt=""> 
                 </div>    
             </div> 
 
             <div id="profile-page">
                 <div class="profile-info">
-                    <img src="../images/defaultprofile2.jpg" alt="Profile Picture">
+                    <img src="../images/defaultprofile3.png" alt="Profile Picture">
                     <div class="user-details">
                         <?php
                         include("../function/get_user_profile.php");
