@@ -176,7 +176,7 @@ userIdExist();
                                 <a style="color: #e74c3c;" class="delete_icon" href="../action/delete_booking.php?bookingId=' . $result['bookingId'] . '">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </a>
-                                <a style="color: #e74c3c;" class="edit_icon" href="../view/edit_booking.php?bookingIdd=' . $result['bookingId'] . '">
+                                <a style="color: #e74c3c;" class="edit_icon" href="../view/edit_booking.php?bookingId=' . $result['bookingId'] . '">
                                     <i class="fa-solid fa-pen-to-square"></i> 
                                 </a> 
                             </td>
