@@ -11,13 +11,12 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: #dfe9f5;
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
- 
-  width: 100%;
-}
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: space-between;
+    width: 100;
+  }
 
 
 
@@ -333,8 +332,6 @@ a:hover{
   justify-content: center;
 }
 
-  
-<<<<<<< HEAD
 .middlebar{
     background: black;
     padding: 1rem;
@@ -347,7 +344,6 @@ a:hover{
    
     
   }
-=======
 
 h1 {
     font-size: 24px;
@@ -435,5 +431,4 @@ canvas#myChart {
     max-width: 800px; /* Adjust maximum width as needed */
     height: auto;
 }
-  
->>>>>>> 862842a6acd35291330e2e3c36109dee38450770
+
