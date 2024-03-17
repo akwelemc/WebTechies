@@ -104,7 +104,6 @@
                 </div>
                 <div class="profile-actions">
                     <button class="Edit" id="Edit">Edit Username</button>
-                    <button class="EditBio" id="bio">Edit Bio </button>
                     <button class="Editemail" id="Editemail">Change Email</button>
                     <button class = "ChangePassword" id="ChangePassword">Change Password</button>
                     <form method="" action ="../Login/logout.php"><button type ="submit" class = "Logout">Log Out</button></form>
