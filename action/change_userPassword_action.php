@@ -10,65 +10,63 @@ if (!isset($_SESSION['user_id'])) {
 $userID = $_SESSION['user_id'];
 
 if (isset($_POST['currentPassword']) && isset($_POST['newPassword']) && isset($_POST['confirmPassword'])) {
-    $query = "SELECT passwrd FROM people WHERE pid = '$userID'";
-    $result = mysqli_query($conn, $query);
+    $currentPassword = $_POST['currentPassword'];
+    $newPassword = $_POST['newPassword'];
+    $confirmPassword = $_POST['confirmPassword'];
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    // Check if new password is equal to old password
+    if ($newPassword === $currentPassword) {
+        handlePasswordError("New password cannot be the same as the old password.");
+    }
+
+    // Check if new password matches confirm password
+    if ($newPassword !== $confirmPassword) {
+        handlePasswordError("Passwords do not match. Please try again.");
+    }
+
+    // Retrieve old password hash from database
+    $query = "SELECT passwrd FROM people WHERE pid = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $userID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
         $oldPasswordHash = $row['passwrd'];
 
-        if (password_verify($_POST['currentPassword'], $oldPasswordHash)) {
-            $newPassword = $_POST['newPassword'];
-            $confirmPassword = $_POST['confirmPassword'];
+        // Verify if current password matches the one stored in the database
+        if (password_verify($currentPassword, $oldPasswordHash)) {
+            // Hash the new password
+            $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
-            if ($newPassword === $confirmPassword) {
-                $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
-
-                $updateQuery = "UPDATE people SET passwrd = '$newPasswordHash' WHERE pid = '$userID'";
-                $updateResult = mysqli_query($conn, $updateQuery);
-
-                if ($updateResult) {
-                    unset($_SESSION["user_id"]);
-                    unset($_SESSION["role_id"]);
-                    unset($_SESSION["user_fname"]);
-                    unset($_SESSION["user_lname"]); 
-                    handleBookingError("Password changed succesfully.");           
-                    header("Location: ../login/login.php");
-                    exit;
-                } else {
-                    handleBookingError("Update failed. Please try again.");
-                    header("Location: ../view/Profile.php?error=update_failed");
-                    exit;
-                }
+            // Update the password in the database
+            $updateQuery = "UPDATE people SET passwrd = ? WHERE pid = ?";
+            $updateStmt = $conn->prepare($updateQuery);
+            $updateStmt->bind_param("si", $newPasswordHash, $userID);
+            if ($updateStmt->execute()) {
+                handlePasswordSuccess("Password changed successfully.");
             } else {
-                handleBookingError("Password mismatch. Please try again.");
-                header("Location: ../view/Profile.php?error=password_mismatch");
-                exit;
+                handlePasswordError("Error updating password. Please try again.");
             }
         } else {
-            handleBookingError("Password mismatch. Please try again.");
-            header("Location: ../view/Profile.php?error=current_password_mismatch");
-            exit;
+            handlePasswordError("Current password is incorrect. Please try again.");
         }
     } else {
-        handleBookingError("Error changing password. Please try again.");
-        header("Location: ../view/Profile.php?error=user_data_retrieval_failed");
-        exit;
+        handlePasswordError("Error retrieving user data. Please try again.");
     }
 } else {
-    handleBookingError("No data entered. Please try again.");
-    header("Location: ../view/Profile.php?error=missing_data");
-    exit;
+    handlePasswordError("Please fill out all the fields.");
 }
 
-function handleBookingError($errorMessage) {
+function handlePasswordError($errorMessage) {
     $_SESSION["password_update"] = false;
     $_SESSION["password_msg"] = $errorMessage;
     header("Location: ../view/Profile.php");
     exit();
 }
 
-function handleBookingSuccess($successMessage) {
+function handlePasswordSuccess($successMessage) {
     $_SESSION["password_update"] = true;
     $_SESSION["password_msg"] = $successMessage;
     header("Location: ../view/Profile.php");
