@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db_name = 'WT2024';
+$db_name = 'wt2024';
 $name = 'root';
 $password = 'cs341webtech';
 
